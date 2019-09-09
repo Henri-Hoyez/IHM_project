@@ -1,10 +1,10 @@
 # IHM_project
-
+## First ideas.
 ----
 Main page (example from leaves and clouds):
-* Header:
+* [Header](inspiration_images/header.png):
   * Seach bar,
-  * Menu drawer:
+  * [Menu drawer](inspiration_images/drawer.png):
      * Home,
      * Connection,
      * Products
@@ -27,7 +27,7 @@ Main page (example from leaves and clouds):
 * Up button (when scroll)
 
 -----
-Details: 
+[Details](inspiration_images/leboncoin_details_view.png): 
 * Pictures
 * Title
 * Like icon,
@@ -37,8 +37,8 @@ Details:
 * THE BUY BUTTON
 -------
 
-list view products:
-*  Small picture,
+[list view products](inspiration_images/leboncoin_list_view.png):
+* Small picture,
 * Like icon
 * Price
 * Title
