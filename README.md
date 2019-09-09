@@ -1,67 +1,71 @@
 # IHM_project
+
 ----
-main page (example from leaves and clouds):
-* header:
-  * seach bar,
-  * menu drawer:
+Main page (example from leaves and clouds):
+* Header:
+  * Seach bar,
+  * Menu drawer:
      * Home,
-     * connection,
-     * products
-     * if connected :
-       * favorites,
-       * searches,
-  * accont, 
-  * cart,
-  * search bar
-  if scroll, add reshearch icon)
-* body:
+     * Connection,
+     * Products
+     * If connected :
+       * Favorites,
+       * Searches,
+  * Accont, 
+  * Cart,
+  * Search bar
+  * If scroll, add reshearch icon)
+* Body:
   * Swipe images,
-  * new items and news,
+  * New items and news,
   * Good bargains,
 * Footer:
-  * list:
-     * informations
-     * newsletter
-  * social networks icons (facebook, twetter and insagrams)
+  * List:
+     * Informations
+     * Newsletter
+  * Social networks icons (facebook, twetter and insagrams)
 * Up button (when scroll)
-
 
 -----
 Details: 
-* PIctures
+* Pictures
 * Title
-* like icon,
-* price,
+* Like icon,
+* Price,
 * Decription,
-* quantity 
+* Quantity 
 * THE BUY BUTTON
 -------
+
 list view products:
-*  small picture,
-* like icon
-* price
-* title
+*  Small picture,
+* Like icon
+* Price
+* Title
 -------
-cart page:
-* selected product (list view),
-* suppress button ( small button ),
-* quantity modification,
-* total price (TTC and HT)
+
+Cart page:
+* Selected product (list view),
+* Suppress button ( small button ),
+* Quantity modification,
+* Total price (TTC and HT)
 
 -------
-confirm page:
+Confirm page:
 * 
 -------
 Thanks page:
 *
 -------
-sign up page:
-*
+Sign up page:
+
 --------
-sign in page:
+Sign in page:
 * 
 --------
-TODO:
 
+
+TODO:
 [ ] Applicatio design (mobile to desktop app)
+[ ] design items merges
 
