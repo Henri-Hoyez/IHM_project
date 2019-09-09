@@ -1,4 +1,9 @@
 # IHM_project
+
+## instalation
+-----
+`` npm install `` in your terminal. 
+
 ## First ideas.
 ----
 Main page (example from leaves and clouds):
