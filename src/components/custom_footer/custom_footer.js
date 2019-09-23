@@ -13,7 +13,7 @@ class CustomFooter extends LitElement {
             <footer>
                 <br><hr><br>
                 <span>©2019 — Leaves and clouds — Crédits</span><br>
-                <span>Contact : <em><a href="mailto:contact@dreamer.fr">contact@leaves-clouds.com</a></em></span><br>
+                <span>Contact : <em><a href="mailto:contact@leaves-clouds.com">contact@leaves-clouds.com</a></em></span><br>
                 &nbsp;
             </footer>`
     }
