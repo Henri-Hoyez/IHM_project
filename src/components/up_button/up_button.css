@@ -1,0 +1,35 @@
+a {
+    position: fixed;
+    right: 2em;
+    bottom: 2em;
+    z-index: 10;
+}
+
+button {
+    height:2em;
+    width:2.7em;
+}
+
+button::before, button::after {
+    content: " ";
+    display: block;
+    margin-top: -.4375em;
+    position: absolute;
+    top: 50%;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+
+    border-top: 3px solid black;
+    width: 1.5em;
+    height: 2em;
+}
+
+button::before {
+    -webkit-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+}
+
+button::after {
+    -webkit-transform: rotate(35deg);
+    transform: rotate(35deg);
+}

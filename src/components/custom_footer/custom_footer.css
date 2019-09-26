@@ -1,0 +1,12 @@
+footer {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+ a {
+    color:black;
+    text-decoration: underline;
+    cursor: pointer;
+    font-style: italic;
+ }
