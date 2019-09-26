@@ -1,0 +1,25 @@
+.my-card-media {
+    background-color: aliceblue;
+    max-width:   350px;
+    margin-bottom: 10px;
+}
+
+.top-informaion .title{
+    float: left;
+    clear: none;
+    font-family: bold;
+    font-size: 25px;
+
+}
+
+.top-informaion .price{
+    font-size: 25px;
+    float: right;
+    clear: none;
+}
+
+
+.bottom-information button{
+    float: right;
+    clear: none;    
+}  
