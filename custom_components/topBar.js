@@ -38,15 +38,21 @@ class TopBar extends LitElement{
         <style>
             @import 'mdc.top-app-bar.css';
             @import 'mdc.icon-button.css';
+            @import 'top-bar.css';
         </style>
         
-        <header class="mdc-top-app-bar">
+        <header class="mdc-top-app-bar  mdc-top-app-bar--prominent">
             <div class="mdc-top-app-bar__row">
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button>
-                    <img id=icon src="web_icon.png">
-                    <span class="mdc-top-app-bar__title">Little fox</span> 
+                     
                 </section>
+                <div id= "icon-header">
+                    <a id="icon-header-title" href="#">
+                        <img id="icon-header-img" src="web_icon2.png">
+                        <span  class="mdc-top-app-bar__title">Little fox</span>
+                    </a>
+                </div>
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Profile">person</button>
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Shopping cart">shopping_cart</button>
