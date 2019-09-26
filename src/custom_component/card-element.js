@@ -6,14 +6,20 @@ class CardElement extends LitElement {
   static get properties(){
     return {
       title: { type: String },
-      img : { type: String },
+      product_image : { type: String },
+      button_image: {type: String},
       content : { type: String },
-      price : { type: Number },
+      price : { type: Number }
     };
   }
 
   constructor(){
-    
+    super();    
+    this.title = 'Default title';
+    this.product_image = 'images/manifest/150x150.jpg';
+    this.price = 0;
+    this.content = 'Default content';
+    this.button_image = 'images/like_image.png';
   }
 
   render(){
@@ -22,18 +28,18 @@ class CardElement extends LitElement {
       <div class="card-container"> 
 
           <div class="img-container">
-              <img src="images/manifest/150x150.jpg" alt="test-image">
+              <img src='${this.product_image}' alt="test-image">
           </div>
 
           <div class="content-container">
               <div class="card-header">
-                  <p class="card-title">Default title.</p>
-                  <p class="card-price">00 €</p>
+                  <p class="card-title">${this.title}</p>
+                  <p class="card-price">${this.price} €</p>
               </div>
 
               <div class="card-description">
-                  <p class="card-content">123 Lorem ipsum dolor sit amet consectetur adipisicing elit.  Explicabo assumenda dolores quos voluptatum, unde eveniet iste porro tempore commodi optio omnis id perspiciatis. Nesciunt reiciendis neque atque, suscipit harum voluptate.</p>
-                  <img class="like-button" src="images/like_image.png" alt="like button">
+                  <p class="card-content">${this.content}</p>
+                  <img class="like-button" src="${this.button_image}" alt="like button">
               </div>    
           </div>
       </div>

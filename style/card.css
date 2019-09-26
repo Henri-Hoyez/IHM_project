@@ -1,10 +1,12 @@
 .card-container{
     height: 150px;
+    
     background-color: beige;
     display: grid;
     grid-template-columns: repeat(10 , 1fr);
     grid-gap: 10px;
     grid-auto-rows: minmax(150px, auto);
+    /* border-radius: 20px; */
 }
 
 /* .card-description > * {
