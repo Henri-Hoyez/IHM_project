@@ -9,10 +9,11 @@ class NavDrawer extends LitElement {
     return {
       username: { type: String },
       productTypes: { type: Array },
-      open:{type:Boolean}
+      open: { type: Boolean },
+      isConnected: { type: Boolean }
     };
   }
-  static get styles(){
+  static get styles() {
     return css`:host
       .mdc-drawer{
         margin-top:64px;
@@ -24,14 +25,24 @@ class NavDrawer extends LitElement {
     super();
     this.productTypes = ["T-shirts", "Outerwear"];
     this.open = false;
+    this.isConnected = true;
+    this.categories = Object.getOwnPropertyNames(catalog);
   }
 
   render() {
+
+
+
+
+
+
+
     return html`
     <link href="../../../node_modules/@material/drawer/dist/mdc.drawer.css" rel="stylesheet">
     <link href="../../../node_modules/@material/list/dist/mdc.list.css" rel="stylesheet">
     <link href="style/bulma.min.css" rel="stylesheet">
 
+    <script src="data/product.js"></script>
     <style>
                 @font-face {
                 font-family: 'Material Icons';
@@ -60,59 +71,34 @@ class NavDrawer extends LitElement {
             }
             </style>
 
-      <aside class="mdc-drawer mdc-drawer--modal is-hidden-desktop ${this.open?"mdc-drawer--open":""}">
+      <aside class="mdc-drawer mdc-drawer--modal is-hidden-desktop ${this.open ? "mdc-drawer--open" : ""}">
         <div class="mdc-drawer__header">
-          <h3 class="mdc-drawer__title">Mail</h3>
-          <h6 class="mdc-drawer__subtitle">email@material.io</h6>
+          <h3 class="mdc-drawer__title">Menu</h3>
         </div>
         <div class="mdc-drawer__content">
         <nav class="mdc-list">
 
           <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-            <span class="mdc-list-item__text">Inbox</span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+            <span class="mdc-list-item__text">Home</span>
           </a>
 
           <a class="mdc-list-item" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>
-            <span class="mdc-list-item__text">Star</span>
-          </a>
-
-          <a class="mdc-list-item" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-            <span class="mdc-list-item__text">Sent Mail</span>
-          </a>
-
-          <a class="mdc-list-item" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-            <span class="mdc-list-item__text">Drafts</span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">account_circle</i>
+            <span class="mdc-list-item__text">${this.isConnected ? "Mon compte" : "Connexion"}</span>
           </a>
 
           <hr class="mdc-list-divider">
-          <h6 class="mdc-list-group__subheader">Labels</h6>
+          <h6 class="mdc-list-group__subheader">Products</h6>
 
-          <a class="mdc-list-item" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>
-            <span class="mdc-list-item__text">Family</span>
-          </a>
+          ${this.categories.map(item => html`
 
-          <a class="mdc-list-item" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>
-            <span class="mdc-list-item__text">Friends</span>
-          </a>
+            <a class="mdc-list-item" href="#">
+              <i class="material-icons mdc-list-item__graphic" aria-hidden="true">shopping_basket</i>
+              <span class="mdc-list-item__text">${item.replace(item[0], item[0].toUpperCase())}</span>
+            </a>
 
-          <a class="mdc-list-item" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>
-            <span class="mdc-list-item__text">Work</span>
-          </a>
-
-          <hr class="mdc-list-divider">
-          <h6 class="mdc-list-group__subheader">Labels</h6>
-
-          <a class="mdc-list-item" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">check_box</i>
-            <span class="mdc-list-item__text">Settings</span>
-          </a>
+          `)}
 
         </nav>
         </div>
@@ -123,8 +109,8 @@ class NavDrawer extends LitElement {
   firstUpdated() {
     const list = MDCList.attachTo(this.shadowRoot.querySelector('.mdc-list'));
     list.wrapFocus = true;
-    
-    document.addEventListener("toggle-menu",()=>{
+
+    document.addEventListener("toggle-menu", () => {
       this.open = !this.open;
       console.log("toggle")
     });
