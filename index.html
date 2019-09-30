@@ -5,17 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type="module", src="src/custom_component/custom_card.js"></script>
+    <script type="module" src="src/custom_component/custom_galery.js"></script>
 
     
     <link rel="stylesheet" href="node_modules/@material/button/dist/mdc.button.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="node_modules/@material/layout-grid/dist/mdc.layout-grid.css">
     <!-- <link rel="stylesheet" href="style/card.css"> -->
 
     <title>Document</title>
 </head>
 <body>
 
-    <custom-card title='prout' price=99 desc='il fait beau' ></custom-card> 
+
+    <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+          <div class="mdc-layout-grid__cell">
+              <custom-card title='prout' price=99 desc='il fait beau' img="images/manifest/flower.jpg" ></custom-card> 
+          </div>
+          <div class="mdc-layout-grid__cell">
+              <custom-card title='My beautifull image' price=99 desc='il fait beau' ></custom-card> 
+          </div>
+
+          <div class="mdc-layout-grid__cell">
+                <custom-card></custom-card>
+          </div>
+        </div>
+      </div>
+
+
+    
+    
     
 
   

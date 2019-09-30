@@ -1,7 +1,12 @@
 .my-card-media {
     background-color: aliceblue;
-    max-width:   350px;
+    width:   300px;
+    height: 300px;
     margin-bottom: 10px;
+}
+
+.my-card-media img{
+    height: 200px;
 }
 
 .top-informaion .title{
