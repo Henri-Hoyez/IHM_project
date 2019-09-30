@@ -8,19 +8,29 @@ class NavDrawer extends LitElement {
   static get properties() {
     return {
       username: { type: String },
-      productTypes: { type: Array }
+      productTypes: { type: Array },
+      open:{type:Boolean}
     };
+  }
+  static get styles(){
+    return css`:host
+      .mdc-drawer{
+        margin-top:64px;
+      }
+    `
   }
 
   constructor() {
     super();
     this.productTypes = ["T-shirts", "Outerwear"];
+    this.open = false;
   }
 
   render() {
     return html`
     <link href="../../../node_modules/@material/drawer/dist/mdc.drawer.css" rel="stylesheet">
     <link href="../../../node_modules/@material/list/dist/mdc.list.css" rel="stylesheet">
+    <link href="style/bulma.min.css" rel="stylesheet">
 
     <style>
                 @font-face {
@@ -50,7 +60,7 @@ class NavDrawer extends LitElement {
             }
             </style>
 
-      <aside class="mdc-drawer mdc-drawer--modal">
+      <aside class="mdc-drawer mdc-drawer--modal is-hidden-desktop ${this.open?"mdc-drawer--open":""}">
         <div class="mdc-drawer__header">
           <h3 class="mdc-drawer__title">Mail</h3>
           <h6 class="mdc-drawer__subtitle">email@material.io</h6>
@@ -113,6 +123,11 @@ class NavDrawer extends LitElement {
   firstUpdated() {
     const list = MDCList.attachTo(this.shadowRoot.querySelector('.mdc-list'));
     list.wrapFocus = true;
+    
+    document.addEventListener("toggle-menu",()=>{
+      this.open = !this.open;
+      console.log("toggle")
+    });
   }
 
 }

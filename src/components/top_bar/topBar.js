@@ -29,27 +29,30 @@ class TopBar extends LitElement{
         super();
     }
     firstUpdated(){
-        var topAppBarElement = this.shadowRoot.querySelector(".mdc-top-app-bar");
-        console.log(topAppBarElement);
-        const topAppBar = new MDCTopAppBar(topAppBarElement);
+        
+        
     }
     render(){
         return html`
-        <style>
-            @import 'mdc.top-app-bar.css';
-            @import 'mdc.icon-button.css';
-            @import 'top-bar.css';
-        </style>
+        <!--<style>
+            @import 'components/top_bar/mdc.top-app-bar.css';
+            @import 'components/top_bar/mdc.icon-button.css';
+            @import 'components/top_bar/top-bar.css';
+            @import 'style/bulma.min.css';
+        </style>-->
+        <link href="../../../node_modules/@material/top-app-bar/dist/mdc.top-app-bar.css" rel="stylesheet">
+        <link href="../../../node_modules/@material/icon-button/dist/mdc.icon-button.css" rel="stylesheet">
+        <link href="components/top_bar/top-bar.css" rel="stylesheet">
+        <link href="style/bulma.min.css" rel="stylesheet">
         
-        <header class="mdc-top-app-bar  mdc-top-app-bar--prominent">
+        <header class="mdc-top-app-bar  mdc-top-app-bar">
             <div class="mdc-top-app-bar__row">
-                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                    <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button>
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start is-hidden-desktop">
+                    <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded" @click=${this.menu_event}>menu</button>
                      
                 </section>
                 <div id= "icon-header">
                     <a id="icon-header-title" href="#">
-                        <img id="icon-header-img" src="web_icon2.png">
                         <span  class="mdc-top-app-bar__title">Little fox</span>
                     </a>
                 </div>
@@ -60,6 +63,19 @@ class TopBar extends LitElement{
             </div>
         </header>
         `
+    }
+    menu_event(){
+        var topAppBarElement = this.shadowRoot.querySelector(".mdc-top-app-bar");
+        const topAppBar = new MDCTopAppBar(topAppBarElement);
+        console.log("aaaa")
+        
+        document.dispatchEvent(new CustomEvent("toggle-menu",{
+            bubbles:true,
+            composed:true,
+            detail:"toggle menu"
+        }));
+        console.log("toggle send")
+
     }
 }
 customElements.define("top-bar",TopBar);

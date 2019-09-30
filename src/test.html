@@ -5,12 +5,24 @@
     <script type="module" src="components/floating_action_button/floating_action_button.js"></script>
     <script type="module" src="components/nav_drawer/nav_drawer.js"></script>
     <script type="module" src="components/custom_button/custom_button.js"></script>
+    <script type="module" src="components/top_bar/topBar.js"></script>
+    <!--<script type="module" src="components/top_bar_nav_drawer/topBarNavDrawer.js"></script>-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        /*:root{
+            --mdc-theme-primary: #aaaaaa
+        }*/
+    </style>
 </head>
 
 <body>
+    <top-bar></top-bar>
     <nav-drawer></nav-drawer>
+    <!--<top-bar-nav-drawer></top-bar-nav-drawer>-->
     <custom-button></custom-button>
     <!-- <floating-action-button>all_out</floating-action-button> -->
 </body>
