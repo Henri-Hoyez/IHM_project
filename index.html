@@ -1,56 +1,61 @@
-<!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="module", src="src/custom_component/custom_card.js"></script>
-    <script type="module" src="src/custom_component/custom_galery.js"></script>
+
+    <script type="module" src="src/components/floating_action_button/floating_action_button.js"></script>
+
+    <script src="data/products.js"></script>
+
+    <script type="module" src="src/components/nav_drawer/nav_drawer.js"></script>
+    <script type="module" src="src/components/custom_button/custom_button.js"></script>
+    <script type="module" src="src/components/top_bar/topBar.js"></script>
+    <script type="module" src="src/components/up_button/up_button.js"></script>
+    <script type="module" src="src/components/custom_footer/custom_footer.js"></script>
+    <script type="module" src="src/components/connexion/connexion.js"></script>
+    <script type="module" src="src/components/registration/registration.js"></script>
+    <script type="module" src="src/components/galery/custom_card.js"></script>
+    <script type="module" src="src/components/galery/custom_galery.js"></script>
+
+    <script type="module" src="src/components/textfield/search_bar.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+
 
     
-    <link rel="stylesheet" href="node_modules/@material/button/dist/mdc.button.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="node_modules/@material/layout-grid/dist/mdc.layout-grid.css">
-    <!-- <link rel="stylesheet" href="style/card.css"> -->
-
-    <title>Document</title>
 
     <style>
-    
-    .wrapper{
-        display: flex;
-        flex-wrap: wrap;
-    }
+        body {
+            margin: 0;
+            padding: 0;
+        }
 
+        section {
+            padding: 1em;
+        }
+
+        /* :root {
+            --mdc-theme-primary: #aaaaaa
+        } */
     </style>
-
-
 </head>
+
 <body>
+    <top-bar></top-bar>
+    <nav-drawer></nav-drawer>
+    <search-bar></search-bar>
+    <custom-galery first=1 second=0></custom-galery>
 
-    <div class="wrapper">
-    
-        <custom-card title='prout' price=99 desc='il fait beau' img="images/manifest/flower.jpg" ></custom-card> 
+    <!-- <section> 
+        <connexion-form></connexion-form>
 
-        <custom-card title='My beautifull image' price=99 desc='il fait beau' ></custom-card> 
-
-        <custom-card></custom-card>
-        <custom-card></custom-card>
-        <custom-card></custom-card>
-        <custom-card></custom-card>
-        <custom-card></custom-card>
-        <custom-card></custom-card>
-        <custom-card></custom-card>
-        
-    </div>
-
-    
-    
-    
-
-  
-
+    </section>
+    <up-button></up-button>
+    <custom-footer></custom-footer>-->
+        <!-- <registration-form></registration-form> -->
 </body>
-    
 
 </html>

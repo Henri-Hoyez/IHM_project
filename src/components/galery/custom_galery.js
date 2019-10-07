@@ -43,11 +43,13 @@ class CustomGalery extends LitElement {
     this.items =  catalog[this.categories[0][ this.first ]][this.categories[1][ this.second ]];
 
     return html`
-    <link rel="stylesheet" href="../style/custom_galery.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="src/style/custom_galery.css">
     <div class="wrapper">
 
         ${this.items.map(item => html`
-          <custom-card title="${item.title}" img="../${item.largeImage}" price="${item.price}"> </custom-card> 
+          <custom-card title="${item.title}" img="${item.largeImage}" price="${item.price}"> </custom-card> 
         `)}
 
     </div>

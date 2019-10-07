@@ -29,11 +29,11 @@ class NavDrawer extends LitElement {
 
   render() {
     return html`
-    <link href="../../../node_modules/@material/drawer/dist/mdc.drawer.css" rel="stylesheet">
-    <link href="../../../node_modules/@material/list/dist/mdc.list.css" rel="stylesheet">
-    <link href="style/bulma.min.css" rel="stylesheet">
+    <link href="/node_modules/@material/drawer/dist/mdc.drawer.css" rel="stylesheet">
+    <link href="/node_modules/@material/list/dist/mdc.list.css" rel="stylesheet">
+    <link href="src/style/bulma.min.css" rel="stylesheet">
 
-    <script src="data/product.js"></script>
+    <script src="/data/product.js"></script>
     <style>
                 @font-face {
                 font-family: 'Material Icons';

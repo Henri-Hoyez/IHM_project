@@ -1,0 +1,30 @@
+{
+  "name": "ihm_project",
+  "version": "1.0.0",
+  "description": "-----\r `` npm install `` in your terminal.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Steamyfuury/IHM_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Steamyfuury/IHM_project/issues"
+  },
+  "homepage": "https://github.com/Steamyfuury/IHM_project#readme",
+  "dependencies": {
+    "@material/button": "^3.2.0",
+    "@material/card": "^3.2.0",
+    "@material/drawer": "^3.2.0",
+    "@material/form-field": "^3.2.0",
+    "@material/list": "^3.2.0",
+    "@material/radio": "^3.2.0",
+    "@material/textfield": "^3.2.0",
+    "@material/top-app-bar": "^3.2.0",
+    "lit-element": "^2.2.1"
+  }
+}
