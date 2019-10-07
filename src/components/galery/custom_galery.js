@@ -28,7 +28,9 @@ class CustomGalery extends LitElement {
     }
 
 
-    document.addEventListener('cat-evnt', (e) => {this.gender_categories = e.detail;});
+    document.addEventListener('cat-evnt', (e) => {this.gender_categories = e.detail; this.clothes_categories = null;});
+
+    document.addEventListener('shop-event', (e) => {this.clothes_categories = e.detail;});
 
   }
 
@@ -45,10 +47,11 @@ class CustomGalery extends LitElement {
       var tmp_items = catalog[this.gender_categories.toLowerCase()];
       this.items = Array();
 
-      for (const [_, values] of Object.entries(tmp_items)){
+      for (const [key, values] of Object.entries(tmp_items)){
         
         let obj = values[0];
         delete obj.price;
+        obj.title = key;
 
         this.items.push( obj );
       }

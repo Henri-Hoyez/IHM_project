@@ -34,13 +34,15 @@ class CustomCard extends LitElement {
 
         <link rel="stylesheet" href="node_modules/@material/card/dist/mdc.card.css">
         <link href="/node_modules/@material/icon-button/dist/mdc.icon-button.css" rel="stylesheet">
-        <div class="my-card-media mdc-card">
+
+
+        <div @click=${ this.card_click } class="my-card-media mdc-card">
             <div class="mdc-card__primary-action" tabindex="0">
                 <img src="${ this.img }" alt="default image">
             </div>
 
             <div class="top-informaion" tabindex="1" >
-                <div class="title">${this.title}</div> 
+                <div class="title" >${this.title}</div> 
                 <div class="price">${this.price ? this.price.toString()+'€':"" }</div>
             </div>
 
@@ -54,11 +56,32 @@ class CustomCard extends LitElement {
     </div>
     `;
   }
+
+
   like_event(){
     this.isFavorite = !this.isFavorite
     localStorage.setItem(this.title, JSON.stringify(this.isFavorite));
   }
+
+  card_click(e){
+
+    if(this.price){
+      console.log('GOTO detail page ');
+    }else{
+      console.log('shop page');
+
+      document.dispatchEvent(new CustomEvent("shop-event",{
+        bubbles:true,
+        composed:true,
+        detail: this.title
+
+    }));
+    }
+
+  }
+
 }
+
 
 customElements.define('custom-card', CustomCard);
 
