@@ -1,47 +1,63 @@
 import { LitElement, html } from 'lit-element';
+import { strings } from '@material/ripple';
 
 
 class CustomGalery extends LitElement {
 
   static get properties() {
     return { 
-            first: {type: Number},
-            second: {type : Number},
-
-            // hidden : {type:Boolean}
-            };
+            gender_categories: {type: String},
+            clothes_categories: {type : String}
+          };
   }
 
   constructor() {
     super();
-    this.first = -1;
-    this.second = -1;
-    this.categories = [['ladies', "men"], ['outerwear', 'tshirts']];
+    this.gender_categories = null;
+    this.clothes_categories = null;
   }
+
+  firstUpdated(){
   
-  render() {  
-    
-
-
-    if ((this.first == -1 && this.second == -1)){
-      console.log("coucou");
-      return html ``;
+    if(this.gender_categories != null){    
+      this.gender_categories = this.gender_categories.toLowerCase();
+    }    
+    if(this.clothes_categories != null)
+    {    
+      this.clothes_categories = this.clothes_categories.toLowerCase();
     }
 
+  }
 
-    this.items =  catalog[this.categories[0][ this.first ]];
 
-    if (this.first > -1 && this.second == -1){
+  render() {  
+    
+    if ((this.gender_categories == null && this.clothes_categories == null)){
+      return html ` page acceuil`;
+    }
+    
+    
+    this.items = null;
 
-      // let subcategories = Object.getOwnPropertyNames()
-      console.log(this.items);
+    if(this.gender_categories != null && this.clothes_categories == null){
 
-      return html ` ladies and men`;
+      var tmp_items = catalog[this.gender_categories.toLowerCase()];
+      this.items = Array();
 
-    }    
+      for (const [_, values] of Object.entries(tmp_items)){
+        
+        this.items.push( values[0] );
+      }
 
-    this.items =  catalog[this.categories[0][ this.first ]][this.categories[1][ this.second ]];
 
+    }
+    
+    
+    if(this.gender_categories != null && this.clothes_categories != null){
+      this.items = catalog[this.gender_categories.toLowerCase()][this.clothes_categories.toLowerCase()];
+    }
+    
+    
     return html`
     
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>

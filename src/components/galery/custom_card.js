@@ -23,12 +23,7 @@ class CustomCard extends LitElement {
   }
   
   firstUpdated(){
-    
     this.isFavorite = JSON.parse( localStorage.getItem(this.title));
-    console.log(this.title);
-
-    console.log(this.isFavorite)
-
   }
   
   render() {
@@ -62,7 +57,6 @@ class CustomCard extends LitElement {
   like_event(){
     this.isFavorite = !this.isFavorite
     localStorage.setItem(this.title, JSON.stringify(this.isFavorite));
-    
   }
 }
 

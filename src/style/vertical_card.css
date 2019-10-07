@@ -1,5 +1,4 @@
 .my-card-media {
-    background-color: aliceblue;
     width:   250px;
     height: 300px;
     margin-bottom: 10px;
@@ -16,20 +15,16 @@
     clear: none;
     font-size: 20px;
 
-
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     width:70%;
-    background-color: aqua;
-
 }
 
 .top-informaion .price{
     font-size: 20px;
     float: right;
     clear: none;
-    background-color: aquamarine;
 }
 
 
