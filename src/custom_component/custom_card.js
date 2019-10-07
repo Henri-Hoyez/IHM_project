@@ -33,7 +33,7 @@ class CustomCard extends LitElement {
             </div>
 
             <div class="bottom-information" tabindex="3">
-                <p>${this.desc}</p>
+               
                 <button> like icon button </button>
             </div>      
     </div>
