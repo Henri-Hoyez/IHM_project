@@ -34,12 +34,6 @@ class TopBar extends LitElement{
     }
     render(){
         return html`
-        <!--<style>
-            @import 'components/top_bar/mdc.top-app-bar.css';
-            @import 'components/top_bar/mdc.icon-button.css';
-            @import 'components/top_bar/top-bar.css';
-            @import 'style/bulma.min.css';
-        </style>-->
         <link href="../../../node_modules/@material/top-app-bar/dist/mdc.top-app-bar.css" rel="stylesheet">
         <link href="../../../node_modules/@material/icon-button/dist/mdc.icon-button.css" rel="stylesheet">
         <link href="components/top_bar/top-bar.css" rel="stylesheet">
@@ -57,6 +51,7 @@ class TopBar extends LitElement{
                     </a>
                 </div>
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+                    <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded"  @click=${this.search_event}  aria-label="Search">search</button>
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Profile">person</button>
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Shopping cart">shopping_cart</button>
                 </section>
@@ -67,15 +62,21 @@ class TopBar extends LitElement{
     menu_event(){
         var topAppBarElement = this.shadowRoot.querySelector(".mdc-top-app-bar");
         const topAppBar = new MDCTopAppBar(topAppBarElement);
-        console.log("aaaa")
         
         document.dispatchEvent(new CustomEvent("toggle-menu",{
             bubbles:true,
             composed:true,
             detail:"toggle menu"
         }));
-        console.log("toggle send")
 
+    }
+
+    search_event(){
+        document.dispatchEvent(new CustomEvent("search-bar",{
+            bubbles:true,
+            composed:true,
+            detail:"search bar"
+        }));
     }
 }
 customElements.define("top-bar",TopBar);

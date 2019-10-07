@@ -1,0 +1,8 @@
+.search-bar--open{
+    visibility: visible;
+    opacity: 1;
+}
+.search-bar--close{
+    visibility: hidden;
+    opacity: 0;
+}
