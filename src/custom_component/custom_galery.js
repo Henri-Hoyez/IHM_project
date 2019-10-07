@@ -28,6 +28,7 @@ class CustomGalery extends LitElement {
       return html ``;
     }
 
+
     this.items =  catalog[this.categories[0][ this.first ]];
 
     if (this.first > -1 && this.second == -1){
@@ -42,11 +43,11 @@ class CustomGalery extends LitElement {
     this.items =  catalog[this.categories[0][ this.first ]][this.categories[1][ this.second ]];
 
     return html`
-    <link rel="stylesheet" href="style/custom_galery.css">
+    <link rel="stylesheet" href="../style/custom_galery.css">
     <div class="wrapper">
 
         ${this.items.map(item => html`
-          <custom-card title="${item.title}" img="${item.largeImage}" price="${item.price}"> </custom-card> 
+          <custom-card title="${item.title}" img="../${item.largeImage}" price="${item.price}"> </custom-card> 
         `)}
 
     </div>
