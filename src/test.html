@@ -17,6 +17,8 @@
     <script type="module" src="components/connexion/connexion.js"></script>
     <script type="module" src="components/registration/registration.js"></script>
 
+    <script type="module" src="components/confirm_command/confirm_command.js"></script>
+
     <script type="module" src="components/textfield/search_bar.js"></script>
     <!--<script type="module" src="components/top_bar_nav_drawer/topBarNavDrawer.js"></script>-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -43,12 +45,17 @@
     <search-bar></search-bar>
 
     <section>
-        <connexion-form></connexion-form>
+        <!-- <connexion-form></connexion-form> -->
+        <!-- <registration-form></registration-form> -->
+        <!-- <confirm-command image_path="components/confirm_command/valid.jpg" title="VOUS Y ÊTES PRESQUE !"
+            subtitle="Souhaitez-vous confirmer la commande ?"></confirm-command> -->
+
+        <confirm-command image_path="components/confirm_command/confirm.jpg" title="FÉLICITATIONS !"
+            subtitle="Votre commande a bien été prise en compte !"></confirm-command>
 
     </section>
     <up-button></up-button>
     <custom-footer></custom-footer>
-        <!-- <registration-form></registration-form> -->
 </body>
 
 </html>
