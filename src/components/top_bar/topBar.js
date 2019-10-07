@@ -56,12 +56,12 @@ class TopBar extends LitElement {
 
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end fields">
                     <span id="list_menu">
-                        <a class=" mdc-top-app-bar__action-item is-hidden-touch mdc-top-app-bar__title" href="#"><span class="menu_item" id="nav_indicator">Home</span><!--déplacer id vers page consultée en js-->
+                        <a class=" mdc-top-app-bar__action-item is-hidden-touch mdc-top-app-bar__title" href="#"><span class="menu_item" id="nav_indicator" @click=${this.category_event}>Home</span><!--déplacer id vers page consultée en js-->
                         </a>
 
                         ${this.categories.map(item => html`
                             <a class="mdc-list-item mdc-top-app-bar__title" href="#">
-                            <span class="menu_item mdc-top-app-bar__action-item is-hidden-touch">${item.replace(item[0], item[0].toUpperCase())}</span>
+                            <span @click="${this.category_event}" class="menu_item mdc-top-app-bar__action-item is-hidden-touch">${item.replace(item[0], item[0].toUpperCase())}</span>
                             </a>
                         `)}
                     </span>
@@ -75,6 +75,18 @@ class TopBar extends LitElement {
         <div id="under-app-bar"></div>
         `
     }
+
+    category_event(e){
+
+        document.dispatchEvent(new CustomEvent("cat-evnt",{
+            bubbles:true,
+            composed:true,
+            detail: (e.target.textContent != 'Home') ? e.target.textContent : null
+        }));
+
+    }
+
+
     menu_event() {
         var topAppBarElement = this.shadowRoot.querySelector(".mdc-top-app-bar");
         const topAppBar = new MDCTopAppBar(topAppBarElement);

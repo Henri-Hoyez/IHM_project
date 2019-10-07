@@ -27,15 +27,16 @@ class CustomGalery extends LitElement {
       this.clothes_categories = this.clothes_categories.toLowerCase();
     }
 
-  }
 
+    document.addEventListener('cat-evnt', (e) => {this.gender_categories = e.detail;});
+
+  }
 
   render() {  
     
     if ((this.gender_categories == null && this.clothes_categories == null)){
       return html ` page acceuil`;
     }
-    
     
     this.items = null;
 
@@ -46,12 +47,12 @@ class CustomGalery extends LitElement {
 
       for (const [_, values] of Object.entries(tmp_items)){
         
-        this.items.push( values[0] );
+        let obj = values[0];
+        delete obj.price;
+
+        this.items.push( obj );
       }
-
-
     }
-    
     
     if(this.gender_categories != null && this.clothes_categories != null){
       this.items = catalog[this.gender_categories.toLowerCase()][this.clothes_categories.toLowerCase()];

@@ -41,12 +41,12 @@ class CustomCard extends LitElement {
 
             <div class="top-informaion" tabindex="1" >
                 <div class="title">${this.title}</div> 
-                <div class="price">${this.price} €</div>
+                <div class="price">${this.price ? this.price.toString()+'€':"" }</div>
             </div>
 
             <div class="bottom-information" tabindex="3">
                
-                <button @click="${this.like_event}" class="mdc-icon-button material-icons" style="color:red;">
+                <button @click="${this.like_event}" class="mdc-icon-button material-icons" style="color:red; visibility: ${this.price ? 'visible':'hidden' }">
                 ${this.isFavorite?"favorite":"favorite_border"}
               </button>
         
