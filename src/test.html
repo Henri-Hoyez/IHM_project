@@ -1,7 +1,10 @@
 <html lang="fr">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script type="module" src="components/floating_action_button/floating_action_button.js"></script>
 
     <script src="../data/products.js"></script>
@@ -9,26 +12,43 @@
     <script type="module" src="components/nav_drawer/nav_drawer.js"></script>
     <script type="module" src="components/custom_button/custom_button.js"></script>
     <script type="module" src="components/top_bar/topBar.js"></script>
+    <script type="module" src="components/up_button/up_button.js"></script>
+    <script type="module" src="components/custom_footer/custom_footer.js"></script>
+    <script type="module" src="components/connexion/connexion.js"></script>
+    <script type="module" src="components/registration/registration.js"></script>
+
+    <script type="module" src="components/textfield/search_bar.js"></script>
     <!--<script type="module" src="components/top_bar_nav_drawer/topBarNavDrawer.js"></script>-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <style>
         body {
             margin: 0;
             padding: 0;
         }
 
-        /*:root{
+        section {
+            padding: 1em;
+        }
+
+        /* :root {
             --mdc-theme-primary: #aaaaaa
-        }*/
+        } */
     </style>
 </head>
 
 <body>
     <top-bar></top-bar>
     <nav-drawer></nav-drawer>
-    <!--<top-bar-nav-drawer></top-bar-nav-drawer>-->
-    <custom-button></custom-button>
-    <!-- <floating-action-button>all_out</floating-action-button> -->
+    <search-bar></search-bar>
+
+    <section>
+        <connexion-form></connexion-form>
+
+    </section>
+    <up-button></up-button>
+    <custom-footer></custom-footer>
+        <!-- <registration-form></registration-form> -->
 </body>
 
 </html>

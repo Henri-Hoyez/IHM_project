@@ -230,7 +230,7 @@ var catalog = {
 			}
 		]
 	},
-	mens: {
+	men: {
 		outerwear: [
 			{
 				"name": "Men+s+Tech+Shell+Full-Zip",

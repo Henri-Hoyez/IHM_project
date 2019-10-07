@@ -1,21 +1,21 @@
 import { LitElement, html } from 'lit-element';
-import {MDCTextField} from '@material/textfield'
+import { MDCTextField } from '@material/textfield'
 
 
-class MyTextField extends LitElement{
+class MyTextField extends LitElement {
 
-    constructor(){
+    constructor() {
         super();
     }
 
-    firstUpdated(){
+    firstUpdated() {
         MDCTextField.attachTo(this.shadowRoot.querySelector('.mdc-text-field'));
     }
 
-    render(){
+    render() {
         return html`
-            <link rel="stylesheet" href="node_modules/@material/textfield/dist/mdc.textfield.css">
-            <script src="node_modules/@material/textfield/dist/mdc.textfield.js"></script>
+            <link rel="stylesheet" href="../../../node_modules/@material/textfield/dist/mdc.textfield.css">
+            <script src="../../../node_modules/@material/textfield/dist/mdc.textfield.js"></script>
 
             <div class="mdc-text-field">
                 <label class="mdc-floating-label" for="my-text-field"> <slot> Hint text </slot> </label>
