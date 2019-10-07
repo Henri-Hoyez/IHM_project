@@ -7,10 +7,9 @@ class NavDrawer extends LitElement {
 
   static get properties() {
     return {
-      username: { type: String },
-      productTypes: { type: Array },
       open: { type: Boolean },
-      isConnected: { type: Boolean }
+      isConnected: { type: Boolean },
+      categories: { type: Array }
     };
   }
   static get styles() {
@@ -23,19 +22,12 @@ class NavDrawer extends LitElement {
 
   constructor() {
     super();
-    this.productTypes = ["T-shirts", "Outerwear"];
     this.open = false;
-    this.isConnected = true;
+    this.isConnected = false;
     this.categories = Object.getOwnPropertyNames(catalog);
   }
 
   render() {
-
-
-
-
-
-
 
     return html`
     <link href="../../../node_modules/@material/drawer/dist/mdc.drawer.css" rel="stylesheet">
