@@ -49,7 +49,6 @@ class TopBar extends LitElement {
 
                 </section>
                 <div id= "icon-header">
-                    <!-- <img id="logo" src="view/images/logo_transparent.png"> -->
                     <a id="icon-header-title" href="#">
                         <span  class="mdc-top-app-bar__title">Neo clothes</span>
                     </a>
@@ -79,7 +78,7 @@ class TopBar extends LitElement {
     menu_event() {
         var topAppBarElement = this.shadowRoot.querySelector(".mdc-top-app-bar");
         const topAppBar = new MDCTopAppBar(topAppBarElement);
-        
+
         document.dispatchEvent(new CustomEvent("toggle-menu",{
             bubbles:true,
             composed:true,
