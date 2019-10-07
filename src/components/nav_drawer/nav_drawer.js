@@ -28,7 +28,6 @@ class NavDrawer extends LitElement {
   }
 
   render() {
-
     return html`
     <link href="../../../node_modules/@material/drawer/dist/mdc.drawer.css" rel="stylesheet">
     <link href="../../../node_modules/@material/list/dist/mdc.list.css" rel="stylesheet">

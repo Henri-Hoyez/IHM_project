@@ -1,6 +1,7 @@
 <html lang="fr">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,6 +17,8 @@
     <script type="module" src="components/connexion/connexion.js"></script>
     <script type="module" src="components/registration/registration.js"></script>
 
+    <script type="module" src="components/textfield/search_bar.js"></script>
+    <!--<script type="module" src="components/top_bar_nav_drawer/topBarNavDrawer.js"></script>-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <style>
@@ -37,15 +40,15 @@
 <body>
     <top-bar></top-bar>
     <nav-drawer></nav-drawer>
+    <search-bar></search-bar>
 
     <section>
-        <!-- <my-textfield></my-textfield> -->
         <connexion-form></connexion-form>
-        <!-- <registration-form></registration-form> -->
 
     </section>
     <up-button></up-button>
     <custom-footer></custom-footer>
+        <!-- <registration-form></registration-form> -->
 </body>
 
 </html>
