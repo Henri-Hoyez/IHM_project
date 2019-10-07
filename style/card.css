@@ -1,0 +1,77 @@
+.card-container{
+    height: 150px;
+    
+    background-color: beige;
+    display: grid;
+    grid-template-columns: repeat(10 , 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(150px, auto);
+    /* border-radius: 20px; */
+}
+
+/* .card-description > * {
+    border: 2px solid rgb(233,171,88);
+    border-radius: 5px;
+    background-color: rgba(233,171,88,.5);
+    color: red;
+} */
+
+.card-container > .img-container{
+    grid-column: 1 / 2;
+    width: 150px;
+   }
+
+.card-container > .content-container {
+    grid-column: 2 / 11;
+}
+
+.card-header {
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    grid-gap: 10px;
+    height: 40px;
+}
+
+.card-price {
+    grid-column: 2 ;
+
+    padding-right: 10px;
+    margin-top: 10px;
+    font-size: 25px;
+    text-align: right;
+
+}
+
+.card-title {
+    padding-left: 10px;
+    margin-top: 10px;
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.card-description{
+    height: 90px;
+    margin: 10px;
+    /* background-color: blueviolet; */
+    position: relative;
+}
+
+.card-description > .card-content{
+    overflow: hidden;
+    /* background-color: azure; */
+}
+
+.card-content {
+    float: left;
+    /* background-color: aquamarine; */
+    height: 90px;
+    margin:  auto;
+    margin-right: 50px;
+}
+
+.like-button{
+    height: 50px;
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+}

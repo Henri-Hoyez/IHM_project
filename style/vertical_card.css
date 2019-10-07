@@ -1,0 +1,32 @@
+.my-card-media {
+    background-color: aliceblue;
+    width:   250px;
+    height: 300px;
+    margin-bottom: 10px;
+    margin: 10px;
+}
+
+.my-card-media img{
+    height: 250px;
+    width: 250px
+}
+
+.top-informaion .title{
+    float: left;
+    clear: none;
+    font-family: bold;
+    font-size: 20px;
+
+}
+
+.top-informaion .price{
+    font-size: 20px;
+    float: right;
+    clear: none;
+}
+
+
+.bottom-information button{
+    float: right;
+    clear: none;    
+}  
