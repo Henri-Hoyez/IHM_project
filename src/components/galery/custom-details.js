@@ -32,5 +32,5 @@ class CustomGalery extends LitElement {
   }
 }
 
-customElements.define('custom-galery', CustomGalery);
+// customElements.define('custom-galery', CustomGalery);
 

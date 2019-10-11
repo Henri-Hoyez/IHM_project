@@ -43,21 +43,24 @@ class CustomGalery extends LitElement {
     this.items = null;
 
     if(this.gender_categories != null && this.clothes_categories == null){
+      // Categories loading.
 
       var tmp_items = catalog[this.gender_categories.toLowerCase()];
       this.items = Array();
 
       for (const [key, values] of Object.entries(tmp_items)){
-        
-        let obj = values[0];
-        delete obj.price;
-        obj.title = key;
+        console.log(values[0]);
+        let obj = {
+          title:key,
+          largeImage: values[0].largeImage
+        };        
 
         this.items.push( obj );
       }
     }
     
     if(this.gender_categories != null && this.clothes_categories != null){
+      // Loading requested cards
       this.items = catalog[this.gender_categories.toLowerCase()][this.clothes_categories.toLowerCase()];
     }
     

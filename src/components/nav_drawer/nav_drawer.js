@@ -84,9 +84,9 @@ class NavDrawer extends LitElement {
 
           ${this.categories.map(item => html`
 
-            <a class="mdc-list-item" href="#">
+            <a class="mdc-list-item" href="#" @click='${ this.shopEventDispach }'>
               <i class="material-icons mdc-list-item__graphic" aria-hidden="true">shopping_basket</i>
-              <span class="mdc-list-item__text">${item.replace(item[0], item[0].toUpperCase())}</span>
+              <span class="mdc-list-item__text" >${item.replace(item[0], item[0].toUpperCase())}</span>
             </a>
 
           `)}
@@ -94,6 +94,26 @@ class NavDrawer extends LitElement {
         </nav>
         </div>
       </aside>`
+
+  }
+
+
+  shopEventDispach(e){
+    // Will send a event to the custom galery. The pupose is to update the 
+    // categories selection.
+    
+
+    var target = e.target.childNodes[3];
+
+    console.log(e.target.childNodes[3]);
+
+
+    document.dispatchEvent(new CustomEvent("cat-evnt",{
+      bubbles:true,
+      composed:true,
+      detail: (target.textContent != 'Home') ? target.textContent : null
+    }));
+
 
   }
 

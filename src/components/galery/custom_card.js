@@ -42,7 +42,11 @@ class CustomCard extends LitElement {
             </div>
 
             <div class="top-informaion" tabindex="1" >
-                <div class="title" >${this.title}</div> 
+
+                <div class="title" style=${this.price ? '' : "width:100%; text-align: center; font-size:25px;" } >${this.title}</div> 
+
+
+
                 <div class="price">${this.price ? this.price.toString()+'€':"" }</div>
             </div>
 
