@@ -20,6 +20,7 @@ class ItemDetail extends LitElement {
     this.desc = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet feugiat mauris. Nunc in volutpat odio. Proin pulvinar turpis vel ipsum vehicula aliquet. Aliquam tempus eros. '
     this.price = 0;
     this.image = "https://via.placeholder.com/400x400";
+    this.display = false;
   }
 
   firstUpdated(){
@@ -33,16 +34,36 @@ class ItemDetail extends LitElement {
       this.clothes_categories = this.clothes_categories.toLowerCase();
     }
 
+    document.addEventListener('update-detail-view', (e) => { 
+      console.log(e);
+      this.display = !this.display; 
+
+
+      if(this.display){
+        this.title = e.detail.title;
+        this.desc = e.detail.desc;
+        this.price = e.detail.price;
+        this.image = e.detail.image;
+      }
+
+      this.requestUpdate(); // update the html content !
+
+     });
+
   }
 
   render() { 
+    console.log('je rend');
+    console.log(this.display == true ? "detail-background" : "detail-background--hidden");
+    
     return html `
         <link rel="stylesheet" href="/src/style/item-detail.css">
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
         <link rel="stylesheet" href="node_modules/@material/card/dist/mdc.card.css">
+        <link rel="stylesheet" href="/node_modules/@material/button/dist/mdc.button.css">
 
 
-        <div class="detail-background">
+        <div class="${this.display == true ? "detail-background" : "detail-background--hidden"}" @click='${this.exitView}'>
             <div class="mdc-card detail-body">
             <div class="mdc-card__primary-action">
                 <img src="${this.image}">
@@ -55,15 +76,24 @@ class ItemDetail extends LitElement {
                 <p> ${this.desc} </p>
             </div>
 
+            <button class="mdc-button">
+              <span class="mdc-button__label"> Add to card </span>
+            </button>
+
 
 
             </div>
         </div>
-        
-    
-    
     `;
   }
+
+exitView(e){
+  document.dispatchEvent(new CustomEvent('update-detail-view', {
+    bubbles:true,
+    composed:true
+  }));
+}
+
 
 }
 

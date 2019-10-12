@@ -70,7 +70,21 @@ class CustomCard extends LitElement {
   card_click(e){
 
     if(this.price){
-      console.log('GOTO detail page ');
+      
+      document.dispatchEvent(new CustomEvent("update-detail-view",{
+        bubbles:true,
+        composed:true,
+        detail: {
+          title: this.title,
+          image: this.img,
+          desc : this.desc,
+          price: this.price
+        }
+
+    }));
+
+
+
     }else{
       console.log('shop page');
 
@@ -78,7 +92,6 @@ class CustomCard extends LitElement {
         bubbles:true,
         composed:true,
         detail: this.title
-
     }));
     }
 
