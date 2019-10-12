@@ -37,9 +37,7 @@ class CustomCard extends LitElement {
 
 
         <div @click=${ this.card_click } class="my-card-media mdc-card">
-            <div class="mdc-card__primary-action" tabindex="0">
-                <img src="${ this.img }" alt="default image">
-            </div>
+            <img src="${ this.img }" alt="default image">
 
             <div class="top-informaion" tabindex="1" >
 

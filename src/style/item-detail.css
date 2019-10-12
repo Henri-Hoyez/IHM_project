@@ -4,15 +4,15 @@
 
     width: 500px;
     max-height: 600px;
-    height: calc(100% - 64px - 25px);
+    height: calc(100% - 85px);
     
     margin: auto;
-    margin-top: 25px ;
+    margin-top: 85px ;
 }
 
 .detail-background{
-    position: absolute;
-    top: 64px   ;
+    position: fixed;
+    top: 0px   ;
     left: 0px;
     bottom: 0px;
     right: 0px;

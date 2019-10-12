@@ -46,7 +46,7 @@ class ItemDetail extends LitElement {
         this.image = e.detail.image;
       }
 
-      this.requestUpdate(); // update the html content !
+      this.requestUpdate(); // update the html content.
 
      });
 
@@ -76,7 +76,7 @@ class ItemDetail extends LitElement {
                 <p> ${this.desc} </p>
             </div>
 
-            <button class="mdc-button">
+            <button class="mdc-button--outlined">
               <span class="mdc-button__label"> Add to card </span>
             </button>
 

@@ -35,6 +35,7 @@ header {
 .menu_item {
     margin: 0 4px;
     font-size: 15px;
+    width: 100px;;
 }
 
 #list_menu {

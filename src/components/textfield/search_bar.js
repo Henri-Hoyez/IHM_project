@@ -26,8 +26,18 @@ class SearchBar extends LitElement{
         document.addEventListener("search-bar", () => {
             this.open = !this.open;
         });
-        console.log(this.open)
     }
+
+    searchEvent(e){
+        
+        document.dispatchEvent( new CustomEvent('search-evnt',{
+            bubbles:true,
+            composed:true,
+            detail : e.target.value
+        }  ));
+        
+    }
+
 
     render(){
         return html`
@@ -37,7 +47,7 @@ class SearchBar extends LitElement{
 
             <div class="mdc-text-field ${this.open?"search-bar--open":"search-bar--close"}">
                 <label class="mdc-floating-label" for="my-text-field"> <slot> Hint text </slot> </label>
-                <input type="text" id="my-text-field" class="mdc-text-field__input">
+                <input type="text" id="my-text-field" class="mdc-text-field__input" @keyup=${ this.searchEvent }>
             <div class="mdc-line-ripple"></div>
         </div>`;
     }

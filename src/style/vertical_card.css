@@ -6,8 +6,7 @@
 }
 
 .my-card-media img{
-    height: 250px;
-    width: 250px
+    height: 80%;
 }
 
 .top-informaion .title{
@@ -30,5 +29,5 @@
 
 .bottom-information button{
     float: right;
-    clear: none;    
+    clear: none;      
 }  

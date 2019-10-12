@@ -15,6 +15,7 @@ class CustomGalery extends LitElement {
     super();
     this.gender_categories = null;
     this.clothes_categories = null;
+    this.keyword = "";
   }
 
   firstUpdated(){
@@ -32,9 +33,17 @@ class CustomGalery extends LitElement {
 
     document.addEventListener('shop-event', (e) => {this.clothes_categories = e.detail;});
 
+    document.addEventListener('search-evnt', (e) => { 
+      this.keyword = e.detail; 
+      this.requestUpdate();
+    });
+
   }
 
+ 
+
   render() {  
+    console.log('je rend !');
     
     if ((this.gender_categories == null && this.clothes_categories == null)){
       return html ` page acceuil`;
@@ -49,7 +58,6 @@ class CustomGalery extends LitElement {
       this.items = Array();
 
       for (const [key, values] of Object.entries(tmp_items)){
-        console.log(values[0]);
         let obj = {
           title:key,
           largeImage: values[0].largeImage
@@ -58,22 +66,26 @@ class CustomGalery extends LitElement {
         this.items.push( obj );
       }
     }
+
     
     if(this.gender_categories != null && this.clothes_categories != null){
       // Loading requested cards
       this.items = catalog[this.gender_categories.toLowerCase()][this.clothes_categories.toLowerCase()];
+      
+      
     }
     
     
+    var reg = RegExp('.*'+ this.keyword +'.*', 'i');
+
     return html`
-    
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="src/style/custom_galery.css">
     <div class="wrapper">
 
-        ${this.items.map(item => html`
-          <custom-card title="${item.title}" img="${item.largeImage}" price="${item.price}"> </custom-card> 
-        `)}
+        ${this.items.map(item =>{ return html`
+        
+        ${(reg.test(item.title) || this.keyword.length === 0 ) ? html`<custom-card title='${item.title}' img='${item.largeImage}' price='${item.price}'> </custom-card>` : ''}  `  })}
 
     </div>
     `;
