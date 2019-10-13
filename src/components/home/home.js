@@ -32,9 +32,8 @@ class CustomHome extends LitElement {
         return html`
             <link href="components/home/slider.css" rel="stylesheet">
             <section>
-                <h2 class="title1"> Notre nouvelle boutique <em>Dream Little dreamer</em> vient d'ouvrir !</h2>
-                <p class="title2"> Sur ce site, vous pourrez trouver tous les objets de décoration qui vous permettront de créer votre propre
-                univers...</p>
+                <h2 class="title1"> Our new <em>Neo Clothes</em> store has just opened !</h2>
+                <p class="title2"> On this site you will find beautiful clothes that will allow you to create your own style...</p>
 
                 <article class="slider-container">
                     <input type="radio" name="img-displayed" id="display-1" checked>

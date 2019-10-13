@@ -94,7 +94,6 @@ class Registration extends LitElement {
     render() {
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/radio/dist/mdc.radio.css">
-            <link rel="stylesheet" href="../../../node_modules/@material/form-field/dist/mdc.form-field.css">
             <link rel="stylesheet" href="../../../node_modules/@material/textfield/dist/mdc.textfield.css">
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
 

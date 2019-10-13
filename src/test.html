@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script type="module" src="components/floating_action_button/floating_action_button.js"></script>
-
     <script src="../data/products.js"></script>
-
     <script type="module" src="components/nav_drawer/nav_drawer.js"></script>
     <script type="module" src="components/custom_button/custom_button.js"></script>
     <script type="module" src="components/top_bar/topBar.js"></script>
@@ -16,13 +14,11 @@
     <script type="module" src="components/custom_footer/custom_footer.js"></script>
     <script type="module" src="components/connexion/connexion.js"></script>
     <script type="module" src="components/registration/registration.js"></script>
-
-    <script type="module" src="components/confirm_command/confirm_command.js"></script>
-
+    <script type="module" src="components/end_command/end_command.js"></script>
     <script type="module" src="components/textfield/search_bar.js"></script>
     <script type="module" src="components/home/home.js"></script>
+    <script type="module" src="components/account/my_account.js"></script>
 
-    <!--<script type="module" src="components/top_bar_nav_drawer/topBarNavDrawer.js"></script>-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <style>
@@ -49,12 +45,14 @@
     <section>
         <!-- <connexion-form></connexion-form> -->
         <!-- <registration-form></registration-form> -->
-        <!-- <confirm-command image_path="components/confirm_command/valid.jpg" title="VOUS Y ÊTES PRESQUE !"
-            subtitle="Souhaitez-vous confirmer la commande ?"></confirm-command> -->
+        <!-- <end-command image_path="components/end_command/valid.jpg" title="YOU ARE ALMOST !"
+            subtitle="Would you like to confirm the order ?"></end-command> -->
 
-        <!-- <confirm-command image_path="components/confirm_command/confirm.jpg" title="FÉLICITATIONS !"
-            subtitle="Votre commande a bien été prise en compte !"></confirm-command> -->
-        <custom-home></custom-home>
+        <end-command image_path="components/end_command/congrats.jpg" title="CONGRATULATIONS !"
+            subtitle="Your order has been taken into account !"></end-command>
+        <!-- <custom-home></custom-home> -->
+        <!-- <my-account clientName="Name" clientFirstName="FirstName" clientGender=0 clientMail="email@example.com"
+            clientPhone="06XXXXXXX"></my-account> -->
     </section>
     <up-button></up-button>
     <custom-footer></custom-footer>
