@@ -53,10 +53,35 @@ class Registration extends LitElement {
           margin: 20px auto;
         }
 
+        .name_firstname {
+            margin: auto;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name_firstname .form_input {
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        @media screen and (min-width:1024px){
+            .name_firstname {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .name_firstname .form_input {
+                width: 48%;
+                margin-right: 0;
+                margin-left: 0;
+            }
+        }
+
         .button-container {
             display: flex;
-            justify-content: flex-end;
-            width: 200px;
+            justify-content: space-between;
+            max-width: 350px;
             margin: auto;
           }
 
@@ -100,23 +125,19 @@ class Registration extends LitElement {
                 </div>
             </div>
 
-            <div class="mdc-text-field form_input">
-                <input type="text" class="mdc-text-field__input" id="name-input" name="name" required>
-                <label class="mdc-floating-label" for="name-input">Name</label>
-                <div class="mdc-line-ripple"></div>
-            </div>
+            <span class="name_firstname">
+                <div class="mdc-text-field form_input">
+                    <input type="text" class="mdc-text-field__input" id="name-input" name="name" required>
+                    <label class="mdc-floating-label" for="name-input">Name</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
 
-            <div class="mdc-text-field form_input">
-                <input type="text" class="mdc-text-field__input" id="firstname-input" name="firstname" required>
-                <label class="mdc-floating-label" for="firstname-input">Firstname</label>
-                <div class="mdc-line-ripple"></div>
-            </div>
-
-            <div class="mdc-text-field form_input">
-                <input type="tel" class="mdc-text-field__input" id="phone-input" name="firstname">
-                <label class="mdc-floating-label" for="firstname-input">Phone number</label>
-                <div class="mdc-line-ripple"></div>
-            </div>
+                <div class="mdc-text-field form_input">
+                    <input type="text" class="mdc-text-field__input" id="firstname-input" name="firstname" required>
+                    <label class="mdc-floating-label" for="firstname-input">Firstname</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+            </span>
 
             <div class="mdc-text-field form_input">
                 <input type="text" class="mdc-text-field__input" id="email-input" name="email" required>
@@ -131,8 +152,8 @@ class Registration extends LitElement {
             </div>
 
             <div class="mdc-text-field form_input">
-                <input type="password_confirm" class="mdc-text-field__input" id="password-confirm" name="password_confirm" required minlength="8">
-                <label class="mdc-floating-label" for="password-confirm">Confirm password</label>
+                <input type="tel" class="mdc-text-field__input" id="phone-input" name="firstname">
+                <label class="mdc-floating-label" for="firstname-input">Phone number</label>
                 <div class="mdc-line-ripple"></div>
             </div>
 

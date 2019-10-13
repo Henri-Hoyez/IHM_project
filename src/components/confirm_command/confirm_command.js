@@ -48,13 +48,13 @@ class ConfirmCommand extends LitElement {
             padding: 0.4em 0;
         }
 
-        .title1 { font-size: 1.75em; }
+        .title1 { font-size: 1.85em; }
 
-        .title2 { font-size: 1.5em; }
+        .title2 { font-size: 1.65em; }
 
         .button-container {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             width: 300px;
             margin: auto;
           }

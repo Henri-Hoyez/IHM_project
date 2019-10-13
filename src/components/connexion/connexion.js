@@ -41,8 +41,8 @@ class Connexion extends LitElement {
 
         .button-container {
             display: flex;
-            justify-content: flex-end;
-            width: 300px;
+            justify-content: space-between;
+            max-width: 300px;
             margin: auto;
           }
 

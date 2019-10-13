@@ -42,7 +42,7 @@ class TopBar extends LitElement {
         <link href="components/top_bar/top-bar.css" rel="stylesheet">
         <link href="style/bulma.min.css" rel="stylesheet">
 
-        <header class="mdc-top-app-bar  mdc-top-app-bar">
+        <header class="mdc-top-app-bar">
             <div class="mdc-top-app-bar__row">
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start is-hidden-desktop">
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded" @click=${this.menu_event}>menu</button>
@@ -79,20 +79,20 @@ class TopBar extends LitElement {
     menu_event() {
         var topAppBarElement = this.shadowRoot.querySelector(".mdc-top-app-bar");
         const topAppBar = new MDCTopAppBar(topAppBarElement);
-        
-        document.dispatchEvent(new CustomEvent("toggle-menu",{
-            bubbles:true,
-            composed:true,
-            detail:"toggle menu"
+
+        document.dispatchEvent(new CustomEvent("toggle-menu", {
+            bubbles: true,
+            composed: true,
+            detail: "toggle menu"
         }));
 
     }
 
-    search_event(){
-        document.dispatchEvent(new CustomEvent("search-bar",{
-            bubbles:true,
-            composed:true,
-            detail:"search bar"
+    search_event() {
+        document.dispatchEvent(new CustomEvent("search-bar", {
+            bubbles: true,
+            composed: true,
+            detail: "search bar"
         }));
     }
 }

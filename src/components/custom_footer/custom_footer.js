@@ -1,19 +1,39 @@
 import { LitElement, html, css } from 'lit-element';
 
-
 class CustomFooter extends LitElement {
 
     constructor() {
         super();
     }
 
+    static get styles() {
+        return css`
+
+        footer {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 50px;
+        }
+
+        a {
+            color: black;
+            text-decoration: underline;
+            cursor: pointer;
+            font-style: italic;
+        }
+
+        hr {
+            width: 70%;
+        }
+        `
+    }
+
     render() {
         return html`
-            <link href="components/custom_footer/custom_footer.css" rel="stylesheet">
             <footer>
                 <br><hr><br>
-                <span>©2019 — Leaves and clouds — Crédits</span><br>
-                <span>Contact : <em><a href="mailto:contact@leaves-clouds.com">contact@leaves-clouds.com</a></em></span><br>
+                <span>©2019 — Neo Clothes — Crédits</span><br>
+                <span>Contact : <em><a href="mailto:contact@neo-clothes.com">contact@neo-clothes.com</a></em></span><br>
                 &nbsp;
             </footer>`
     }
