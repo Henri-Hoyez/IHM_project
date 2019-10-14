@@ -35,7 +35,7 @@ class ItemDetail extends LitElement {
     }
 
     document.addEventListener('update-detail-view', (e) => { 
-      console.log(e);
+
       this.display = !this.display; 
 
 
@@ -54,13 +54,51 @@ class ItemDetail extends LitElement {
 
 
   buttonEvent(){
-    if(this.localStorage === null){
+  
+    var user = JSON.parse(localStorage.getItem('current_user'));
+
+    if(user === null){  
+
       document.dispatchEvent(new CustomEvent('cat-evnt',{
         bubbles: true,
         composed: true,
         detail :'person'
       }));
+
+    }else{
+      user.basket.push({
+        image:this.image,
+        desc : this.desc,
+        price: this.price
+      });
     }
+
+    this.updateStorage(user);
+
+  }
+
+
+  updateStorage(user){
+    
+    var users = JSON.parse(localStorage.getItem('users'));
+
+    var user_index = users.indexOf(JSON.parse(localStorage.getItem('current_user')));
+
+    users.splice(user_index  + 1, 1);
+
+    console.log(user_index);
+    
+    console.log(users);
+    
+    users.push(user);
+
+    console.log(users);
+
+    localStorage.setItem('current_user', JSON.stringify(user));
+    
+
+    localStorage.setItem('users', JSON.stringify(users));
+
   }
 
   render() { 
