@@ -1,7 +1,7 @@
 .shop-cart--open{
-    visibility: visible;
+    display: inherit;
 }
 
 .shop-cart--close{
-    visibility: hidden;
+    display: none;
 }

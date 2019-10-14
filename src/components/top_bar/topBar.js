@@ -49,11 +49,11 @@ class TopBar extends LitElement {
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded" @click=${this.menu_event}>menu</button>
 
                 </section>
-                <div id= "icon-header">
+                <span id= "icon-header">
                     <a id="icon-header-title" href="#">
                         <span  class="mdc-top-app-bar__title">Neo clothes</span>
                     </a>
-                </div>
+                </span>
 
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end fields">
                     <span id="list_menu">
@@ -77,21 +77,21 @@ class TopBar extends LitElement {
         `
     }
 
-    category_event(e){
+    category_event(e) {
 
         let text_content = e.target.textContent;
 
         this.selected_cathegory = text_content;
         console.log(this.selected_cathegory);
-        
-        
-        
-        document.dispatchEvent(new CustomEvent("cat-evnt",{
-            bubbles:true,
-            composed:true,
+
+
+
+        document.dispatchEvent(new CustomEvent("cat-evnt", {
+            bubbles: true,
+            composed: true,
             detail: (text_content != 'Home') ? text_content : null
         }));
-        
+
         this.requestUpdate();
     }
 

@@ -9,7 +9,7 @@ class UpButton extends LitElement {
 
     render() {
         return html`
-            <link href="components/up_button/up_button.css" rel="stylesheet">
+            <link href="/src/components/up_button/up_button.css" rel="stylesheet">
             <a href="#"> <button></button></a>`
     }
 

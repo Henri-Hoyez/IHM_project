@@ -13,7 +13,11 @@ class CustomFooter extends LitElement {
             text-align: center;
             font-weight: bold;
             margin-top: 50px;
+            clear: both;
+            position: relative;
+            height: 100px;
         }
+
 
         a {
             color: black;
