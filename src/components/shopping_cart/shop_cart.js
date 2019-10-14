@@ -14,8 +14,10 @@ class ShopCart extends LitElement {
     }
 
     firstUpdated() {
+        MDCRipple.attachTo(this.shadowRoot.querySelector('.empty'));
+        MDCRipple.attachTo(this.shadowRoot.querySelector('.confirm'));
+        MDCRipple.attachTo(this.shadowRoot.querySelector('.sign-in'));
         MDCRipple.attachTo(this.shadowRoot.querySelector('.shop'));
-        MDCRipple.attachTo(this.shadowRoot.querySelector('.valid'));
     }
 
     static get properties() {
@@ -29,7 +31,7 @@ class ShopCart extends LitElement {
     static get styles() {
         return css`
 
-        .title1 { font-size: 1.85em; }
+        .title1 { font-size: 1.95em; }
 
         .title2 { font-size: 1.5em; }
 
@@ -64,8 +66,6 @@ class ShopCart extends LitElement {
             color: coral;
         }
 
-        section .supprimerArticle { margin: 0.5em 0.7em 0 0; }
-
         .button-container {
             display: flex;
             justify-content: space-between;
@@ -81,11 +81,9 @@ class ShopCart extends LitElement {
             display: block;
             margin: auto;
             margin-bottom: 2em;
-            max-width:100%;
+            max-width:70%;
             height: auto;
         }
-
-
 
         `
     }
@@ -124,13 +122,11 @@ class ShopCart extends LitElement {
             </section>
 
             <span class="button-container ">
-                    <button type="button" class="mdc-button shop ${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
-                        <span class="mdc-button__label">Cancel</span>
+                    <button type="button" class="mdc-button empty ${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
+                        <span class="mdc-button__label">Empty cart</span>
                     </button>
-                    <button class="mdc-button mdc-button--raised valid ${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
-                        <span class="mdc-button__label">
-                        Validate
-                        </span>
+                    <button class="mdc-button mdc-button--raised confirm ${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
+                        <span class="mdc-button__label">Confirm</span>
                     </button>
             </span>
 
@@ -144,7 +140,7 @@ class ShopCart extends LitElement {
                     <button type="button" class="mdc-button shop ${this.isEmpty ? "shop-cart--open" : "shop-cart--close"}">
                         <span class="mdc-button__label">Back to shop</span>
                     </button>
-                    <button class="mdc-button mdc-button--raised valid ${this.isEmpty ? "shop-cart--open" : "shop-cart--close"}">
+                    <button class="mdc-button mdc-button--raised sign-in ${this.isEmpty ? "shop-cart--open" : "shop-cart--close"}">
                         <span class="mdc-button__label">
                         Sign in
                         </span>
