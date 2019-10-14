@@ -1,0 +1,64 @@
+/*https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties*/
+section {
+    --img-width: 50em;
+}
+@media screen and (max-width:1024px) {
+    section {
+        --img-width: 30em;
+    }
+}
+@media screen and (max-width:520px) {
+    section {
+        --img-width: 20em;
+    }
+}
+
+.slider-container {
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.img-container {
+    order:-1;
+    display: flex;
+    margin-bottom: 10px;
+    /* permet de choisir la position des images */
+    position: relative;
+    /* temps de transition entre 2 images */
+    transition: left 2s;
+    width: calc(var(--img-width) * 3);
+}
+
+img {
+    float: left;
+}
+
+img,
+.img-container {
+    height: calc(var(--img-width) / 2);
+}
+
+img,
+.slider-container {
+    width: var(--img-width);
+}
+
+.slider-container input[type="radio"] {
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+#display-1:checked~.img-container {
+    left: calc(var(--img-width) * 1);
+}
+
+#display-2:checked~.img-container {
+    left: calc(var(--img-width) * 0);
+}
+
+#display-3:checked~.img-container {
+    left: calc(var(--img-width) * -1);
+}

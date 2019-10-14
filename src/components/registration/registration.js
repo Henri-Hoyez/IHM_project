@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
-import { MDCFormField } from '@material/form-field';
 import { MDCRadio } from '@material/radio';
 import { MDCTextField } from '@material/textfield';
+import { MDCRipple } from '@material/ripple';
 
 class Registration extends LitElement {
 
@@ -10,17 +10,19 @@ class Registration extends LitElement {
     }
 
     firstUpdated() {
-        const radio = new MDCRadio(document.querySelector('.mdc-radio'));
+        var radios = this.shadowRoot.querySelectorAll('.mdc-radio');
+        for (var i = 0; i < radios.length; i++) {
+            console.log(radios[i]);
+            MDCRadio.attachTo(radios[i]);
+        }
 
+        var textFields = this.shadowRoot.querySelectorAll('.mdc-text-field');
+        for (var i = 0; i < textFields.length; i++) {
+            MDCTextField.attachTo(textFields[i]);
+        }
 
-
-        const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
-        formField.input = radio;
-
-        MDCTextField.attachTo(this.shadowRoot.querySelector('.firstname'));
-        MDCTextField.attachTo(this.shadowRoot.querySelector('.name'));
-        // MDCTextField.attachTo(this.shadowRoot.querySelector('.cancel'));
-        // MDCTextField.attachTo(this.shadowRoot.querySelector('.next'));
+        MDCRipple.attachTo(this.shadowRoot.querySelector('.cancel'));
+        MDCRipple.attachTo(this.shadowRoot.querySelector('.confirm'));
 
     }
 
@@ -37,24 +39,54 @@ class Registration extends LitElement {
 
         a {
             cursor: pointer;
-            text-decoration: none;
+            text-decoration: underline;
         }
 
-        .email,.password {
+        .radios_input {
+            margin: auto;
+            max-width: 500px;
+        }
+
+        .form_input{
           display: block;
-          max-width: 300px;
+          max-width: 500px;
           margin: 20px auto;
+        }
+
+        .name_firstname {
+            margin: auto;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name_firstname .form_input {
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        @media screen and (min-width:1024px){
+            .name_firstname {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .name_firstname .form_input {
+                width: 48%;
+                margin-right: 0;
+                margin-left: 0;
+            }
         }
 
         .button-container {
             display: flex;
-            justify-content: flex-end;
-            width: 300px;
+            justify-content: space-between;
+            max-width: 350px;
             margin: auto;
           }
 
           .button-container button {
-            margin: 3px;
+            margin: 5px;
         }
         `
     }
@@ -62,48 +94,65 @@ class Registration extends LitElement {
     render() {
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/radio/dist/mdc.radio.css">
-            <link rel="stylesheet" href="../../../node_modules/@material/form-field/dist/mdc.form-field.css">
-
             <link rel="stylesheet" href="../../../node_modules/@material/textfield/dist/mdc.textfield.css">
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
-            <script src="../../../node_modules/@material/textfield/dist/mdc.textfield.js"></script>
-
 
             <div id="form_titles">
                 <h2 class="title1">CRÉER VOTRE COMPTE</h2>
                 <h3 class="title2">Déjà un compte ? <a>Connectez-vous</a></h3>
-            </div>
+            </div><br>
 
-            <div class="mdc-form-field">
-                <div class="mdc-radio">
-                    <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
-                    <div class="mdc-radio__background">
-                    <div class="mdc-radio__outer-circle"></div>
-                    <div class="mdc-radio__inner-circle"></div>
+            <div class="radios_input">
+                <div class="mdc-form-field">
+                    <div class="mdc-radio">
+                        <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
+                        <div class="mdc-radio__background">
+                            <div class="mdc-radio__outer-circle"></div>
+                            <div class="mdc-radio__inner-circle"></div>
+                        </div>
+                    </div>
+                    <label for="radio-1">Miss</label>
+
+                    <div class="mdc-radio">
+                        <input class="mdc-radio__native-control" type="radio" id="radio-2" name="radios">
+                        <div class="mdc-radio__background">
+                            <div class="mdc-radio__outer-circle"></div>
+                            <div class="mdc-radio__inner-circle"></div>
+                        </div>
+                    </div>
+                    <label for="radio-2">Sir</label>
                 </div>
             </div>
-            <label for="radio-1">M</label>
 
-            <div class="mdc-radio">
-                    <input class="mdc-radio__native-control" type="radio" id="radio-2" name="radios" checked>
-                    <div class="mdc-radio__background">
-                    <div class="mdc-radio__outer-circle"></div>
-                    <div class="mdc-radio__inner-circle"></div>
-                    </div>
-            </div>
-                <label for="radio-2">MME</label>
-            </div>
+            <span class="name_firstname">
+                <div class="mdc-text-field form_input">
+                    <input type="text" class="mdc-text-field__input" id="name-input" name="name" required>
+                    <label class="mdc-floating-label" for="name-input">Name</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
 
+                <div class="mdc-text-field form_input">
+                    <input type="text" class="mdc-text-field__input" id="firstname-input" name="firstname" required>
+                    <label class="mdc-floating-label" for="firstname-input">Firstname</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+            </span>
 
-            <div class="mdc-text-field name">
-                <input type="text" class="mdc-text-field__input" id="name-input" name="name" required>
-                <label class="mdc-floating-label" for="name-input">Name</label>
+            <div class="mdc-text-field form_input">
+                <input type="text" class="mdc-text-field__input" id="email-input" name="email" required>
+                <label class="mdc-floating-label" for="email-input">Email</label>
                 <div class="mdc-line-ripple"></div>
             </div>
 
-            <div class="mdc-text-field password">
-                <input type="text" class="mdc-text-field__input" id="firstname-input" name="firstname" required>
-                <label class="mdc-floating-label" for="firstname-input">Firstname</label>
+            <div class="mdc-text-field form_input">
+                <input type="password" class="mdc-text-field__input" id="password-input" name="password" required minlength="8">
+                <label class="mdc-floating-label" for="password-input">Password</label>
+                <div class="mdc-line-ripple"></div>
+            </div>
+
+            <div class="mdc-text-field form_input">
+                <input type="tel" class="mdc-text-field__input" id="phone-input" name="firstname">
+                <label class="mdc-floating-label" for="firstname-input">Phone number</label>
                 <div class="mdc-line-ripple"></div>
             </div>
 
@@ -113,9 +162,9 @@ class Registration extends LitElement {
                     Cancel
                     </span>
                 </button>
-                <button class="mdc-button mdc-button--raised next">
+                <button class="mdc-button mdc-button--raised confirm">
                     <span class="mdc-button__label">
-                    Next
+                    Confirm
                     </span>
                 </button>
             </div>

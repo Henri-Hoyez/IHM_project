@@ -9,11 +9,7 @@ class Connexion extends LitElement {
     }
 
     firstUpdated() {
-        // var textFields = this.shadowRoot.querySelectorAll('.mdc-text-field');
 
-        // for (var i = 0; i < textFields.length; i++) {
-        //     MDCTextField.attachTo([i]);
-        // }
         MDCTextField.attachTo(this.shadowRoot.querySelector('.email'));
         MDCTextField.attachTo(this.shadowRoot.querySelector('.password'));
         MDCRipple.attachTo(this.shadowRoot.querySelector('.cancel'));
@@ -45,8 +41,8 @@ class Connexion extends LitElement {
 
         .button-container {
             display: flex;
-            justify-content: flex-end;
-            width: 300px;
+            justify-content: space-between;
+            max-width: 300px;
             margin: auto;
           }
 
