@@ -13,6 +13,13 @@ section {
     }
 }
 
+body {
+    font-family: 'Roboto' sans-serif;
+}
+
+
+
+
 .slider-container {
     margin: auto;
     overflow: hidden;
@@ -62,3 +69,4 @@ img,
 #display-3:checked~.img-container {
     left: calc(var(--img-width) * -1);
 }
+

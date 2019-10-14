@@ -51,6 +51,18 @@ class Connexion extends LitElement {
         }
         `
     }
+    
+    category_event(e){
+        document.dispatchEvent(new CustomEvent( 'cat-evnt', {
+            bubbles:true,
+            composed: true,
+            detail:'connection'
+        }));
+
+    }
+
+
+
 
     render() {
         return html`
@@ -60,7 +72,7 @@ class Connexion extends LitElement {
 
             <div id="form_titles">
                 <h2 class="title1">CONNECTEZ-VOUS À VOTRE COMPTE</h2>
-                <h3 class="title2">Pas de compte ? <a>Créez-en un</a></h3>
+                <h3 class="title2">Pas de compte ? <a @click=${this.category_event} >Créez-en un</a></h3>
             </div>
 
             <div class="mdc-text-field email">

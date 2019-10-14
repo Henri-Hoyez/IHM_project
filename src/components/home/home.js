@@ -30,7 +30,9 @@ class CustomHome extends LitElement {
 
     render() {
         return html`
+            <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'> 
             <link href="/src/components/home/slider.css" rel="stylesheet">
+
             <section>
                 <h2 class="title1"> Our new <em>Neo Clothes</em> store has just opened !</h2>
                 <p class="title2"> On this site you will find beautiful clothes that will allow you to create your own style...</p>
