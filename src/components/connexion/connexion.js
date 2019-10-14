@@ -57,36 +57,6 @@ class Connexion extends LitElement {
             <link rel="stylesheet" href="../../../node_modules/@material/textfield/dist/mdc.textfield.css">
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
             <script src="../../../node_modules/@material/textfield/dist/mdc.textfield.js"></script>
-<!--
-            <div class="mdc-text-field">
-                <label class="mdc-floating-label" for="my-text-field"> <slot> Hint text </slot> </label>
-                <input type="text" id="my-text-field" class="mdc-text-field__input">
-                <div class="mdc-line-ripple"></div>
-            </div> -->
-
-            <!-- <div class="mdc-text-field" data-children-count="1">
-                <input class="mdc-text-field__input" id="text-field-hero-input">
-                <div class="mdc-line-ripple"></div>
-                <label for="text-field-hero-input" class="mdc-floating-label">Name</label>
-            </div>
-
-            <div class="mdc-text-field" data-children-count="1">
-                <input class="mdc-text-field__input" id="text-field-hero-input">
-                <div class="mdc-line-ripple"></div>
-                <label for="text-field-hero-input" class="mdc-floating-label">Name</label>
-            </div> -->
-
-            <!-- Not required
-            <div class="mdc-text-field username">
-                <input type="text" class="mdc-text-field__input" id="username-input" name="username">
-                <label class="mdc-floating-label" for="username-input">Username</label>
-                <div class="mdc-line-ripple"></div>
-            </div>
-            <div class="mdc-text-field password">
-                <input type="password" class="mdc-text-field__input" id="password-input" name="password">
-                <label class="mdc-floating-label" for="password-input">Password</label>
-                <div class="mdc-line-ripple"></div>
-            </div> -->
 
             <div id="form_titles">
                 <h2 class="title1">CONNECTEZ-VOUS À VOTRE COMPTE</h2>

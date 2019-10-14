@@ -30,7 +30,7 @@ class CustomHome extends LitElement {
 
     render() {
         return html`
-            <link href="components/home/slider.css" rel="stylesheet">
+            <link href="/src/components/home/slider.css" rel="stylesheet">
             <section>
                 <h2 class="title1"> Our new <em>Neo Clothes</em> store has just opened !</h2>
                 <p class="title2"> On this site you will find beautiful clothes that will allow you to create your own style...</p>
@@ -40,9 +40,9 @@ class CustomHome extends LitElement {
                     <input type="radio" name="img-displayed" id="display-2">
                     <input type="radio" name="img-displayed" id="display-3">
                     <div class="img-container">
-                        <img src="components/home/clothes.png" alt="clothes1"/>
-                        <img src="components/home/clothes2.png" alt="clothes2"/>
-                        <img src="components/home/clothes3.png" alt="clothes3"/>
+                        <img src="/src/components/home/clothes.png" alt="clothes1"/>
+                        <img src="/src/components/home/clothes2.png" alt="clothes2"/>
+                        <img src="/src/components/home/clothes3.png" alt="clothes3"/>
                     </div>
                 </article>
             </section>
