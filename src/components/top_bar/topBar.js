@@ -30,6 +30,7 @@ class TopBar extends LitElement {
         super();
         this.isConnected = false;
         this.categories = Object.getOwnPropertyNames(catalog);
+        this.categories.unshift("Home")
         this.selected_cathegory = 'Home';
     }
     firstUpdated() {
@@ -42,31 +43,28 @@ class TopBar extends LitElement {
         <link href="../../../node_modules/@material/icon-button/dist/mdc.icon-button.css" rel="stylesheet">
         <link href="src/components/top_bar/top-bar.css" rel="stylesheet">
         <link href="src/style/bulma.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
         <header class="mdc-top-app-bar">
             <div class="mdc-top-app-bar__row">
-                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start is-hidden-desktop">
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-drawer">
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded" @click=${this.menu_event}>menu</button>
 
                 </section>
                 <span id= "icon-header">
                     <a id="icon-header-title" href="#">
-                        <span  class="mdc-top-app-bar__title">Neo clothes</span>
+                        <img src="src/components/top_bar/neo-clothes-logo.png"/>
                     </a>
                 </span>
 
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end fields">
                     <span id="list_menu">
-                        <a class=" mdc-top-app-bar__action-item is-hidden-touch mdc-top-app-bar__title" href="#"><span class="menu_item" id="${this.selected_cathegory == 'Home' ? "nav_indicator" : ""}" @click=${this.category_event}>Home</span><!--déplacer id vers page consultée en js-->
-                        </a>
-
                         ${this.categories.map(item => html`
-                            <a class="mdc-list-item mdc-top-app-bar__title" href="#">
-                            <span @click="${this.category_event}" class="menu_item mdc-top-app-bar__action-item is-hidden-touch" id="${this.selected_cathegory == item.replace(item[0], item[0].toUpperCase()) ? "nav_indicator" : ""}">${item.replace(item[0], item[0].toUpperCase())}</span>
+                            <a class="mdc-list-item mdc-font is-hidden-touch" href="#">
+                            <span @click="${this.category_event}" class="menu_item mdc-top-app-bar__action-item" class="${this.selected_cathegory == item.replace(item[0], item[0].toUpperCase()) ? "nav_indicator" : "not_selected"}">${item.replace(item[0], item[0].toUpperCase())}</span>
                             </a>
                         `)}
                     </span>
-
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded"  @click=${this.search_event}  aria-label="Search">search</button>
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Profile">person</button>
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Shopping cart">shopping_cart</button>

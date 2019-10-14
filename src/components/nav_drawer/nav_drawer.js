@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-//import { MDCDrawer } from "@material/drawer";
+import { MDCDrawer } from "@material/drawer";
 import { MDCList } from "@material/list";
 
 
@@ -11,13 +11,6 @@ class NavDrawer extends LitElement {
       isConnected: { type: Boolean },
       categories: { type: Array }
     };
-  }
-  static get styles() {
-    return css`:host
-      .mdc-drawer{
-        margin-top:64px;
-      }
-    `
   }
 
   constructor() {
@@ -62,7 +55,7 @@ class NavDrawer extends LitElement {
             }
             </style>
 
-      <aside class="mdc-drawer mdc-drawer--modal is-hidden-desktop ${this.open ? "mdc-drawer--open" : ""}">
+      <aside class="mdc-drawer mdc-drawer--modal is-hidden-desktop ${this.open ? "mdc-drawer--open" : "mdc-drawer--close"}">
         <div class="mdc-drawer__header">
           <h3 class="mdc-drawer__title">Menu</h3>
         </div>
@@ -120,6 +113,7 @@ class NavDrawer extends LitElement {
   firstUpdated() {
     const list = MDCList.attachTo(this.shadowRoot.querySelector('.mdc-list'));
     list.wrapFocus = true;
+    //const drawer = MDCDrawer.attachTo(this.shadowRoot.querySelector('.mdc-drawer'));
 
     document.addEventListener("toggle-menu", () => {
       this.open = !this.open;
