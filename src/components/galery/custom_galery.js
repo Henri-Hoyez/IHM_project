@@ -43,7 +43,6 @@ class CustomGalery extends LitElement {
  
 
   render() {  
-    console.log('je rend !');
     
     if ((this.gender_categories == null && this.clothes_categories == null)){
       return html `  

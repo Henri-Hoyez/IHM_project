@@ -37,6 +37,11 @@ class TopBar extends LitElement {
 
     }
     render() {
+
+       
+
+
+
         return html`
         <link href="../../../node_modules/@material/top-app-bar/dist/mdc.top-app-bar.css" rel="stylesheet">
         <link href="../../../node_modules/@material/icon-button/dist/mdc.icon-button.css" rel="stylesheet">
@@ -78,13 +83,9 @@ class TopBar extends LitElement {
     }
 
     category_event(e){
-
         let text_content = e.target.textContent;
 
         this.selected_cathegory = text_content;
-        console.log(this.selected_cathegory);
-        
-        
         
         document.dispatchEvent(new CustomEvent("cat-evnt",{
             bubbles:true,

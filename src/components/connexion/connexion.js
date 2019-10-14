@@ -15,6 +15,12 @@ class Connexion extends LitElement {
         MDCRipple.attachTo(this.shadowRoot.querySelector('.cancel'));
         MDCRipple.attachTo(this.shadowRoot.querySelector('.next'));
 
+        document.addEventListener('cat-evnt', (e) => {
+            if(e.detail ==='person'){
+                this.requestUpdate();
+            }
+        })
+
     }
 
     static get styles() {
@@ -61,10 +67,54 @@ class Connexion extends LitElement {
 
     }
 
+    makeErrMessage(message){
+        let selector = this.shadowRoot.querySelector('.err-display')
+        selector.innerHTML = message;
+        selector.style.color = 'red';
+        selector.style.display = 'inherit';
+    }
 
+
+    makeConnection(){
+
+        var users = JSON.parse(localStorage.getItem('users'));
+
+        if(users === null){
+            this.makeErrMessage('Email non référencé, veillez créer un compte...');
+            return;
+        }
+
+        var mail = this.shadowRoot.getElementById('email-input').value;
+        var password = this.shadowRoot.getElementById('password-input').value;
+
+        users.forEach(user => {
+
+            if(user.mail === mail && user.password === password){
+                localStorage.setItem('current_user', JSON.stringify(user));
+                document.dispatchEvent(new CustomEvent('cat-evnt',{
+                    bubbles:true,
+                    composed:true,
+                    detail : null
+                }));
+
+            }
+        });
+
+        this.requestUpdate();
+
+    }
 
 
     render() {
+        if(localStorage.getItem('current_user') != null){    
+            console.log('PAUPIETTE DE VEAU');        
+            
+
+            return html`<my-account></my-account>
+            `;
+        }
+
+
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/textfield/dist/mdc.textfield.css">
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
@@ -72,6 +122,7 @@ class Connexion extends LitElement {
 
             <div id="form_titles">
                 <h2 class="title1">CONNECTEZ-VOUS À VOTRE COMPTE</h2>
+                <h3 style="display : none; ", class="err-display"></h3>
                 <h3 class="title2">Pas de compte ? <a @click=${this.category_event} >Créez-en un</a></h3>
             </div>
 
@@ -93,7 +144,7 @@ class Connexion extends LitElement {
                     Cancel
                     </span>
                 </button>
-                <button class="mdc-button mdc-button--raised next">
+                <button @click=${this.makeConnection} class="mdc-button mdc-button--raised next">
                     <span class="mdc-button__label">
                     Next
                     </span>

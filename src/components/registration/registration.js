@@ -13,7 +13,6 @@ class Registration extends LitElement {
     firstUpdated() {
         var radios = this.shadowRoot.querySelectorAll('.mdc-radio');
         for (var i = 0; i < radios.length; i++) {
-            console.log(radios[i]);
             MDCRadio.attachTo(radios[i]);
         }
 
@@ -112,17 +111,17 @@ class Registration extends LitElement {
 
 
 
-        let gender = this.shadowRoot.getElementById('radio-1').checked ? "man": "woman";
+        let gender = this.shadowRoot.getElementById('radio-1').checked ? "Female": "Male";
         console.log(gender);
 
         var user = {
             last_name :  this.shadowRoot.getElementById('name-input').value,
-            fisrt_name: this.shadowRoot.getElementById('firstname-input').value,
+            first_name: this.shadowRoot.getElementById('firstname-input').value,
             mail : this.shadowRoot.getElementById('email-input').value,
             password : this.shadowRoot.getElementById('password-input').value,
             phone : this.shadowRoot.getElementById('phone-input').value,
-            gender: gender
-
+            gender: gender,
+            basket: Array()
         };
 
         var users = JSON.parse(localStorage.getItem('users'));
@@ -131,15 +130,20 @@ class Registration extends LitElement {
             users = Array(); 
         }
 
-
-        
         users.push(user);
         localStorage.setItem('users', JSON.stringify(users));
 
+        localStorage.setItem('current_user', JSON.stringify(user))
 
         let title2 = this.shadowRoot.querySelector('.title2');
         title2.innerHTML  = this.thanks_message;
         title2.style.color = 'green';
+
+        document.dispatchEvent(new CustomEvent ('cat-evnt', {
+            bubbles:true,
+            composed:true,
+            detail:null
+        }))
         
     }
 
