@@ -1,0 +1,45 @@
+.detail-body{
+    z-index: 3;
+    background-color: bisque;
+
+    width: 500px;
+    max-height: 600px;
+    height: calc(100% - 85px);
+    
+    margin: auto;
+    margin-top: 85px ;
+}
+
+.detail-background{
+    position: fixed;
+    top: 0px   ;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-color: rgb(65, 65, 65,0.7);
+}
+
+.detail-background--hidden{
+    display: none;
+}
+
+.header{
+    font-size: 25px;
+
+}
+
+.header .card-title{
+    float: left;
+    clear: none;
+}
+
+
+.header .card-price{
+    float: right;
+    clear: none;
+}
+
+.card-desc p{
+    text-align: justify;
+}
+

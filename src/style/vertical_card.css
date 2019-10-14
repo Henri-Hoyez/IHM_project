@@ -1,5 +1,4 @@
 .my-card-media {
-    background-color: aliceblue;
     width:   250px;
     height: 300px;
     margin-bottom: 10px;
@@ -7,16 +6,18 @@
 }
 
 .my-card-media img{
-    height: 250px;
-    width: 250px
+    height: 80%;
 }
 
 .top-informaion .title{
     float: left;
     clear: none;
-    font-family: bold;
     font-size: 20px;
 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width:70%;
 }
 
 .top-informaion .price{
@@ -28,5 +29,5 @@
 
 .bottom-information button{
     float: right;
-    clear: none;    
+    clear: none;      
 }  

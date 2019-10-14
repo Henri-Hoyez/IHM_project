@@ -30,6 +30,7 @@ class TopBar extends LitElement {
         super();
         this.isConnected = false;
         this.categories = Object.getOwnPropertyNames(catalog);
+        this.selected_cathegory = 'Home';
     }
     firstUpdated() {
 
@@ -39,8 +40,8 @@ class TopBar extends LitElement {
         return html`
         <link href="../../../node_modules/@material/top-app-bar/dist/mdc.top-app-bar.css" rel="stylesheet">
         <link href="../../../node_modules/@material/icon-button/dist/mdc.icon-button.css" rel="stylesheet">
-        <link href="components/top_bar/top-bar.css" rel="stylesheet">
-        <link href="style/bulma.min.css" rel="stylesheet">
+        <link href="src/components/top_bar/top-bar.css" rel="stylesheet">
+        <link href="src/style/bulma.min.css" rel="stylesheet">
 
         <header class="mdc-top-app-bar  mdc-top-app-bar">
             <div class="mdc-top-app-bar__row">
@@ -56,12 +57,12 @@ class TopBar extends LitElement {
 
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end fields">
                     <span id="list_menu">
-                        <a class=" mdc-top-app-bar__action-item is-hidden-touch mdc-top-app-bar__title" href="#"><span class="menu_item" id="nav_indicator">Home</span><!--déplacer id vers page consultée en js-->
+                        <a class=" mdc-top-app-bar__action-item is-hidden-touch mdc-top-app-bar__title" href="#"><span class="menu_item" id="${this.selected_cathegory == 'Home' ? "nav_indicator" : ""}" @click=${this.category_event}>Home</span><!--déplacer id vers page consultée en js-->
                         </a>
 
                         ${this.categories.map(item => html`
                             <a class="mdc-list-item mdc-top-app-bar__title" href="#">
-                            <span class="menu_item mdc-top-app-bar__action-item is-hidden-touch">${item.replace(item[0], item[0].toUpperCase())}</span>
+                            <span @click="${this.category_event}" class="menu_item mdc-top-app-bar__action-item is-hidden-touch" id="${this.selected_cathegory == item.replace(item[0], item[0].toUpperCase()) ? "nav_indicator" : ""}">${item.replace(item[0], item[0].toUpperCase())}</span>
                             </a>
                         `)}
                     </span>
@@ -75,6 +76,26 @@ class TopBar extends LitElement {
         <div id="under-app-bar"></div>
         `
     }
+
+    category_event(e){
+
+        let text_content = e.target.textContent;
+
+        this.selected_cathegory = text_content;
+        console.log(this.selected_cathegory);
+        
+        
+        
+        document.dispatchEvent(new CustomEvent("cat-evnt",{
+            bubbles:true,
+            composed:true,
+            detail: (text_content != 'Home') ? text_content : null
+        }));
+        
+        this.requestUpdate();
+    }
+
+
     menu_event() {
         var topAppBarElement = this.shadowRoot.querySelector(".mdc-top-app-bar");
         const topAppBar = new MDCTopAppBar(topAppBarElement);
