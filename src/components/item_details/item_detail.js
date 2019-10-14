@@ -36,12 +36,14 @@ class ItemDetail extends LitElement {
 
     document.addEventListener('update-detail-view', (e) => { 
 
-      this.display = !this.display; 
+      console.log(e.detail);
+      
 
+      this.display = !this.display; 
 
       if(this.display){
         this.title = e.detail.title;
-        this.desc = e.detail.desc;
+        this.desc = e.detail.desc.split('.')[0]+'. ' + e.detail.desc.split('.')[1]+'.';
         this.price = e.detail.price;
         this.image = e.detail.image;
       }
@@ -85,14 +87,6 @@ class ItemDetail extends LitElement {
     var user_index = users.indexOf(JSON.parse(localStorage.getItem('current_user')));
 
     users.splice(user_index  + 1, 1);
-
-    console.log(user_index);
-    
-    console.log(users);
-    
-    users.push(user);
-
-    console.log(users);
 
     localStorage.setItem('current_user', JSON.stringify(user));
     

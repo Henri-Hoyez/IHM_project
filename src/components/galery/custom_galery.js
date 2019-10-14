@@ -88,14 +88,21 @@ class CustomGalery extends LitElement {
     
     var reg = RegExp('.*'+ this.keyword +'.*', 'i');
 
+
+    console.log(this.items);
+    
+
     return html`
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="src/style/custom_galery.css">
     <div class="wrapper">
 
+
+
+
         ${this.items.map(item =>{ return html`
         
-        ${(reg.test(item.title) || this.keyword.length === 0 ) ? html`<custom-card title='${item.title}' img='${item.largeImage}' price='${item.price}'> </custom-card>` : ''}  `  })}
+        ${(reg.test(item.title) || this.keyword.length === 0 ) ? html`<custom-card title='${item.title}' img='${item.largeImage}' price='${item.price}' desc=${item.description}> </custom-card>` : ''}  `  })}
 
     </div>
     `;
