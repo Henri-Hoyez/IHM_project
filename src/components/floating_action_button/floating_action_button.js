@@ -8,6 +8,28 @@ class FloatingActionButton extends LitElement {
         super();
     }
 
+    static get styles() {
+        return css`
+
+        button {
+            position: fixed !important;
+            right: 2em;
+            bottom: 2em;
+            z-index: 10;
+        }
+
+        .mdc-fab:not(.mdc-ripple-upgraded):focus::before, .mdc-fab.mdc-ripple-upgraded--background-focused::before {
+            opacity: 0!important:
+        }
+
+        .mdc-fab.mdc-ripple-upgraded {
+            --mdc-ripple-fg-opacity : 0!important;
+        }
+
+        `
+    }
+
+
     render() {
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/fab/dist/mdc.fab.css">
@@ -39,10 +61,11 @@ class FloatingActionButton extends LitElement {
                 direction: ltr;
             }
             </style>
-
-            <button class="mdc-fab" aria-label="Favorite">
-                <span class="mdc-fab__icon material-icons"><slot>dns</slot></span>
-            </button>`
+            <a href="#">
+                <button class="mdc-fab mdc-fab--mini" aria-label="Favorite" >
+                    <span class="mdc-fab__icon material-icons"><slot>keyboard_arrow_up</slot></span>
+                </button>
+            </a>`
     }
 
     firstUpdated() {

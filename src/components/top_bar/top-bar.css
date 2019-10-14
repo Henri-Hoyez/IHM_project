@@ -16,7 +16,7 @@ header {
     .mdc-drawer{
         display: none;
     }
-    
+
 }
 
 @media screen and (max-width:1023px){
@@ -54,20 +54,20 @@ header {
 }
 
 .not_selected{
-    color: gray;
+    color: white;
     margin-right: 15px;
 }
 
 .not_selected:hover{
-    color: white;
+    color: #fffd61;
 }
 
 .nav_indicator {
     border-bottom-style: solid;
     border-width: thick;
     padding: 0 0 17px;
-    border-color:whitesmoke;
-    color: white;
+    border-color:#ffca28;
+    color: #ffca28;
     margin-right: 15px;
 }
 

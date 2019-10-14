@@ -81,7 +81,8 @@ class ShopCart extends LitElement {
             display: block;
             margin: auto;
             margin-bottom: 2em;
-            max-width:70%;
+            width: 40%;
+            min-width: 20em;
             height: auto;
         }
 

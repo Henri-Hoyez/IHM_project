@@ -53,7 +53,7 @@ class TopBar extends LitElement {
                 </section>
                 <span id= "icon-header">
                     <a id="icon-header-title" href="#">
-                        <img src="src/components/top_bar/neo-clothes-logo.png"/>
+                        <img src="src/components/top_bar/white_logo.png"/>
                     </a>
                 </span>
 
