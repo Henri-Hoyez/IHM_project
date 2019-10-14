@@ -1,0 +1,7 @@
+.shop-cart--open{
+    visibility: visible;
+}
+
+.shop-cart--close{
+    visibility: hidden;
+}
