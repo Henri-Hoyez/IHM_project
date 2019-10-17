@@ -4,13 +4,8 @@ import { MDCRipple } from '@material/ripple';
 
 class ShopCart extends LitElement {
 
-
     constructor() {
-        super();
-        this.totalPrice = 50.50;
-        this.totalQuantity = 2;
-        // this.orderedProducts = Object.getOwnPropertyNames();
-        this.isEmpty = true;
+        super();     
     }
 
     firstUpdated() {
@@ -39,6 +34,8 @@ class ShopCart extends LitElement {
             text-align: center;
         }
 
+
+        
 
         table {
             margin: auto;
@@ -89,7 +86,47 @@ class ShopCart extends LitElement {
         `
     }
 
+
+    delete(e){
+        var item = e.target.getAttribute('value');
+
+        console.log(e.target);
+        
+        
+        BasketManager.delete(item);
+
+    }
+
+
+    backToShop(e){
+        document.dispatchEvent(new CustomEvent('cat-evnt', {
+            bubbles:true,
+            composed:true,
+            detail:null
+        }))
+    }
+
     render() {
+
+        var orderedProducts = localStorage.getItem('current_user') != null ? 
+                   JSON.parse(localStorage.getItem('current_user')).basket :
+                   Array();
+
+        console.log(orderedProducts);
+        
+
+        this.isEmpty = (orderedProducts.length === 0);  
+
+        var totalPrice = 0;   
+        var totalQuantity = 0; 
+
+        orderedProducts.forEach(product => {
+            totalQuantity += product.quantity;
+            totalPrice += product.quantity * product.price;
+        });
+
+        totalPrice = totalPrice.toFixed(2);
+
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
             <link rel="stylesheet" href="src/components/shopping_cart/shop_cart.css">
@@ -98,14 +135,28 @@ class ShopCart extends LitElement {
                 <h2 id="title1">VOTRE PANIER</h2>
                 <table>
                     <thead>
+                    <tr>
+                        <td>Visual</td>
+                        <td>Title</td>
+                        <td>Price</td>
+                        <td>Quantitée</td>
+                        <td>Sous-total</td>
+                        <td> </td>
+                    </tr>
+
+                    ${orderedProducts.map(product => html`
                         <tr>
-                            <th>Aperçu</th>
-                            <th>Article</th>
-                            <th>Prix unitaire</th>
-                            <th>Quantité</th>
-                            <th>Total</th>
-                            <th></th>
+                            <td><img class="visuel" src="${product.image}" alt="Visuel article"></td>
+                            <td>${product.title}</td>
+                            <td>${product.price} €</td>
+                            <td> <input type='number' value=${product.quantity}> </td>
+                            <td>${product.quantity * product.price} €</td>
+                            <td>
+                                <input @click=${this.delete} value="${product.title}" class="supprimerArticle" type="image" src="/src/components/shopping_cart/annule.jpg" width="20">
+                            </td>
                         </tr>
+                    `)}
+
                     </thead>
                     <tbody>
 
@@ -113,8 +164,8 @@ class ShopCart extends LitElement {
                     <tfoot>
                         <tr>
                             <th colspan="3"></th>
-                            <th>Total quantity<br>${this.totalQuantity}</th>
-                            <th>Total price<br>${this.totalPrice} €</th>
+                            <th>Total quantity<br>${totalQuantity}</th>
+                            <th>Total price<br>${totalPrice} €</th>
                             <th></th>
                         </tr>
                     </tfoot>
@@ -132,23 +183,23 @@ class ShopCart extends LitElement {
             </span>
 
 
-            <section>
-                <h2 id="title1 ${this.isEmpty ? "shop-cart--open" : "shop-cart--close"}">Your shopping cart is empty...</h2>
+            <section class=${this.isEmpty ? "shop-cart--open" : "shop-cart--close"}>
+                <h2 id="title1" >Your shopping cart is empty...</h2>
                 <img src=src/components/shopping_cart/empty-cart.jpg>
             </section>
 
-            <span class="button-container ">
-                    <button type="button" class="mdc-button shop ${this.isEmpty ? "shop-cart--open" : "shop-cart--close"}">
+            <span class="button-container  ">
+                    <button @click=${this.backToShop} type="button" class="mdc-button shop ${this.isEmpty ? "shop-cart--open" : "shop-cart--close"}">
                         <span class="mdc-button__label">Back to shop</span>
                     </button>
-                    <button class="mdc-button mdc-button--raised sign-in ${this.isEmpty ? "shop-cart--open" : "shop-cart--close"}">
+
+                    <button class="mdc-button mdc-button--raised sign-in ${ localStorage.getItem('current-user') != null ? "shop-cart--open" : "shop-cart--close"}">
                         <span class="mdc-button__label">
                         Sign in
                         </span>
                     </button>
             </span>
-
-           `
+           `;
     }
 
 

@@ -69,9 +69,11 @@ class ItemDetail extends LitElement {
 
     }else{
       user.basket.push({
+        title:this.title,
         image:this.image,
         desc : this.desc,
-        price: this.price
+        price: this.price,
+        quantity: 1
       });
     }
 
