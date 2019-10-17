@@ -21,17 +21,13 @@
     <script type="module" src="src/components/galery/custom_galery.js"></script>
     <script type="module" src="src/components/item_details/item_detail.js"></script>
     <script type="module" src="src/components/home/home.js"></script>
+    <script type="module" src="src/components/account/my_account.js"></script>
 
     <script type="module" src="src/components/textfield/search_bar.js"></script>
 
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-
-
-
-
-    
 
     <style>
         body {
@@ -50,23 +46,53 @@
     <top-bar></top-bar>
     <nav-drawer></nav-drawer>
     <search-bar></search-bar>
-    <custom-galery ></custom-galery> 
 
-    <item-detail>  </item-detail>
+    <custom-galery style="display: inherit;"></custom-galery> 
+
+    <registration-form id='connection' style="display : none;"></registration-form>
+
+    <connexion-form id="person" style="display: none;" > </connexion-form>
+
+    <div id="shopping_cart" style="display: none;"> CECI EST LE PANIER !  </div>
+    
+    <item-detail></item-detail>
 
     <section>
-        <!-- <connexion-form></connexion-form> -->
-        <!-- <registration-form></registration-form> -->
         <end-command image_path="components/end_command/valid.jpg" title="YOU ARE ALMOST !"
             subtitle="Would you like to confirm the order ?"></end-command>
+    </section> 
 
-        <!-- <end-command image_path="components/end_command/congrats.jpg" title="CONGRATULATIONS !"
-            subtitle="Your order has been taken into account !"></end-command> -->
-        <!-- <my-account clientName="Name" clientFirstName="FirstName" clientGender=0 clientMail="email@example.com"
-            clientPhone="06XXXXXXX"></my-account> -->
-    </section>
     <up-button></up-button>
     <custom-footer></custom-footer>
 </body>
+
+
+
+<script>
+    var prev_item = null
+    document.addEventListener('cat-evnt', (e) => {
+        
+        console.log(e.detail);
+
+        let selected_component = document.getElementById(e.detail);
+        
+        if( prev_item === selected_component ){
+            return;
+        }
+
+        if(selected_component != null){
+            selected_component.style.display = 'inherit';
+        }
+        
+        
+        if(prev_item != null){
+            prev_item.style.display = 'none';
+        }
+
+        prev_item = selected_component;
+    });
+
+</script>
+
 
 </html>

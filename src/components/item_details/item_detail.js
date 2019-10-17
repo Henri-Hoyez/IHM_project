@@ -35,13 +35,15 @@ class ItemDetail extends LitElement {
     }
 
     document.addEventListener('update-detail-view', (e) => { 
-      console.log(e);
-      this.display = !this.display; 
 
+      console.log(e.detail);
+      
+
+      this.display = !this.display; 
 
       if(this.display){
         this.title = e.detail.title;
-        this.desc = e.detail.desc;
+        this.desc = e.detail.desc.split('.')[0]+'. ' + e.detail.desc.split('.')[1]+'.';
         this.price = e.detail.price;
         this.image = e.detail.image;
       }
@@ -52,9 +54,48 @@ class ItemDetail extends LitElement {
 
   }
 
+
+  buttonEvent(){
+  
+    var user = JSON.parse(localStorage.getItem('current_user'));
+
+    if(user === null){  
+
+      document.dispatchEvent(new CustomEvent('cat-evnt',{
+        bubbles: true,
+        composed: true,
+        detail :'person'
+      }));
+
+    }else{
+      user.basket.push({
+        image:this.image,
+        desc : this.desc,
+        price: this.price
+      });
+    }
+
+    this.updateStorage(user);
+
+  }
+
+
+  updateStorage(user){
+    
+    var users = JSON.parse(localStorage.getItem('users'));
+
+    var user_index = users.indexOf(JSON.parse(localStorage.getItem('current_user')));
+
+    users.splice(user_index  + 1, 1);
+
+    localStorage.setItem('current_user', JSON.stringify(user));
+    
+
+    localStorage.setItem('users', JSON.stringify(users));
+
+  }
+
   render() { 
-    console.log('je rend');
-    console.log(this.display == true ? "detail-background" : "detail-background--hidden");
     
     return html `
         <link rel="stylesheet" href="/src/style/item-detail.css">
@@ -76,12 +117,10 @@ class ItemDetail extends LitElement {
                 <p> ${this.desc} </p>
             </div>
 
-            <button class="mdc-button--outlined">
-              <span class="mdc-button__label"> Add to card </span>
+            <button class="mdc-button--outlined" @click=${this.buttonEvent}>
+              <span class="mdc-button__label"> 
+              ${JSON.parse(localStorage.getItem('current_user')) === null ? 'sign-up to add this article to your basket':' Buy now'}  </span>
             </button>
-
-
-
             </div>
         </div>
     `;

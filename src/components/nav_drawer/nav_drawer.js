@@ -26,8 +26,11 @@ class NavDrawer extends LitElement {
     this.isConnected = false;
     this.categories = Object.getOwnPropertyNames(catalog);
   }
-
+  
   render() {
+
+    this.isConnected = (JSON.parse(localStorage.getItem('current_user')) != null);
+
     return html`
     <link href="/node_modules/@material/drawer/dist/mdc.drawer.css" rel="stylesheet">
     <link href="/node_modules/@material/list/dist/mdc.list.css" rel="stylesheet">
@@ -69,14 +72,14 @@ class NavDrawer extends LitElement {
         <div class="mdc-drawer__content">
         <nav class="mdc-list">
 
-          <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+          <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" @click=${this.shopEventDispach}>
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
             <span class="mdc-list-item__text">Home</span>
           </a>
 
-          <a class="mdc-list-item" href="#">
+          <a class="mdc-list-item" href="#" @click=${this.shopEventDispach}>
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">account_circle</i>
-            <span class="mdc-list-item__text">${this.isConnected ? "Mon compte" : "Connexion"}</span>
+            <span  class="mdc-list-item__text">${this.isConnected ? "Mon compte" : "Connexion"}</span>
           </a>
 
           <hr class="mdc-list-divider">
@@ -102,16 +105,18 @@ class NavDrawer extends LitElement {
     // Will send a event to the custom galery. The pupose is to update the 
     // categories selection.
     
-
     var target = e.target.childNodes[3];
 
-    console.log(e.target.childNodes[3]);
+    let content = target.textContent;
 
+    if(content === "Mon compte" || "Connexion"){
+        content = "person";        
+    }
 
     document.dispatchEvent(new CustomEvent("cat-evnt",{
       bubbles:true,
       composed:true,
-      detail: (target.textContent != 'Home') ? target.textContent : null
+      detail: (content != 'Home') ? content : null
     }));
 
 
@@ -123,7 +128,6 @@ class NavDrawer extends LitElement {
 
     document.addEventListener("toggle-menu", () => {
       this.open = !this.open;
-      console.log("toggle")
     });
   }
 

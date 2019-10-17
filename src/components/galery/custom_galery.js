@@ -43,7 +43,6 @@ class CustomGalery extends LitElement {
  
 
   render() {  
-    console.log('je rend !');
     
     if ((this.gender_categories == null && this.clothes_categories == null)){
       return html `  
@@ -55,11 +54,18 @@ class CustomGalery extends LitElement {
     
     this.items = null;
 
+    
+
     if(this.gender_categories != null && this.clothes_categories == null){
       // Categories loading.
 
       var tmp_items = catalog[this.gender_categories.toLowerCase()];
       this.items = Array();
+
+      if(tmp_items == null)
+      {
+        return html``;
+      }
 
       for (const [key, values] of Object.entries(tmp_items)){
         let obj = {
@@ -82,14 +88,21 @@ class CustomGalery extends LitElement {
     
     var reg = RegExp('.*'+ this.keyword +'.*', 'i');
 
+
+    console.log(this.items);
+    
+
     return html`
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="src/style/custom_galery.css">
     <div class="wrapper">
 
+
+
+
         ${this.items.map(item =>{ return html`
         
-        ${(reg.test(item.title) || this.keyword.length === 0 ) ? html`<custom-card title='${item.title}' img='${item.largeImage}' price='${item.price}'> </custom-card>` : ''}  `  })}
+        ${(reg.test(item.title) || this.keyword.length === 0 ) ? html`<custom-card title='${item.title}' img='${item.largeImage}' price='${item.price}' desc=${item.description}> </custom-card>` : ''}  `  })}
 
     </div>
     `;

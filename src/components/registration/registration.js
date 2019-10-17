@@ -7,12 +7,12 @@ class Registration extends LitElement {
 
     constructor() {
         super();
+        this.thanks_message = "Merci de vous être enregistrer ! :)";
     }
 
     firstUpdated() {
         var radios = this.shadowRoot.querySelectorAll('.mdc-radio');
         for (var i = 0; i < radios.length; i++) {
-            console.log(radios[i]);
             MDCRadio.attachTo(radios[i]);
         }
 
@@ -90,6 +90,62 @@ class Registration extends LitElement {
         }
         `
     }
+    
+    categoryEvent(){
+        document.dispatchEvent(new CustomEvent( 'cat-evnt', {
+            bubbles:true,
+            composed: true,
+            detail:'person'
+        }));
+    }
+
+    makeRegistration(){
+        
+        // let first_pass = this.shadowRoot.getElementById('password-input').value;
+        // let second_pass = this.shadowRoot.getElementById('re-password-input').value;
+
+        // if( ! (first_pass === second_pass) ){
+        //     alert('password not match !');
+        //     return;
+        // } TODO: uncomment that !
+
+
+
+        let gender = this.shadowRoot.getElementById('radio-1').checked ? "Female": "Male";
+        console.log(gender);
+
+        var user = {
+            last_name :  this.shadowRoot.getElementById('name-input').value,
+            first_name: this.shadowRoot.getElementById('firstname-input').value,
+            mail : this.shadowRoot.getElementById('email-input').value,
+            password : this.shadowRoot.getElementById('password-input').value,
+            phone : this.shadowRoot.getElementById('phone-input').value,
+            gender: gender,
+            basket: Array()
+        };
+
+        var users = JSON.parse(localStorage.getItem('users'));
+
+        if(users === null){
+            users = Array(); 
+        }
+
+        users.push(user);
+        localStorage.setItem('users', JSON.stringify(users));
+
+        localStorage.setItem('current_user', JSON.stringify(user))
+
+        let title2 = this.shadowRoot.querySelector('.title2');
+        title2.innerHTML  = this.thanks_message;
+        title2.style.color = 'green';
+
+        document.dispatchEvent(new CustomEvent ('cat-evnt', {
+            bubbles:true,
+            composed:true,
+            detail:null
+        }))
+        
+    }
 
     render() {
         return html`
@@ -99,7 +155,7 @@ class Registration extends LitElement {
 
             <div id="form_titles">
                 <h2 class="title1">CRÉER VOTRE COMPTE</h2>
-                <h3 class="title2">Déjà un compte ? <a>Connectez-vous</a></h3>
+                <h3 class="title2">Déjà un compte ? <a @click=${this.categoryEvent}>Connectez-vous</a></h3>
             </div><br>
 
             <div class="radios_input">
@@ -151,6 +207,12 @@ class Registration extends LitElement {
             </div>
 
             <div class="mdc-text-field form_input">
+                <input type="password" class="mdc-text-field__input" id="re-password-input" name="password" required minlength="8">
+                <label class="mdc-floating-label" for="password-input">re-type your password</label>
+                <div class="mdc-line-ripple"></div>
+            </div>
+
+            <div class="mdc-text-field form_input">
                 <input type="tel" class="mdc-text-field__input" id="phone-input" name="firstname">
                 <label class="mdc-floating-label" for="firstname-input">Phone number</label>
                 <div class="mdc-line-ripple"></div>
@@ -162,7 +224,7 @@ class Registration extends LitElement {
                     Cancel
                     </span>
                 </button>
-                <button class="mdc-button mdc-button--raised confirm">
+                <button @click=${this.makeRegistration} class="mdc-button mdc-button--raised confirm">
                     <span class="mdc-button__label">
                     Confirm
                     </span>

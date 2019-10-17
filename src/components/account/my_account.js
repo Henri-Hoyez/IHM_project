@@ -4,12 +4,12 @@ import { MDCRipple } from '@material/ripple';
 class MyAccount extends LitElement {
 
     constructor() {
-        super();
+        super();    
+        this.client = JSON.parse( localStorage.getItem('current_user'));
     }
 
     firstUpdated() {
         MDCRipple.attachTo(this.shadowRoot.querySelector('.disconnection'));
-
     }
 
     static get properties() {
@@ -61,7 +61,33 @@ class MyAccount extends LitElement {
         `
     }
 
+
+    signout(){
+        localStorage.removeItem('current_user');
+
+        console.log("oulala");
+        document.dispatchEvent(new CustomEvent('cat-evnt', {
+            bubbles: true,
+            composed:true,
+            detail:null,
+        }));
+
+        this.requestUpdate();
+    }
+
     render() {
+
+        this.client = JSON.parse(localStorage.getItem('current_user'));
+
+        console.log('client :');
+        console.log(this.client);
+
+        if(this.client === null){
+            return html``;
+        }
+        
+        
+
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
 
@@ -69,24 +95,22 @@ class MyAccount extends LitElement {
                 <h2 class="title1">YOUR ACCOUNT</h2>
                 <h3 class="title2">Your personal information</h3><br>
                 <article>
-                    <img src="components/account/avatar.jpg" alt="Avatar"/>
-                    <div>NAME :             ${this.clientName}</div>
-                    <div>FIRSTNAME :          ${this.clientFirstName}</div>
-                    <div>GENDER :                 ${this.clientGender ? "Male" : "Female"}</div>
-                    <div>E-MAIL :               ${this.clientMail}</div>
-                    <div>PHONE NUMBER :  ${this.clientPhone}</div>
+                    <img src="/src/components/account/avatar.jpg" alt="Avatar"/>
+                    <div>NAME :             ${this.client.last_name }</div>
+                    <div>FIRSTNAME :          ${this.client.first_name}</div>   
+                    <div>GENDER :                 ${this.client.gender}</div>
+                    <div>E-MAIL :               ${this.client.mail}</div>
+                    <div>PHONE NUMBER :  ${this.client.phone}</div>
 
                 </article>
                 <br><br>
                 <div class="button-container">
-                    <button class="mdc-button mdc-button--raised disconnection">
+                    <button @click=${this.signout} class="mdc-button mdc-button--raised disconnection">
                         <span class="mdc-button__label">Sign out</span>
                     </button>
                 </div>
 
             </section>
-
-
             `;
     }
 
