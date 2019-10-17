@@ -20,11 +20,13 @@
     "@material/button": "^3.2.0",
     "@material/card": "^3.2.0",
     "@material/drawer": "^3.2.0",
+    "@material/fab": "^3.2.0",
     "@material/form-field": "^3.2.0",
     "@material/list": "^3.2.0",
     "@material/radio": "^3.2.0",
     "@material/textfield": "^3.2.0",
     "@material/top-app-bar": "^3.2.0",
-    "lit-element": "^2.2.1"
+    "lit-element": "^2.2.1",
+    "requirejs": "^2.3.6"
   }
 }

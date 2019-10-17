@@ -8,7 +8,6 @@
 
     <script src="data/products.js"></script>
 
-    <script src="/src/search_engine/SearchEngine.js"></script>
 
     <script type="module" src="src/components/nav_drawer/nav_drawer.js"></script>
     <script type="module" src="src/components/custom_button/custom_button.js"></script>
@@ -24,7 +23,7 @@
     <script type="module" src="src/components/account/my_account.js"></script>
 
     <script type="module" src="src/components/textfield/search_bar.js"></script>
-
+    <script type="module" src="src/components/shopping_cart/shop_cart.js"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
@@ -39,6 +38,12 @@
             padding: 1em;
         }
 
+        :root {
+            --mdc-theme-primary: #c62828;
+            --mdc-theme-secondary: #ffca28;
+            --mdc-theme-on-primary: #ffffff;
+            --mdc-theme-on-secondary: #6d4c41;
+        }
     </style>
 </head>
 
@@ -47,6 +52,9 @@
     <nav-drawer></nav-drawer>
     <search-bar></search-bar>
 
+    
+    <shop-cart id="shopping_cart" style="display : none;"></shop-cart>
+    
     <custom-galery style="display: inherit;"></custom-galery> 
 
     <registration-form id='connection' style="display : none;"></registration-form>
@@ -62,7 +70,7 @@
             subtitle="Would you like to confirm the order ?"></end-command>
     </section> 
 
-    <up-button></up-button>
+    <floating-action-button></floating-action-button>
     <custom-footer></custom-footer>
 </body>
 
