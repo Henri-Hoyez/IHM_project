@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit-element';
-import { strings } from '@material/ripple';
+// import { strings } from '@material/ripple';
 
 
 class ItemDetail extends LitElement {

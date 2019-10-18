@@ -19,6 +19,7 @@
   "dependencies": {
     "@material/button": "^3.2.0",
     "@material/card": "^3.2.0",
+    "@material/data-table": "^3.2.0",
     "@material/drawer": "^3.2.0",
     "@material/fab": "^3.2.0",
     "@material/form-field": "^3.2.0",

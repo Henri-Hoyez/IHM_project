@@ -7,18 +7,17 @@ class EndCommand extends LitElement {
     firstUpdated() {
         MDCRipple.attachTo(this.shadowRoot.querySelector('.cancel'));
         MDCRipple.attachTo(this.shadowRoot.querySelector('.next'));
+
+        document.addEventListener('buy-evnt', (e)=> { this.requestUpdate(); });
     }
 
-    static get properties() {
-        return {
-            title: { type: String },
-            subtitle: { type: String },
-            image_path: { type: String }
-        }
-    }
 
     constructor() {
         super();
+
+        this.titles = ["Thanks you for pushasing !", "You did it !", "Congratulations !"]
+        this.subtitles = ["Your are amazing !", "We like your clothing taste", "Don't forget to return here when ou need some other clothes"]
+        this.paths = ["congrats","valid"];
     }
 
     static get styles() {
@@ -66,23 +65,38 @@ class EndCommand extends LitElement {
         `
     }
 
+    getRandomNumber(max){
+        //Get a value between 0 and "max"
+        return Math.floor(Math.random() * max);
+    }
+
+    returnShop(){
+        document.dispatchEvent(new CustomEvent('cat-evnt', {
+            bubbles : true,
+            composed : true,
+            detail: null
+        }));
+    }
+
     render() {
+
+
+        console.log('/src/components/end_command/'+ this.paths[this.getRandomNumber(this.paths.length)] + '.jpg');
+        
+        
         return html`
-            <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
+            <link rel="stylesheet" href="/node_modules/@material/button/dist/mdc.button.css">
 
             <section>
                 <div id="form_titles">
-                    <h2 class="title1">${this.title}</h2>
-                    <h3 class="title2">${this.subtitle}</h3>
+                    <h2 class="title1">${this.titles[this.getRandomNumber(this.titles.length)]}</h2>
+                    <h3 class="title2">${this.subtitles[this.getRandomNumber(this.subtitles.length)]}</h3>
                 </div><br>
 
                 <article>
-                    <img src=${this.image_path} alt="Visual validation">
+                    <img src="/src/components/end_command/${this.paths[this.getRandomNumber(this.paths.length)]}.jpg" alt="Visual validation">
                     <div class="button-container">
-                        <button type="button" class="mdc-button cancel">
-                            <span class="mdc-button__label">Cancel</span>
-                        </button>
-                        <button class="mdc-button mdc-button--raised next">
+                        <button @click=${this.returnShop} class="mdc-button mdc-button--raised next">
                             <span class="mdc-button__label">Next</span>
                         </button>
                     </div>

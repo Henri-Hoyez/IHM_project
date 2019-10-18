@@ -27,68 +27,12 @@ class ShopCart extends LitElement {
         }
     }
 
-    static get styles() {
-        return css`
-
-        .title1 { font-size: 1.95em; }
-
-        .title2 { font-size: 1.5em; }
-
-        section {
-            text-align: center;
-        }
-
+    // static get styles() {
+    //     return css`
 
         
-
-        table {
-            margin: auto;
-            border-collapse: collapse;
-            border: 1px solid gray;
-            min-height: 15em;
-            width: 70%;
-        }
-
-        thead th, thead td, tfoot th {
-            height: 50px;
-            background-color: #BBB;
-            color: white;
-        }
-
-        section td {
-            width: 20%;
-            border-top: 1px solid lightgrey;
-        }
-
-        section > a { text-decoration: underline; }
-
-        section tbody a {
-            font-weight: bold;
-            color: coral;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            max-width: 350px;
-            margin: auto;
-          }
-
-        .button-container button {
-            margin: 5px;
-        }
-
-        img {
-            display: block;
-            margin: auto;
-            margin-bottom: 2em;
-            width: 40%;
-            min-width: 20em;
-            height: auto;
-        }
-
-        `
-    }
+    //     `;
+    // }
 
     ereaseBacket(e){
         var user = JSON.parse(localStorage.getItem('current_user'));
@@ -121,9 +65,26 @@ class ShopCart extends LitElement {
         var quantity = e.target.value;        
         
         BasketManager.updateQuentity(itemName, quantity);
+
+        this.requestUpdate();
+    }
+
+
+    confirm(e){
+        var user = JSON.parse(localStorage.getItem('current_user'));
+        BasketManager.ereaseBasket(user);   
+
+        this.requestUpdate();
+
+        document.dispatchEvent(new CustomEvent('cat-evnt', {
+            bubbles : true,
+            composed : true,
+            detail: 'confirm'
+        }));
     }
 
     render() {
+        
         var totalPrice = 0;   
         var totalQuantity = 0; 
 
@@ -134,7 +95,7 @@ class ShopCart extends LitElement {
         this.isEmpty = (orderedProducts.length === 0);  
 
         orderedProducts.forEach(product => {
-            totalQuantity += product.quantity;
+            totalQuantity += parseInt(product.quantity);
             totalPrice += product.quantity * product.price;
         });
 
@@ -142,13 +103,13 @@ class ShopCart extends LitElement {
 
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
-            <link rel="stylesheet" href="src/components/shopping_cart/shop_cart.css">
+            <link rel="stylesheet" href="src/style/shop_cart.css">
 
             <section class="${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
                 <h2 id="title1">VOTRE PANIER</h2>
-                <table>
+                <table class="w3-table w3-table-all my-table">
                     <thead>
-                    <tr>
+                    <tr class="header">
                         <td>Visual</td>
                         <td>Title</td>
                         <td>Price</td>
@@ -162,8 +123,8 @@ class ShopCart extends LitElement {
                             <td><img class="visuel" src="${product.image}" alt="Visuel article"></td>
                             <td>${product.title}</td>
                             <td>${product.price} €</td>
-                            <td> <input @click=${this.updateQuantity} item=${product.title} type='number' value=${product.quantity}> </td>
-                            <td>${product.quantity * product.price} €</td>
+                            <td> <input @click=${this.updateQuantity} unitary_price=${product.price} item=${product.title} type='number' value=${product.quantity}> </td>
+                            <td id="${product.title}_price" unitaryPrice=${product.price} >${(product.quantity * product.price).toFixed(2)} €</td>
                             <td>
                                 <input @click=${this.delete} value="${product.title}" class="supprimerArticle" type="image" src="/src/components/shopping_cart/annule.jpg" width="20">
                             </td>
@@ -190,7 +151,7 @@ class ShopCart extends LitElement {
                     <button @click=${this.ereaseBacket} type="button" class="mdc-button empty ${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
                         <span class="mdc-button__label">Empty cart</span>
                     </button>
-                    <button class="mdc-button mdc-button--raised confirm ${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
+                    <button @click=${this.confirm} class="mdc-button mdc-button--raised confirm ${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
                         <span class="mdc-button__label">Confirm</span>
                     </button>
             </span>
@@ -214,8 +175,6 @@ class ShopCart extends LitElement {
             </span>
            `;
     }
-
-
 
 }
 
