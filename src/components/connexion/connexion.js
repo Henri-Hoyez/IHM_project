@@ -106,12 +106,10 @@ class Connexion extends LitElement {
 
 
     render() {
-        if(localStorage.getItem('current_user') != null){    
-            console.log('PAUPIETTE DE VEAU');        
+        if(JSON.parse(localStorage.getItem('current_user')) != null){                
+            console.log("PAUPIETTES");
             
-
-            return html`<my-account></my-account>
-            `;
+            return html`<my-account></my-account>`;
         }
 
 

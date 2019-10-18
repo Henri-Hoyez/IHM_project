@@ -65,11 +65,10 @@ class MyAccount extends LitElement {
     signout(){
         localStorage.removeItem('current_user');
 
-        console.log("oulala");
         document.dispatchEvent(new CustomEvent('cat-evnt', {
             bubbles: true,
             composed:true,
-            detail:null,
+            detail:null
         }));
 
         this.requestUpdate();
@@ -79,14 +78,9 @@ class MyAccount extends LitElement {
 
         this.client = JSON.parse(localStorage.getItem('current_user'));
 
-        console.log('client :');
-        console.log(this.client);
-
         if(this.client === null){
             return html``;
         }
-        
-        
 
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">

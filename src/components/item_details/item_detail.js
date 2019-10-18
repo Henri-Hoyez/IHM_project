@@ -56,7 +56,6 @@ class ItemDetail extends LitElement {
 
 
   buttonEvent(){
-  
     var user = JSON.parse(localStorage.getItem('current_user'));
 
     if(user === null){  
@@ -77,8 +76,14 @@ class ItemDetail extends LitElement {
       });
     }
 
-    this.updateStorage(user);
+    UserManager.updateUsersData(user);
 
+    document.dispatchEvent(new CustomEvent( 'buy-evnt', {
+      bubbles:true,
+      composed:true
+    } ));
+
+    
   }
 
 
@@ -94,7 +99,6 @@ class ItemDetail extends LitElement {
     
 
     localStorage.setItem('users', JSON.stringify(users));
-
   }
 
   render() { 

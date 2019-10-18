@@ -13,6 +13,10 @@ class ShopCart extends LitElement {
         MDCRipple.attachTo(this.shadowRoot.querySelector('.confirm'));
         MDCRipple.attachTo(this.shadowRoot.querySelector('.sign-in'));
         MDCRipple.attachTo(this.shadowRoot.querySelector('.shop'));
+
+        document.addEventListener('buy-evnt', (e)=> { this.requestUpdate(); });
+
+        document.addEventListener('cat-evnt', (e) => {this.requestUpdate(); })
     }
 
     static get properties() {
@@ -86,15 +90,21 @@ class ShopCart extends LitElement {
         `
     }
 
+    ereaseBacket(e){
+        var user = JSON.parse(localStorage.getItem('current_user'));
+        
+        BasketManager.ereaseBasket(user);
+
+        this.requestUpdate();
+    }
+
 
     delete(e){
-        var item = e.target.getAttribute('value');
-
-        console.log(e.target);
-        
+        var item = e.target.getAttribute('value');        
         
         BasketManager.delete(item);
 
+        this.requestUpdate();
     }
 
 
@@ -106,19 +116,22 @@ class ShopCart extends LitElement {
         }))
     }
 
-    render() {
-
-        var orderedProducts = localStorage.getItem('current_user') != null ? 
-                   JSON.parse(localStorage.getItem('current_user')).basket :
-                   Array();
-
-        console.log(orderedProducts);
+    updateQuantity(e){
+        var itemName = e.target.getAttribute('item');
+        var quantity = e.target.value;        
         
+        BasketManager.updateQuentity(itemName, quantity);
+    }
 
-        this.isEmpty = (orderedProducts.length === 0);  
-
+    render() {
         var totalPrice = 0;   
         var totalQuantity = 0; 
+
+        var user = JSON.parse(localStorage.getItem('current_user'));
+
+        var orderedProducts = (user != null) ?  JSON.parse(localStorage.getItem('current_user')).basket : Array();     
+
+        this.isEmpty = (orderedProducts.length === 0);  
 
         orderedProducts.forEach(product => {
             totalQuantity += product.quantity;
@@ -149,7 +162,7 @@ class ShopCart extends LitElement {
                             <td><img class="visuel" src="${product.image}" alt="Visuel article"></td>
                             <td>${product.title}</td>
                             <td>${product.price} €</td>
-                            <td> <input type='number' value=${product.quantity}> </td>
+                            <td> <input @click=${this.updateQuantity} item=${product.title} type='number' value=${product.quantity}> </td>
                             <td>${product.quantity * product.price} €</td>
                             <td>
                                 <input @click=${this.delete} value="${product.title}" class="supprimerArticle" type="image" src="/src/components/shopping_cart/annule.jpg" width="20">
@@ -174,7 +187,7 @@ class ShopCart extends LitElement {
             </section>
 
             <span class="button-container ">
-                    <button type="button" class="mdc-button empty ${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
+                    <button @click=${this.ereaseBacket} type="button" class="mdc-button empty ${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
                         <span class="mdc-button__label">Empty cart</span>
                     </button>
                     <button class="mdc-button mdc-button--raised confirm ${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">

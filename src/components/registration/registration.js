@@ -107,13 +107,10 @@ class Registration extends LitElement {
         // if( ! (first_pass === second_pass) ){
         //     alert('password not match !');
         //     return;
-        // } TODO: uncomment that !
-
-
+        // } TODO: uncomment that 
 
         let gender = this.shadowRoot.getElementById('radio-1').checked ? "Female": "Male";
-        console.log(gender);
-
+        
         var user = {
             last_name :  this.shadowRoot.getElementById('name-input').value,
             first_name: this.shadowRoot.getElementById('firstname-input').value,
@@ -124,16 +121,9 @@ class Registration extends LitElement {
             basket: Array()
         };
 
-        var users = JSON.parse(localStorage.getItem('users'));
 
-        if(users === null){
-            users = Array(); 
-        }
 
-        users.push(user);
-        localStorage.setItem('users', JSON.stringify(users));
-
-        localStorage.setItem('current_user', JSON.stringify(user))
+        UserManager.createUser(user);
 
         let title2 = this.shadowRoot.querySelector('.title2');
         title2.innerHTML  = this.thanks_message;
