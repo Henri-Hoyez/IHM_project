@@ -38,7 +38,24 @@ class BasketManager{
         UserManager.updateUsersData(user);
     }
 
+    static addArticle(user, item){
 
+        var index = this.findItemByTitle(user.basket, item.title);
+
+        console.log(user.basket);
+        
+
+        console.log(index);
+        
+
+        if(index != -1){
+            user.basket[index].quantity += item.quantity;
+
+        }else{
+            user.basket.push(item);
+        }
+
+    }
 
 
 }

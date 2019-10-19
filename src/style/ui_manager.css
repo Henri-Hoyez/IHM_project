@@ -1,0 +1,8 @@
+.ui-container{
+    position: absolute;
+    right: 10px;
+    top: 80px;
+    bottom: 10px;
+
+    width: 350px;
+}

@@ -1,0 +1,30 @@
+.container--closed{
+    padding: 5px;
+    background-color: #ffc92888;
+    border-radius: 5px;
+    width: 300px;
+    height: auto;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.192);
+
+    text-align: center;
+    margin: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.container--opened{
+    padding: 5px;
+    background-color: #ffc92888;
+    border-radius: 5px;
+    width: 300px;
+    height: auto;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.192);
+
+    text-align: center;
+    margin: 10px;
+
+    opacity: 1;
+    margin-right: 10px;
+    transition: opacity 0.5s ease-in-out;
+    
+}

@@ -68,6 +68,14 @@ td img {
     height: auto;
 }
 
+tr td {
+    text-align: center;
+}
+
+.num-input{
+    height: 150px;
+}
+
 .shop-cart--open{
     display: inherit;
 }

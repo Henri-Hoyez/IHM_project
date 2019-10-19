@@ -16,6 +16,12 @@ class CustomFooter extends LitElement {
             clear: both;
             position: relative;
             height: 100px;
+
+            position: fixed;
+            left:0;
+            right:0;
+            bottom:0;
+
         }
 
 

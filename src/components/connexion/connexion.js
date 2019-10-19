@@ -88,7 +88,6 @@ class Connexion extends LitElement {
         var password = this.shadowRoot.getElementById('password-input').value;
 
         users.forEach(user => {
-
             if(user.mail === mail && user.password === password){
                 localStorage.setItem('current_user', JSON.stringify(user));
                 document.dispatchEvent(new CustomEvent('cat-evnt',{
@@ -97,7 +96,13 @@ class Connexion extends LitElement {
                     detail : null
                 }));
 
+                document.dispatchEvent(new CustomEvent('ui-msg',{
+                    bubbles:true,
+                    composed:true,
+                    detail:"Welcome "+ user.last_name
+                  }));
             }
+
         });
 
         this.requestUpdate();

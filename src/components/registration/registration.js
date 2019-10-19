@@ -132,7 +132,7 @@ class Registration extends LitElement {
         document.dispatchEvent(new CustomEvent ('cat-evnt', {
             bubbles:true,
             composed:true,
-            detail:null
+            detail:'person'
         }))
         
     }

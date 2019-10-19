@@ -54,8 +54,10 @@ class ShopCart extends LitElement {
     }
 
     updateQuantity(e){
-        var itemName = e.target.getAttribute('item');
-        var quantity = e.target.value;        
+
+        
+        var itemName = e.target.__item_name;
+        var quantity  = e.target.__value       
         
         BasketManager.updateQuentity(itemName, quantity);
 
@@ -90,12 +92,14 @@ class ShopCart extends LitElement {
         totalPrice = totalPrice.toFixed(2);
 
         return html`
+            <script type="module" src="../../../src/components/number_input/numberInput.js"></script>
+
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
+
             <link rel="stylesheet" href="../../../src/style/shop_cart.css">
-            <script type="mudule" src="../number_input/numberInput.js"> </script>
 
             <section class="${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
-                <h2 id="title1">Your basket !</h2>
+                <h2 id="title1">Your shopping cart</h2>
                 <table class="w3-table w3-table-all my-table">
                     <thead>
                     <tr class="header">
@@ -112,7 +116,7 @@ class ShopCart extends LitElement {
                             <td><img class="visuel" src="${product.image}" alt="Visuel article"></td>
                             <td>${product.title}</td>
                             <td>${product.price} €</td>
-                            <td> <input @click=${this.updateQuantity} unitary_price=${product.price} item=${product.title} type='number' value=${product.quantity}> </td>
+                            <td> <number-input class="num-input" @click=${this.updateQuantity} value=${product.quantity} item_name=${product.title}> </number-input> </td>
                             <td id="${product.title}_price" unitaryPrice=${product.price} >${(product.quantity * product.price).toFixed(2)} €</td>
                             <td>
                                 <input @click=${this.delete} value="${product.title}" class="supprimerArticle" type="image" src="/src/components/shopping_cart/annule.jpg" width="20">

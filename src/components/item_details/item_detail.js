@@ -67,13 +67,20 @@ class ItemDetail extends LitElement {
       }));
 
     }else{
-      user.basket.push({
+      var quantity = this.shadowRoot.querySelector(".num-input").__value; 
+
+      var item = {
         title:this.title,
         image:this.image,
         desc : this.desc,
         price: this.price,
-        quantity: 1
-      });
+        quantity: quantity
+      };
+
+
+
+      BasketManager.addArticle(user, item);
+
     }
 
     UserManager.updateUsersData(user);
@@ -81,7 +88,7 @@ class ItemDetail extends LitElement {
     document.dispatchEvent(new CustomEvent( 'buy-evnt', {
       bubbles:true,
       composed:true
-    } ));
+    }));
 
     
   }
@@ -96,7 +103,6 @@ class ItemDetail extends LitElement {
 
     localStorage.setItem('current_user', JSON.stringify(user));
     
-
     localStorage.setItem('users', JSON.stringify(users));
   }
 
@@ -108,35 +114,51 @@ class ItemDetail extends LitElement {
         <link rel="stylesheet" href="../../../node_modules/@material/card/dist/mdc.card.css">
         <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
 
+        <script type="module" src="../../../src/components/number_input/numberInput.js"></script>
+
+
 
         <div class="${this.display == true ? "detail-background" : "detail-background--hidden"}" @click='${this.exitView}'>
-            <div class="mdc-card detail-body">
-            <div class="mdc-card__primary-action">
-                <img src="${this.image}">
-            </div>
-            <div class="header">
-                <div class="card-title"> ${this.title} </div>
-                <div class="card-price"> ${this.price} € </div>
-            </div>
-            <div class="card-desc">
-                <p> ${this.desc} </p>
-            </div>
 
-            <button class="mdc-button--outlined" @click=${this.buttonEvent}>
-              <span class="mdc-button__label"> 
-              ${JSON.parse(localStorage.getItem('current_user')) === null ? 'sign-up to add this article to your basket':' Buy now'}  </span>
-            </button>
+            <div class="mdc-card detail-body">
+
+                <div class="mdc-card__primary-action">
+                    <img src="${this.image}">
+                </div>
+
+                <div class="header">
+                    <div class="card-title"> ${this.title} </div>
+                    <div class="card-price"> ${this.price} € </div>
+                </div>
+
+                <div class="card-desc">
+                    <p> ${this.desc} </p>
+                </div>
+
+
+                <div class="bottom-information"> 
+
+                    <number-input class="num-input" @click=${this.updateQuantity} value=1 item_name=${this.title}> </number-input>
+
+                    <button @click=${this.buttonEvent} class="mdc-button mdc-button--raised fast-add-button">
+                        <span class="mdc-button__label"> ${JSON.parse(localStorage.getItem('current_user')) != null ? "Add To Card" : "sign-in" }  </span>
+                    </button>
+                </div>
             </div>
         </div>
     `;
   }
 
-exitView(e){
-  document.dispatchEvent(new CustomEvent('update-detail-view', {
-    bubbles:true,
-    composed:true
-  }));
-}
+  updateQuantity(e){
+    e.cancelBubble = true;
+  }
+
+  exitView(e){
+    document.dispatchEvent(new CustomEvent('update-detail-view', {
+      bubbles:true,
+      composed:true
+    }));
+  }
 
 
 }

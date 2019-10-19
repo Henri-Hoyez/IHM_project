@@ -31,3 +31,10 @@
     float: right;
     clear: none;      
 }  
+
+.bottom-information > .fast-add-button{
+    float: left;
+    height: 25px;
+    margin-left: 5px ;
+    margin-top: 5px ;
+}
