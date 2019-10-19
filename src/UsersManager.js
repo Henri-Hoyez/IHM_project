@@ -20,7 +20,6 @@ class UserManager{
         var users = JSON.parse(localStorage.getItem('users'));        
 
         for(let i = 0; i < users.length; i+=1){
-
             if( JSON.stringify(current_user) == JSON.stringify(users[i]) ){                                
                 return i;
             }  
@@ -42,7 +41,12 @@ class UserManager{
     }
 
     static signout(user){
-        //TODO : DO IT !
+        console.log('deconection');
+        
+
+        localStorage.removeItem('current_user');
+
+
     }
 
 }

@@ -10,6 +10,10 @@ class MyAccount extends LitElement {
 
     firstUpdated() {
         MDCRipple.attachTo(this.shadowRoot.querySelector('.disconnection'));
+
+        document.addEventListener('cat-evnt', (e) => { 
+            this.requestUpdate(); 
+        });
     }
 
     static get properties() {
@@ -78,16 +82,8 @@ class MyAccount extends LitElement {
 
         this.client = JSON.parse(localStorage.getItem('current_user'));
 
-        if(this.client === null){
-
-            document.dispatchEvent(new CustomEvent('cat-evnt', {
-                bubbles: true,
-                composed:true,
-                detail:'person'
-            }));
-
-            return html``;
-        }
+        console.log('je rend');
+        
 
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">

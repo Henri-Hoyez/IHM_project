@@ -144,8 +144,8 @@ class Registration extends LitElement {
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
 
             <div id="form_titles">
-                <h2 class="title1">CRÉER VOTRE COMPTE</h2>
-                <h3 class="title2">Déjà un compte ? <a @click=${this.categoryEvent}>Connectez-vous</a></h3>
+                <h2 class="title1">Sign up</h2>
+                <h3 class="title2">Already Sign up ? <a @click=${this.categoryEvent}>Sign in</a></h3>
             </div><br>
 
             <div class="radios_input">

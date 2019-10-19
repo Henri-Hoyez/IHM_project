@@ -46,7 +46,7 @@ class SearchBar extends LitElement{
             <script src="../../../node_modules/@material/textfield/dist/mdc.textfield.js"></script>
 
             <div class="mdc-text-field ${this.open?"search-bar--open":"search-bar--close"}">
-                <label class="mdc-floating-label" for="my-text-field"> <slot> Hint text </slot> </label>
+                <label class="mdc-floating-label" for="my-text-field"> <slot> What's your reshearch ? </slot> </label>
                 <input type="text" id="my-text-field" class="mdc-text-field__input" @keyup=${ this.searchEvent }>
             <div class="mdc-line-ripple"></div>
         </div>`;

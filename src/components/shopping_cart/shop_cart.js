@@ -64,15 +64,10 @@ class ShopCart extends LitElement {
 
 
     confirm(e){
-        var user = JSON.parse(localStorage.getItem('current_user'));
-        BasketManager.ereaseBasket(user);   
-
-        this.requestUpdate();
-
         document.dispatchEvent(new CustomEvent('cat-evnt', {
             bubbles : true,
             composed : true,
-            detail: 'confirm'
+            detail: "confirm"
         }));
     }
 
@@ -97,6 +92,7 @@ class ShopCart extends LitElement {
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
             <link rel="stylesheet" href="../../../src/style/shop_cart.css">
+            <script type="mudule" src="../number_input/numberInput.js"> </script>
 
             <section class="${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
                 <h2 id="title1">Your basket !</h2>

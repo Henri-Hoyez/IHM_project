@@ -102,7 +102,10 @@ class NavDrawer extends LitElement {
             </a>
 
           `)}
-
+          <a class="mdc-list-item" href="#" @click='${ UserManager.signout }'>
+              <i class="material-icons mdc-list-item__graphic" aria-hidden="true">directions_run</i>
+              <span class="mdc-list-item__text" >Log-out</span>
+            </a>
         </nav>
         </div>
       </aside>`
@@ -117,8 +120,6 @@ class NavDrawer extends LitElement {
     var target = e.target.childNodes[3];
 
     let content = target.textContent;
-
-    console.log(content);
 
     if(content === "My account" || content === "Connexion"){
         content = "person";        

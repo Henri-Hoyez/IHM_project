@@ -15,9 +15,10 @@ class EndCommand extends LitElement {
     constructor() {
         super();
 
-        this.titles = ["Thanks you for pushasing !", "You did it !", "Congratulations !"]
-        this.subtitles = ["Your are amazing !", "We like your clothing taste", "Don't forget to return here when ou need some other clothes"]
+        this.titles = ["Do you want to confirm", "Thanks you"];
+        this.subtitles = ["Click on the confirm button", "We looking forward to see you again"];
         this.paths = ["congrats","valid"];
+        this.index = 0;
     }
 
     static get styles() {
@@ -59,7 +60,13 @@ class EndCommand extends LitElement {
             margin: auto;
           }
 
-          .button-container button {
+        .congrat-button-container{
+            display: block;
+            width: 150px;
+            margin: auto;
+        }
+
+        .button-container button {
             margin: 5px;
         }
         `
@@ -78,28 +85,53 @@ class EndCommand extends LitElement {
         }));
     }
 
-    render() {
+    confirmEvent(e){
+        var user = JSON.parse(localStorage.getItem('current_user'));
+        BasketManager.ereaseBasket(user);
 
+        this.displayCongrat();
+    }
 
-        console.log('/src/components/end_command/'+ this.paths[this.getRandomNumber(this.paths.length)] + '.jpg');
-        
+    displayCongrat(){
+        this.index = 1;
+        this.requestUpdate();
+    }
+
+    resetView(){
+        this.index = 0;
+        this.requestUpdate();
+    }
+
+    render() {        
         
         return html`
             <link rel="stylesheet" href="/node_modules/@material/button/dist/mdc.button.css">
 
             <section>
                 <div id="form_titles">
-                    <h2 class="title1">${this.titles[this.getRandomNumber(this.titles.length)]}</h2>
-                    <h3 class="title2">${this.subtitles[this.getRandomNumber(this.subtitles.length)]}</h3>
+                    <h2 class="title1">${this.titles[this.index]}</h2>
+                    <h3 class="title2">${this.subtitles[this.index]}</h3>
                 </div><br>
 
                 <article>
-                    <img src="/src/components/end_command/${this.paths[this.getRandomNumber(this.paths.length)]}.jpg" alt="Visual validation">
-                    <div class="button-container">
-                        <button @click=${this.returnShop} class="mdc-button mdc-button--raised next">
+                    <img src="/src/components/end_command/${this.paths[this.index]}.jpg" alt="Visual validation">
+                    <div class="button-container" style=${this.index == 0 ? "" : "display : none;"} >
+
+                        <button @click=${this.returnShop} type="button" class="mdc-button cancel    ">
+                            <span class="mdc-button__label">Cancel</span>
+                        </button>
+
+                        <button @click=${this.confirmEvent} class="mdc-button mdc-button--raised next">
                             <span class="mdc-button__label">Next</span>
                         </button>
                     </div>
+
+                    <div class="congrat-button-container" style=${this.index == 1 ? "" : "display : none;"} >
+                        <button @click=${this.confirmEvent} class="mdc-button mdc-button--raised next">
+                            <span class="mdc-button__label">Return shopping</span>
+                        </button>
+                    </div>
+
                 </article>
             </section>
 

@@ -66,11 +66,17 @@ class TopBar extends LitElement {
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded"  @click=${this.search_event}  aria-label="Search">search</button>
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" @click=${this.category_event} aria-label="Profile">person</button>
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" @click=${this.category_event} aria-label="Shopping cart">shopping_cart</button>
+                    <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" @click=${this.signout} aria-label="Shopping cart">directions_run</button>
                 </section>
             </div>
         </header>
         <div id="under-app-bar"></div>
         `
+    }
+
+
+    signout(){
+        UserManager.signout();
     }
 
     category_event(e){
