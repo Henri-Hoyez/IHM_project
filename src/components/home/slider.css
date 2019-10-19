@@ -1,11 +1,15 @@
 /*https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties*/
+
 section {
     --img-width: 50em;
 }
+
 @media screen and (max-width:1024px) {
     section {
         --img-width: 30em;
     }
+
+    
 }
 @media screen and (max-width:520px) {
     section {
@@ -16,9 +20,6 @@ section {
 body {
     font-family: 'Roboto' sans-serif;
 }
-
-
-
 
 .slider-container {
     margin: auto;
@@ -39,12 +40,7 @@ body {
     width: calc(var(--img-width) * 3);
 }
 
-img {
-    float: left;
-}
-
-img,
-.img-container {
+img, .img-container {
     height: calc(var(--img-width) / 2);
 }
 

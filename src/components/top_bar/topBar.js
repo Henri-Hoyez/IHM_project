@@ -33,15 +33,8 @@ class TopBar extends LitElement {
         this.categories.unshift("Home")
         this.selected_cathegory = 'Home';
     }
-    firstUpdated() {
 
-
-    }
     render() {
-
-       
-
-
 
         return html`
         <link href="../../../node_modules/@material/top-app-bar/dist/mdc.top-app-bar.css" rel="stylesheet">

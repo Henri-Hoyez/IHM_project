@@ -79,6 +79,13 @@ class MyAccount extends LitElement {
         this.client = JSON.parse(localStorage.getItem('current_user'));
 
         if(this.client === null){
+
+            document.dispatchEvent(new CustomEvent('cat-evnt', {
+                bubbles: true,
+                composed:true,
+                detail:'person'
+            }));
+
             return html``;
         }
 

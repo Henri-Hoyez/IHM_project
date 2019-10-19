@@ -76,3 +76,13 @@ td img {
     display: none;
 }
 
+
+/* Media Queries for mobile */
+
+@media screen and (max-width:940px) {
+    section img{
+        width: 80%;
+    }
+    
+}
+

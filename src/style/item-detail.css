@@ -43,3 +43,22 @@
     text-align: justify;
 }
 
+@media screen and (max-width:600px) {
+    .detail-body{
+
+        z-index: 3;
+        background-color: bisque;
+        
+        width: 80%;
+        height: auto;
+        overflow: auto;     
+        margin: auto;
+        margin-top: 85px ;
+    }
+
+    .detail-body img{
+        width: 100%;
+        height: calc(width * 1.75);
+    }
+
+}

@@ -81,6 +81,9 @@
     document.addEventListener('cat-evnt', (e) => {        
         
         let selected_component = document.getElementById(e.detail);
+
+        console.log(e.detail);
+        
         
         if( prev_item === selected_component ){
             return;

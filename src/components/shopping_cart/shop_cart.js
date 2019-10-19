@@ -27,13 +27,6 @@ class ShopCart extends LitElement {
         }
     }
 
-    // static get styles() {
-    //     return css`
-
-        
-    //     `;
-    // }
-
     ereaseBacket(e){
         var user = JSON.parse(localStorage.getItem('current_user'));
         
@@ -106,7 +99,7 @@ class ShopCart extends LitElement {
             <link rel="stylesheet" href="../../../src/style/shop_cart.css">
 
             <section class="${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
-                <h2 id="title1">VOTRE PANIER</h2>
+                <h2 id="title1">Your basket !</h2>
                 <table class="w3-table w3-table-all my-table">
                     <thead>
                     <tr class="header">

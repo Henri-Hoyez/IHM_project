@@ -43,7 +43,7 @@ class ItemDetail extends LitElement {
 
       if(this.display){
         this.title = e.detail.title;
-        this.desc = e.detail.desc.split('.')[0]+'. ' + e.detail.desc.split('.')[1]+'.';
+        this.desc = e.detail.desc.split('.')[0]+'. ';
         this.price = e.detail.price;
         this.image = e.detail.image;
       }
@@ -85,7 +85,6 @@ class ItemDetail extends LitElement {
 
     
   }
-
 
   updateStorage(user){
     

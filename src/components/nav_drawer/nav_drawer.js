@@ -1,5 +1,4 @@
 import { LitElement, html, css } from 'lit-element';
-// import { MDCDrawer } from "@material/drawer";
 import { MDCList } from "@material/list";
 
 
@@ -31,7 +30,7 @@ class NavDrawer extends LitElement {
 
     <!-- <script src="../../../data/product.js"></script> -->
     <style>
-                @font-face {
+            @font-face {
                 font-family: 'Material Icons';
                 font-style: normal;
                 font-weight: 400;
@@ -56,8 +55,25 @@ class NavDrawer extends LitElement {
                 white-space: nowrap;
                 direction: ltr;
             }
-            </style>
 
+            .nav-brawer-bg--open{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: rgb(65, 65, 65,0.7);
+                z-index : 2;
+            }
+
+            .nav-brawer-bg--close{
+              display:none;
+            }
+
+      </style>
+
+      <div class="nav-brawer-bg${this.open? '--open' : '--close'}" @click=${this.toggleMenu}> </div>
+      
       <aside class="mdc-drawer mdc-drawer--modal is-hidden-desktop ${this.open ? "mdc-drawer--open" : "mdc-drawer--close"}">
         <div class="mdc-drawer__header">
           <h3 class="mdc-drawer__title">Menu</h3>
@@ -72,7 +88,7 @@ class NavDrawer extends LitElement {
 
           <a class="mdc-list-item" href="#" @click=${this.shopEventDispach}>
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">account_circle</i>
-            <span  class="mdc-list-item__text">${this.isConnected ? "Mon compte" : "Connexion"}</span>
+            <span  class="mdc-list-item__text">${this.isConnected ? "My account" : "Connexion"}</span>
           </a>
 
           <hr class="mdc-list-divider">
@@ -102,7 +118,9 @@ class NavDrawer extends LitElement {
 
     let content = target.textContent;
 
-    if(content === "Mon compte" || "Connexion"){
+    console.log(content);
+
+    if(content === "My account" || content === "Connexion"){
         content = "person";        
     }
 
@@ -113,6 +131,16 @@ class NavDrawer extends LitElement {
     }));
 
 
+  }
+
+  toggleMenu(e){
+    console.log('toggle');
+
+    document.dispatchEvent(new CustomEvent('toggle-menu', {
+      bubbles: true,
+      composed : true,
+      detail:"toggle menu"
+    }));
   }
 
   firstUpdated() {
