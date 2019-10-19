@@ -24,7 +24,7 @@ class Confirm extends LitElement {
     
     return html `
         <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
-        <link rel="stylesheet" href="src/style/confirm.css" alt='thanks gif'>
+        <link rel="stylesheet" href="../../../src/style/confirm.css" alt='thanks gif'>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 

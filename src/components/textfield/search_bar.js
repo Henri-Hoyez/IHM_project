@@ -42,7 +42,7 @@ class SearchBar extends LitElement{
     render(){
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/textfield/dist/mdc.textfield.css">
-            <link rel="stylesheet" href="src/components/textfield/search-bar.css">
+            <link rel="stylesheet" href="../../../src/components/textfield/search-bar.css">
             <script src="../../../node_modules/@material/textfield/dist/mdc.textfield.js"></script>
 
             <div class="mdc-text-field ${this.open?"search-bar--open":"search-bar--close"}">

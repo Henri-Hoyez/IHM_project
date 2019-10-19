@@ -46,8 +46,8 @@ class TopBar extends LitElement {
         return html`
         <link href="../../../node_modules/@material/top-app-bar/dist/mdc.top-app-bar.css" rel="stylesheet">
         <link href="../../../node_modules/@material/icon-button/dist/mdc.icon-button.css" rel="stylesheet">
-        <link href="src/components/top_bar/top-bar.css" rel="stylesheet">
-        <link href="src/style/bulma.min.css" rel="stylesheet">
+        <link href="../../../src/components/top_bar/top-bar.css" rel="stylesheet">
+        <link href="../../../src/style/bulma.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
         <header class="mdc-top-app-bar">

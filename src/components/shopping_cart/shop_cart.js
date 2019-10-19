@@ -103,7 +103,7 @@ class ShopCart extends LitElement {
 
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
-            <link rel="stylesheet" href="src/style/shop_cart.css">
+            <link rel="stylesheet" href="../../../src/style/shop_cart.css">
 
             <section class="${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
                 <h2 id="title1">VOTRE PANIER</h2>

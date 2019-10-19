@@ -25,11 +25,11 @@ class NavDrawer extends LitElement {
     this.isConnected = (JSON.parse(localStorage.getItem('current_user')) != null);
 
     return html`
-    <link href="/node_modules/@material/drawer/dist/mdc.drawer.css" rel="stylesheet">
-    <link href="/node_modules/@material/list/dist/mdc.list.css" rel="stylesheet">
-    <link href="src/style/bulma.min.css" rel="stylesheet">
+    <link href="../../../node_modules/@material/drawer/dist/mdc.drawer.css" rel="stylesheet">
+    <link href="../../../node_modules/@material/list/dist/mdc.list.css" rel="stylesheet">
+    <link href="../../../src/style/bulma.min.css" rel="stylesheet">
 
-    <script src="/data/product.js"></script>
+    <!-- <script src="../../../data/product.js"></script> -->
     <style>
                 @font-face {
                 font-family: 'Material Icons';

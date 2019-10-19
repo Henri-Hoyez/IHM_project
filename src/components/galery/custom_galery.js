@@ -46,7 +46,7 @@ class CustomGalery extends LitElement {
     
     if ((this.gender_categories == null && this.clothes_categories == null)){
       return html `  
-        <script type="module" src="/src/components/home/home.js"></script>
+        <script type="module" src="../../../src/components/home/home.js"></script>
        
         <custom-home></custom-home>
       `;
@@ -94,7 +94,7 @@ class CustomGalery extends LitElement {
 
     return html`
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link rel="stylesheet" href="src/style/custom_galery.css">
+    <link rel="stylesheet" href="../../../src/style/custom_galery.css">
     <div class="wrapper">
 
 

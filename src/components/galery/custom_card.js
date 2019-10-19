@@ -28,11 +28,11 @@ class CustomCard extends LitElement {
   
   render() {
     return html`
-        <link rel="stylesheet" href="src/style/vertical_card.css">
+        <link rel="stylesheet" href="../../../src/style/vertical_card.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-        <link rel="stylesheet" href="node_modules/@material/card/dist/mdc.card.css">
-        <link href="/node_modules/@material/icon-button/dist/mdc.icon-button.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../node_modules/@material/card/dist/mdc.card.css">
+        <link href="../../../node_modules/@material/icon-button/dist/mdc.icon-button.css" rel="stylesheet">
 
         <div @click=${ this.card_click } class="my-card-media mdc-card">
             <img src="${ this.img }" alt="default image">

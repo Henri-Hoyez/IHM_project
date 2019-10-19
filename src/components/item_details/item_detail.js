@@ -104,10 +104,10 @@ class ItemDetail extends LitElement {
   render() { 
     
     return html `
-        <link rel="stylesheet" href="/src/style/item-detail.css">
+        <link rel="stylesheet" href="../../../src/style/item-detail.css">
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-        <link rel="stylesheet" href="node_modules/@material/card/dist/mdc.card.css">
-        <link rel="stylesheet" href="/node_modules/@material/button/dist/mdc.button.css">
+        <link rel="stylesheet" href="../../../node_modules/@material/card/dist/mdc.card.css">
+        <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
 
 
         <div class="${this.display == true ? "detail-background" : "detail-background--hidden"}" @click='${this.exitView}'>
