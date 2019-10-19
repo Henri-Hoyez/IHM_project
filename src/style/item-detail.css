@@ -8,6 +8,8 @@
     
     margin: auto;
     margin-top: 85px ;
+
+    /* position: relative; */
 }
 
 .detail-background{
@@ -41,6 +43,26 @@
 
 .card-desc p{
     text-align: justify;
+}
+
+
+.bottom-information{
+    height: 70px;
+    position: relative;
+}
+
+.bottom-information .num-input{
+    float: right;
+    position: absolute;
+    bottom: -75/2px;
+    right: 5px;
+}
+
+.bottom-information button{
+    float: left;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
 }
 
 @media screen and (max-width:600px) {
