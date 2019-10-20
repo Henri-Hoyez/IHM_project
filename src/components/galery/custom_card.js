@@ -90,7 +90,7 @@ class CustomCard extends LitElement {
       document.dispatchEvent(new CustomEvent('ui-msg',{
         bubbles:true,
         composed:true,
-        detail:"Item '"+this.title+"' added to card"
+        detail:"Item '"+this.title+"' added to cart"
       }));
 
     }
