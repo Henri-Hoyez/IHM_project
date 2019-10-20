@@ -15,9 +15,9 @@ class Connexion extends LitElement {
         MDCRipple.attachTo(this.shadowRoot.querySelector('.cancel'));
         MDCRipple.attachTo(this.shadowRoot.querySelector('.next'));
 
-        document.addEventListener('usr-evnt', (e) => {  
+        document.addEventListener('usr-evnt', (e) => {
             this.requestUpdate();
-            
+
         });
 
     }
@@ -36,11 +36,11 @@ class Connexion extends LitElement {
 
         .mdc-text-field--focused .mdc-text-field__input:required ~ .mdc-floating-label::after,
         .mdc-text-field--focused .mdc-text-field__input:required ~ .mdc-notched-outline .mdc-floating-label::after {
-                color:  #ffca28;
+                color:  #000;
         }
 
         .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
-            color: #ffca28;
+            color: #000;
         }
 
         .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-text-field__input:required ~ .mdc-floating-label::after,
@@ -86,51 +86,51 @@ class Connexion extends LitElement {
           .button-container button {
             margin: 3px;
         }
-        
+
         `
     }
-    
-    category_event(e){
-        document.dispatchEvent(new CustomEvent( 'cat-evnt', {
-            bubbles:true,
+
+    category_event(e) {
+        document.dispatchEvent(new CustomEvent('cat-evnt', {
+            bubbles: true,
             composed: true,
-            detail:'connection'
+            detail: 'connection'
         }));
 
     }
 
-    makeErrMessage(message){
+    makeErrMessage(message) {
         let selector = this.shadowRoot.querySelector('.err-display')
         selector.innerHTML = message;
         selector.style.color = 'red';
         selector.style.display = 'inherit';
     }
 
-    cancelConnexion(){
-        document.dispatchEvent(new CustomEvent( 'cat-evnt', {
-            bubbles:true,
+    cancelConnexion() {
+        document.dispatchEvent(new CustomEvent('cat-evnt', {
+            bubbles: true,
             composed: true,
             detail: null
         }));
     }
 
 
-    makeConnection(){
+    makeConnection() {
 
         var mail = this.shadowRoot.getElementById('email-input');
         var password = this.shadowRoot.getElementById('password-input');
 
         var user = UserManager.findUserByEmail(mail.value);
-        
-        
-        if(user === null){
+
+
+        if (user === null) {
             this.makeErrMessage("User not found, did you sign-up");
             return;
         }
 
-        if(user.password === password.value){
+        if (user.password === password.value) {
             UserManager.connectUser(user);
-        }else{
+        } else {
             this.makeErrMessage("Username or password are incorect. Please try again.");
         }
 
@@ -139,16 +139,16 @@ class Connexion extends LitElement {
     }
 
 
-    accountPageCall(){
+    accountPageCall() {
         document.dispatchEvent(new CustomEvent('cat-evnt', {
-            bubbles:true,
+            bubbles: true,
             composed: true,
-            detail:"account"
+            detail: "account"
         }));
     }
 
     render() {
-        
+
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/textfield/dist/mdc.textfield.css">
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
