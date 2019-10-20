@@ -15,7 +15,7 @@ class EndCommand extends LitElement {
     constructor() {
         super();
 
-        this.titles = ["Do you want to confirm", "Thanks you"];
+        this.titles = ["Do you want to confirm ?", "Thanks you"];
         this.subtitles = ["Click on the confirm button", "We looking forward to see you again"];
         this.paths = ["congrats","valid"];
         this.index = 0;
@@ -83,6 +83,16 @@ class EndCommand extends LitElement {
             composed : true,
             detail: null
         }));
+        this.resetView();
+    }
+
+
+    cancelConfirmation(){
+        document.dispatchEvent(new CustomEvent('cat-evnt', {
+            bubbles : true,
+            composed : true,
+            detail: 'shopping_cart'
+        }));
     }
 
     confirmEvent(e){
@@ -91,7 +101,7 @@ class EndCommand extends LitElement {
 
         this.displayCongrat();
 
-        this.returnShop();
+        
     }
 
     displayCongrat(){
@@ -119,17 +129,17 @@ class EndCommand extends LitElement {
                     <img src="/src/components/end_command/${this.paths[this.index]}.jpg" alt="Visual validation">
                     <div class="button-container" style=${this.index == 0 ? "" : "display : none;"} >
 
-                        <button @click=${this.returnShop} type="button" class="mdc-button cancel    ">
+                        <button @click=${this.cancelConfirmation} type="button" class="mdc-button cancel    ">
                             <span class="mdc-button__label">Cancel</span>
                         </button>
 
                         <button @click=${this.confirmEvent} class="mdc-button mdc-button--raised next">
-                            <span class="mdc-button__label">Next</span>
+                            <span class="mdc-button__label">YES</span>
                         </button>
                     </div>
 
                     <div class="congrat-button-container" style=${this.index == 1 ? "" : "display : none;"} >
-                        <button @click=${this.confirmEvent} class="mdc-button mdc-button--raised next">
+                        <button @click=${this.returnShop} class="mdc-button mdc-button--raised next">
                             <span class="mdc-button__label">Return shopping</span>
                         </button>
                     </div>

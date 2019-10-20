@@ -84,9 +84,9 @@ class MyAccount extends LitElement {
                 <h3 class="title2">Your personal information</h3><br>
                 <article>
                     <img src="/src/components/account/avatar.jpg" alt="Avatar"/>
+                    <div>GENDER :                 ${this.clientGender}</div>
                     <div>NAME :             ${this.clientName }</div>
                     <div>FIRSTNAME :          ${this.clientFirstName}</div>   
-                    <div>GENDER :                 ${this.clientGender}</div>
                     <div>E-MAIL :               ${this.clientMail}</div>
                     <div>PHONE NUMBER :  ${this.clientPhone}</div>
 
