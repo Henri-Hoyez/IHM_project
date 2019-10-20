@@ -145,11 +145,10 @@ class Registration extends LitElement {
 
 
         var passwordLength = this.shadowRoot.getElementById('re-password-input').getAttribute('minlength');
-        console.log(passwordLength);
         
 
         if(user.password.length < passwordLength){
-            this.makeErrMsg('Your password id too short');
+            this.makeErrMsg('Your password id too short : it must contain at least 8 characters');
             return false;
         }
         
@@ -157,11 +156,11 @@ class Registration extends LitElement {
         console.log(lastNameVer, firstNameVer, mailVer, phoneVer);
 
 
-        if (lastNameVer && firstNameVer && mailVer && phoneVer) {
+        if (lastNameVer && firstNameVer && mailVer && ( user.phone.length == 0 || phoneReg )) {
             return true;
 
         } else {
-            this.makeErrMsg('Some informations are incorect, Please Verify');
+            this.makeErrMsg('Some information is incorect, Please Verify');
             return false;
         }
     }
@@ -172,13 +171,15 @@ class Registration extends LitElement {
         let second_pass = this.shadowRoot.getElementById('re-password-input').value;
 
         if (!(first_pass === second_pass)) {
-            this.makeErrMsg("Passwords not match !");
+            this.makeErrMsg("Passwords don't match !");
             return;
         }
 
 
 
-        let gender = this.shadowRoot.getElementById('radio-1').checked ? "Man" : "Woman";
+        let gender = (this.shadowRoot.getElementById('radio-1').checked ? "Man" : "Woman");
+
+        
 
         var user = {
             last_name: this.shadowRoot.getElementById('name-input').value,
@@ -190,6 +191,9 @@ class Registration extends LitElement {
             basket: Array()
         };
 
+
+        console.log(user);
+        
         var verified = this.verifyRegistration(user);
 
         if (verified) {

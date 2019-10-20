@@ -124,7 +124,7 @@ class Connexion extends LitElement {
 
 
         if (user === null) {
-            this.makeErrMessage("User not found, did you sign-up");
+            this.makeErrMessage("User not found, did you sign-up ?");
             return;
         }
 
@@ -136,6 +136,8 @@ class Connexion extends LitElement {
 
         mail.value = "";
         password.value = "";
+        this.makeErrMessage('');
+
     }
 
 

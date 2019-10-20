@@ -85,9 +85,12 @@ class CustomGalery extends LitElement {
       
     }
     
+    if(this.clothes_categories !== null){
+      var reg = RegExp('.*'+ this.keyword +'.*', 'i');    
+    }else{
+      var reg = RegExp('.*', 'i');    
+    }
     
-    var reg = RegExp('.*'+ this.keyword +'.*', 'i');    
-
     return html`
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="../../../src/style/custom_galery.css">

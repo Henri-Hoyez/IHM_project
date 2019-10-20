@@ -34,7 +34,7 @@ class UIUsrManager extends LitElement{
 
             <connexion-form style=${!isConnected ? "display : inherit;" : "display : none;"}> </connexion-form>
 
-            <my-account  clientName=${isConnected ? user.last_name: ""} clientFirstName=${isConnected ? user.last_name: ""} clientGender=${isConnected ? user.gender: ""} clientMail=${isConnected ? user.mail: ""} clientPhone=${isConnected ? user.phone: ""} style=${isConnected ? "display : inherit;" : "display : none;"} > </my-account>
+            <my-account  clientName=${isConnected ? user.last_name: ""} clientFirstName=${isConnected ? user.first_name: ""} clientGender=${isConnected ? user.gender: ""} clientMail=${isConnected ? user.mail: ""} clientPhone=${isConnected ? user.phone: ""} style=${isConnected ? "display : inherit;" : "display : none;"} > </my-account>
         
         `;
     }

@@ -1,5 +1,5 @@
 .ui-container{
-    position: absolute;
+    position: fixed;
     right: 10px;
     top: 80px;
     bottom: 10px;

@@ -21,7 +21,7 @@ class MyAccount extends LitElement {
         return {
             clientName: { type: String },
             clientFirstName: { type: String },
-            clientGender: { type: Boolean },
+            clientGender: { type: String },
             clientMail: { type: String },
             clientPhone: { type: String }
         };
@@ -86,7 +86,7 @@ class MyAccount extends LitElement {
                     <img src="/src/components/account/avatar.jpg" alt="Avatar"/>
                     <div>GENDER :                 ${this.clientGender}</div>
                     <div>NAME :             ${this.clientName }</div>
-                    <div>FIRSTNAME :          ${this.clientFirstName}</div>   
+                    <div>LASTNAME :          ${this.clientFirstName}</div>   
                     <div>E-MAIL :               ${this.clientMail}</div>
                     <div>PHONE NUMBER :  ${this.clientPhone}</div>
 

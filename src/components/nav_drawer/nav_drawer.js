@@ -181,12 +181,12 @@ class NavDrawer extends LitElement {
           
         }
         
-        
+        console.log(spanID);
         var newSelectedSpan = this.shadowRoot.getElementById(spanID.toLowerCase());
         
         if(newSelectedSpan !== null){
           newSelectedSpan.setAttribute('class', 'mdc-list-item mdc-list-item--activated');
-          selectedSpan.setAttribute('aria-current', 'page');
+          newSelectedSpan.setAttribute('aria-current', 'page');
       }
     });
 

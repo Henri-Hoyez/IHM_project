@@ -45,7 +45,6 @@ td input{
     margin-left: auto;
     margin-right: auto;
     display: block;
-    border-radius: 100px;
     border-collapse: collapse;
 }
 
@@ -117,6 +116,7 @@ tr td {
 @media screen and (max-width:530px) {
 
     .my-table{
+        overflow-y: scroll;
         width: 100%;
         margin-left: 0px;
         margin-left: 0px;
