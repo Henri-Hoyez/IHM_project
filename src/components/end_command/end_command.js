@@ -16,7 +16,7 @@ class EndCommand extends LitElement {
         super();
 
         this.titles = ["Do you want to confirm ?", "Thanks you"];
-        this.subtitles = ["Click on the confirm button", "We looking forward to see you again"];
+        this.subtitles = ["Click on the confirm button", "We're looking forward to see you again"];
         this.paths = ["congrats","valid"];
         this.index = 0;
     }
@@ -93,7 +93,7 @@ class EndCommand extends LitElement {
             composed:true,
             detail: genderConverter[user.gender]
         }));
-                
+
         this.resetView();
     }
 
