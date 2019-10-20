@@ -57,7 +57,7 @@ class ShopCart extends LitElement {
         document.dispatchEvent(new CustomEvent('cat-evnt', {
             bubbles:true,
             composed:true,
-            detail: genderConverter[user.gender]
+            detail: user !==null ? genderConverter[user.gender] : null
         }));
     }
 
