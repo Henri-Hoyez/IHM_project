@@ -14,6 +14,27 @@ class TopBar extends LitElement {
         document.addEventListener('usr-evnt', (e)=>{
             this.requestUpdate();
         });
+
+
+        document.addEventListener('cat-evnt', (e) =>{            
+
+            if(e.detail === null){
+                return;
+            }
+
+            var selectedSpan = this.shadowRoot.querySelector('.nav_indicator');
+            if(selectedSpan !== null){
+                selectedSpan.setAttribute('class', 'not_selected');
+            }
+
+
+            var newSelectedSpan = this.shadowRoot.getElementById(e.detail.toLowerCase());
+
+            if(newSelectedSpan !== null){
+                newSelectedSpan.setAttribute('class', 'nav_indicator');
+            }
+        });
+
     }
 
     static get styles() {
@@ -76,7 +97,7 @@ class TopBar extends LitElement {
                     <span id="list_menu">
                         ${this.categories.map(item => html`
                             <a class="mdc-list-item mdc-font is-hidden-touch" href="#">
-                            <span @click="${this.category_event}" class="menu_item mdc-top-app-bar__action-item" class="${this.selected_cathegory == item.replace(item[0], item[0].toUpperCase()) ? "nav_indicator" : "not_selected"}">${item.replace(item[0], item[0].toUpperCase())}</span>
+                            <span id=${item} @click="${this.category_event}" class="menu_item mdc-top-app-bar__action-item" class="${this.selected_cathegory == item.replace(item[0], item[0].toUpperCase()) ? "nav_indicator" : "not_selected"}">${item.replace(item[0], item[0].toUpperCase())}</span>
                             </a>
                         `)}
                     </span>

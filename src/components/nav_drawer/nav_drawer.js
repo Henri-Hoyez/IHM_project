@@ -24,6 +24,9 @@ class NavDrawer extends LitElement {
     this.requestUpdate();
   }
   
+
+
+
   render() {
 
     this.isConnected = (JSON.parse(localStorage.getItem('current_user')) != null);
@@ -86,12 +89,12 @@ class NavDrawer extends LitElement {
         <div class="mdc-drawer__content">
         <nav class="mdc-list">
 
-          <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" @click=${this.shopEventDispach}>
+          <a id='home' class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" @click=${this.shopEventDispach}>
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
             <span class="mdc-list-item__text">Home</span>
           </a>
 
-          <a class="mdc-list-item" href="#" @click=${this.shopEventDispach}>
+          <a id='person' class="mdc-list-item" href="#" @click=${this.shopEventDispach}  aria-current="page">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">account_circle</i>
             <span  class="mdc-list-item__text">${this.isConnected ? "My account" : "Connexion"}</span>
           </a>
@@ -106,7 +109,7 @@ class NavDrawer extends LitElement {
 
           ${this.categories.map(item => html`
 
-            <a class="mdc-list-item" href="#" @click='${ this.shopEventDispach }'>
+            <a id=${item} class="mdc-list-item" href="#" @click='${ this.shopEventDispach }'>
               <i class="material-icons mdc-list-item__graphic" aria-hidden="true">shopping_basket</i>
               <span class="mdc-list-item__text" >${item.toUpperCase()}</span>
             </a>
@@ -159,6 +162,36 @@ class NavDrawer extends LitElement {
     document.addEventListener("toggle-menu", () => {
       this.open = !this.open;
     });
+
+
+
+    document.addEventListener('cat-evnt', (e) =>{  
+        var spanID = e.detail;
+      
+      if(spanID === null){
+         spanID = 'home';
+      }
+
+      var selectedSpan = this.shadowRoot.querySelector('.mdc-list-item--activated');
+      if(selectedSpan !== null){
+        console.log('good');
+        
+          selectedSpan.setAttribute('class', 'mdc-list-item');
+          selectedSpan.setAttribute('aria-current', 'false');
+          
+        }
+        
+        
+        var newSelectedSpan = this.shadowRoot.getElementById(spanID.toLowerCase());
+        
+        if(newSelectedSpan !== null){
+          newSelectedSpan.setAttribute('class', 'mdc-list-item mdc-list-item--activated');
+          selectedSpan.setAttribute('aria-current', 'page');
+      }
+    });
+
+
+
   }
 
 }
