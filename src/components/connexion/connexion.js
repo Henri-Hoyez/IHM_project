@@ -15,10 +15,10 @@ class Connexion extends LitElement {
         MDCRipple.attachTo(this.shadowRoot.querySelector('.cancel'));
         MDCRipple.attachTo(this.shadowRoot.querySelector('.next'));
 
-        document.addEventListener('cat-evnt', (e) => {
-            if(e.detail === 'person'){
-                this.requestUpdate();
-            }
+        document.addEventListener('usr-evnt', (e) => {  
+            this.requestUpdate();
+            console.log('Connexion update');
+            
         });
 
     }
@@ -101,23 +101,38 @@ class Connexion extends LitElement {
                     composed:true,
                     detail:"Welcome "+ user.last_name
                   }));
+
+                  this.requestUpdate();
+                  return;
             }
 
         });
 
-        this.requestUpdate();
+        // document.dispatchEvent(new CustomEvent('ui-msg',{
+        //     bubbles:true,
+        //     composed:true,
+        //     detail:"Username or password are incorect... did you signed-up ?"
+        //   }));
 
     }
 
 
+    accountPageCall(){
+        document.dispatchEvent(new CustomEvent('cat-evnt', {
+            bubbles:true,
+            composed: true,
+            detail:"account"
+        }));
+    }
+
     render() {
 
-        if(JSON.parse(localStorage.getItem('current_user')) != null){  
-
-            return html`<my-account id="account"></my-account>`;
+        if(JSON.parse(localStorage.getItem('current_user')) !== null){  
+            return html`<my-account></my-account>`;
         }
 
-
+        console.log('bonjour');
+        
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/textfield/dist/mdc.textfield.css">
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
@@ -153,8 +168,6 @@ class Connexion extends LitElement {
                     </span>
                 </button>
             </div>
-
-
             `;
     }
 

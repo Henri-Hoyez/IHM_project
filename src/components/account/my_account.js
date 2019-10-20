@@ -11,8 +11,9 @@ class MyAccount extends LitElement {
     firstUpdated() {
         MDCRipple.attachTo(this.shadowRoot.querySelector('.disconnection'));
 
-        document.addEventListener('cat-evnt', (e) => { 
+        document.addEventListener('usr-evnt', (e) => { 
             this.requestUpdate(); 
+            console.log('Account update');
         });
     }
 
@@ -75,6 +76,8 @@ class MyAccount extends LitElement {
             detail:null
         }));
 
+        SessionManager.makeUserEvent();
+
         this.requestUpdate();
     }
 
@@ -82,7 +85,9 @@ class MyAccount extends LitElement {
 
         this.client = JSON.parse(localStorage.getItem('current_user'));
 
-        console.log('je rend');
+        if(this.client === null){
+            return html``;
+        }
         
 
         return html`
