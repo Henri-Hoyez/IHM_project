@@ -78,6 +78,23 @@ class NavDrawer extends LitElement {
               display:none;
             }
 
+            .mdc-drawer .mdc-list-item--activated {
+                color: white;
+            }
+
+            .mdc-drawer .mdc-list-item--activated .mdc-list-item__graphic {
+                color: white;
+            }
+
+            :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item--activated::before, :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item--activated::after {
+                background-color: var(--mdc-theme-primary, #ffca28);
+            }
+
+            .mdc-list-item--activated{
+              background-color: #c62828;
+            }
+
+
       </style>
 
       <div class="nav-brawer-bg${this.open? '--open' : '--close'}" @click=${this.toggleMenu}> </div>
