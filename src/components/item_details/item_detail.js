@@ -150,7 +150,7 @@ class ItemDetail extends LitElement {
                     <number-input class="num-input" @click=${this.updateQuantity} value=${this.quantity} item_name=${this.title}> </number-input>
 
                     <button @click=${this.buttonEvent} class="mdc-button mdc-button--raised fast-add-button">
-                        <span class="mdc-button__label"> ${JSON.parse(localStorage.getItem('current_user')) != null ? "Add To Card" : "sign-in" }  </span>
+                        <span class="mdc-button__label"> ${JSON.parse(localStorage.getItem('current_user')) != null ? "Add To Cart" : "sign-in" }  </span>
                     </button>
                 </div>
             </div>

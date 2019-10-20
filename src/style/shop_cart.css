@@ -88,9 +88,42 @@ tr td {
 /* Media Queries for mobile */
 
 @media screen and (max-width:940px) {
+
+    .my-table{
+        width: 80%;
+
+    }
+
     section img{
         width: 80%;
     }
     
 }
 
+@media screen and (max-width:530px) {
+
+    .my-table{
+        width: 100%;
+        margin-left: 0px;
+        margin-left: 0px;
+    }
+
+    section img{
+        width: 80%;
+    }
+    
+}
+
+@media screen and (max-width:530px) {
+
+    .my-table{
+        width: 100%;
+        margin-left: 0px;
+        margin-left: 0px;
+    }
+
+    section img{
+        width: 80%;
+    }
+    
+}

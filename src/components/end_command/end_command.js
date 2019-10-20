@@ -78,11 +78,22 @@ class EndCommand extends LitElement {
     }
 
     returnShop(){
+        var genderConverter = {
+            Female : "Ladies",
+            Man : "Men"
+        }
+
+        var user = JSON.parse(localStorage.getItem("current_user"));
+
+        
+        
+
         document.dispatchEvent(new CustomEvent('cat-evnt', {
-            bubbles : true,
-            composed : true,
-            detail: null
+            bubbles:true,
+            composed:true,
+            detail: genderConverter[user.gender]
         }));
+                
         this.resetView();
     }
 
@@ -130,7 +141,7 @@ class EndCommand extends LitElement {
                     <div class="button-container" style=${this.index == 0 ? "" : "display : none;"} >
 
                         <button @click=${this.cancelConfirmation} type="button" class="mdc-button cancel    ">
-                            <span class="mdc-button__label">Cancel</span>
+                            <span class="mdc-button__label">Back to shop</span>
                         </button>
 
                         <button @click=${this.confirmEvent} class="mdc-button mdc-button--raised next">

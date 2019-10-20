@@ -46,11 +46,19 @@ class ShopCart extends LitElement {
 
 
     backToShop(e){
+
+        var genderConverter = {
+            Female : "Ladies",
+            Man : "Men"
+        }
+
+        var user = JSON.parse(localStorage.getItem("current_user"));
+
         document.dispatchEvent(new CustomEvent('cat-evnt', {
             bubbles:true,
             composed:true,
-            detail:null
-        }))
+            detail: genderConverter[user.gender]
+        }));
     }
 
     updateQuantity(e){
@@ -106,8 +114,8 @@ class ShopCart extends LitElement {
                         <td>Visual</td>
                         <td>Title</td>
                         <td>Price</td>
-                        <td>Quantitée</td>
-                        <td>Sous-total</td>
+                        <td>Quantity</td>
+                        <td>Subtotal</td>
                         <td> </td>
                     </tr>
 

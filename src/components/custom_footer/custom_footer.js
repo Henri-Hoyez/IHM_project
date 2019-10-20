@@ -48,7 +48,7 @@ class CustomFooter extends LitElement {
         return html`
             <div class= ${this.hidden ?  "footer--hidden": ""} >
                 <br><hr><br>
-                <span>©2019 — Neo Clothes — Crédits</span><br>
+                <span>©2019 — Neo Clothes — Credits</span><br>
                 <span>Contact : <em><a href="mailto:contact@neo-clothes.com">contact@neo-clothes.com</a></em></span><br>
                 &nbsp;
             </div>`

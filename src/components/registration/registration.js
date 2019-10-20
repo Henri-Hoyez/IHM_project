@@ -278,7 +278,7 @@ class Registration extends LitElement {
 
             <div class="mdc-text-field form_input">
                 <input type="password" class="mdc-text-field__input" id="re-password-input" name="password" required minlength="8">
-                <label class="mdc-floating-label" for="password-input">re-type your password</label>
+                <label class="mdc-floating-label" for="password-input">Password confirmation</label>
                 <div class="mdc-line-ripple"></div>
             </div>
 

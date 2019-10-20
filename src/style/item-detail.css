@@ -65,9 +65,21 @@
     left: 5px;
 }
 
+
+
+header div{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.card-desc{
+    
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
 @media screen and (max-width:600px) {
     .detail-body{
-
         z-index: 3;
         background-color: bisque;
         
@@ -76,11 +88,42 @@
         overflow: auto;     
         margin: auto;
         margin-top: 85px ;
+        margin-bottom: 15px;
+
+        max-height: calc(100% - 100px);
+
     }
 
     .detail-body img{
         width: 100%;
         height: calc(width * 1.75);
+    }
+
+    
+    header div{
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 20px;
+    }
+    .card-desc{
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:500px) {
+
+    .header div{
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 17px;
+    }
+    .card-desc{
+        
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 13px;
     }
 
 }

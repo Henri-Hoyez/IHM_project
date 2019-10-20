@@ -155,7 +155,7 @@ class Connexion extends LitElement {
             <script src="../../../node_modules/@material/textfield/dist/mdc.textfield.js"></script>
 
             <div id="form_titles">
-                <h2 class="title1">Sign in to your acount</h2>
+                <h2 class="title1">Sign into to your acount</h2>
                 <h3 style="display : none; ", class="err-display"></h3>
                 <h3 class="title2">No Neo-clothes account ? <a @click=${this.category_event} >sign up</a></h3>
             </div>

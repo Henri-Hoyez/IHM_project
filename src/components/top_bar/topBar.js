@@ -81,9 +81,9 @@ class TopBar extends LitElement {
                         `)}
                     </span>
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded"  @click=${this.search_event}  aria-label="Search">search</button>
-                    <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" @click=${this.category_event} aria-label="Profile">person</button>
+                    <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded is-hidden-touch" @click=${this.category_event} aria-label="Profile">person</button>
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" @click=${this.category_event} aria-label="Shopping cart">shopping_cart</button>
-                    <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" style=${isConnected ? "display : inherit;" : "display : none;" }  @click=${this.signout} aria-label="Shopping cart">directions_run</button>
+                    <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded is-hidden-touch" style=${isConnected ? "display : inherit;" : "display : none;" }  @click=${this.signout} aria-label="Shopping cart">directions_run</button>
                 </section>
             </div>
         </header>

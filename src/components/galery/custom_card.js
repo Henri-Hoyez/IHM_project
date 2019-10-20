@@ -41,7 +41,7 @@ class CustomCard extends LitElement {
 
             <div class="top-informaion" tabindex="1">
 
-                <div class="title" style=${this.price ? '' : "width:100%; text-align: center; font-size:25px;" } >${this.title}</div> 
+                <div class="title" style=${this.price ? '' : "width:100%; text-align: center; font-size:25px;" } >${this.title.replace('Ladies','').replace("Men's","").replace("Men",'')}</div> 
 
                 <div class="price">${this.price ? this.price.toString()+'€':"" }</div>
             </div>
@@ -54,7 +54,7 @@ class CustomCard extends LitElement {
                 </button>
                 
                 <button @click=${this.addToBasket} class="mdc-button mdc-button--raised fast-add-button" style="visibility: ${this.price ? 'visible':'hidden' }">
-                    <span class="mdc-button__label"> ${JSON.parse(localStorage.getItem('current_user')) != null ? "Add To Card" : "sign-in" }  </span>
+                    <span class="mdc-button__label"> ${JSON.parse(localStorage.getItem('current_user')) != null ? "Add To Cart" : "sign-in" }  </span>
                 </button>
             </div>      
     </div>

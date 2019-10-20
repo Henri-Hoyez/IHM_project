@@ -18,6 +18,11 @@ class NavDrawer extends LitElement {
     this.isConnected = false;
     this.categories = Object.getOwnPropertyNames(catalog);
   }
+
+  signout(){
+    UserManager.signout();
+    this.requestUpdate();
+  }
   
   render() {
 
@@ -91,6 +96,11 @@ class NavDrawer extends LitElement {
             <span  class="mdc-list-item__text">${this.isConnected ? "My account" : "Connexion"}</span>
           </a>
 
+          <a class="mdc-list-item" href="#" @click='${this.signout}' style=${this.isConnected ? "display : inherit;" : "display : none;" }>
+              <i class="material-icons mdc-list-item__graphic" aria-hidden="true">directions_run</i>
+              <span class="mdc-list-item__text" >Log-out</span>
+          </a>
+
           <hr class="mdc-list-divider">
           <h6 class="mdc-list-group__subheader">Products</h6>
 
@@ -98,14 +108,11 @@ class NavDrawer extends LitElement {
 
             <a class="mdc-list-item" href="#" @click='${ this.shopEventDispach }'>
               <i class="material-icons mdc-list-item__graphic" aria-hidden="true">shopping_basket</i>
-              <span class="mdc-list-item__text" >${item.replace(item[0], item[0].toUpperCase())}</span>
+              <span class="mdc-list-item__text" >${item.toUpperCase()}</span>
             </a>
 
           `)}
-          <a class="mdc-list-item" href="#" @click='${ UserManager.signout }'>
-              <i class="material-icons mdc-list-item__graphic" aria-hidden="true">directions_run</i>
-              <span class="mdc-list-item__text" >Log-out</span>
-            </a>
+          
         </nav>
         </div>
       </aside>`

@@ -33,6 +33,7 @@ class FloatingActionButton extends LitElement {
     render() {
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/fab/dist/mdc.fab.css">
+            <link rel="stylesheet" href="../../../src/style/bulma.min.css">
 
             <style>
                 @font-face {
@@ -62,7 +63,7 @@ class FloatingActionButton extends LitElement {
             }
             </style>
             <a href="#">
-                <button class="mdc-fab mdc-fab--mini" aria-label="Favorite" >
+                <button class="mdc-fab mdc-fab--mini is-hidden-touch" aria-label="Favorite" >
                     <span class="mdc-fab__icon material-icons"><slot>keyboard_arrow_up</slot></span>
                 </button>
             </a>`
