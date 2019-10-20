@@ -4,17 +4,17 @@ import { MDCRipple } from '@material/ripple';
 class MyAccount extends LitElement {
 
     constructor() {
-        super();    
+        super();
     }
 
     firstUpdated() {
         MDCRipple.attachTo(this.shadowRoot.querySelector('.disconnection'));
 
-       document.addEventListener('usr-evnt', (e) => {
+        document.addEventListener('usr-evnt', (e) => {
             console.log('account update');
-            
+
             setTimeout(this.requestUpdate.bind(this), 700);
-       });
+        });
     }
 
     static get properties() {
@@ -67,7 +67,7 @@ class MyAccount extends LitElement {
     }
 
 
-    signout(){
+    signout() {
 
         UserManager.signout();
 
@@ -85,8 +85,8 @@ class MyAccount extends LitElement {
                 <article>
                     <img src="/src/components/account/avatar.jpg" alt="Avatar"/>
                     <div>GENDER :                 ${this.clientGender}</div>
-                    <div>NAME :             ${this.clientName }</div>
-                    <div>LASTNAME :          ${this.clientFirstName}</div>   
+                    <div>NAME :             ${this.clientName}</div>
+                    <div>FIRSTNAME :          ${this.clientFirstName}</div>
                     <div>E-MAIL :               ${this.clientMail}</div>
                     <div>PHONE NUMBER :  ${this.clientPhone}</div>
 

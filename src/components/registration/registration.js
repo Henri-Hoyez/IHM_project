@@ -107,7 +107,7 @@ class Registration extends LitElement {
             margin: 5px;
         }
 
-           
+
         `
     }
 
@@ -126,7 +126,7 @@ class Registration extends LitElement {
 
     }
 
-    makeMsg(){
+    makeMsg() {
         var msgHolder = this.shadowRoot.querySelector('#msg-holder');
         msgHolder.style = "color : green";
         msgHolder.innerHTML = message;
@@ -134,7 +134,7 @@ class Registration extends LitElement {
 
     verifyRegistration(user) {
 
-        var userReg = RegExp('^[A-Z][a-z]+');
+        var userReg = RegExp('^[A-Za-z]+');
         var mailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         var phoneReg = RegExp('^0[1-9].?([0-9]{2}.?){4}');
 
@@ -145,18 +145,18 @@ class Registration extends LitElement {
 
 
         var passwordLength = this.shadowRoot.getElementById('re-password-input').getAttribute('minlength');
-        
 
-        if(user.password.length < passwordLength){
+
+        if (user.password.length < passwordLength) {
             this.makeErrMsg('Your password id too short : it must contain at least 8 characters');
             return false;
         }
-        
+
 
         console.log(lastNameVer, firstNameVer, mailVer, phoneVer);
 
 
-        if (lastNameVer && firstNameVer && mailVer && ( user.phone.length == 0 || phoneReg )) {
+        if (lastNameVer && firstNameVer && mailVer && (user.phone.length == 0 || phoneReg)) {
             return true;
 
         } else {
@@ -165,7 +165,7 @@ class Registration extends LitElement {
         }
     }
 
-    makeRegistration(){
+    makeRegistration() {
 
         let first_pass = this.shadowRoot.getElementById('password-input').value;
         let second_pass = this.shadowRoot.getElementById('re-password-input').value;
@@ -179,7 +179,7 @@ class Registration extends LitElement {
 
         let gender = (this.shadowRoot.getElementById('radio-1').checked ? "Man" : "Woman");
 
-        
+
 
         var user = {
             last_name: this.shadowRoot.getElementById('name-input').value,
@@ -193,7 +193,7 @@ class Registration extends LitElement {
 
 
         console.log(user);
-        
+
         var verified = this.verifyRegistration(user);
 
         if (verified) {
@@ -202,8 +202,8 @@ class Registration extends LitElement {
         }
     }
 
-    clearInputs(){
-        this.shadowRoot.getElementById('name-input').value= "";
+    clearInputs() {
+        this.shadowRoot.getElementById('name-input').value = "";
         this.shadowRoot.getElementById('firstname-input').value = "";
         this.shadowRoot.getElementById('email-input').value = "";
         this.shadowRoot.getElementById('password-input').value = "";
@@ -211,11 +211,11 @@ class Registration extends LitElement {
         this.shadowRoot.getElementById('re-password-input').value = "";
     }
 
-    cancelSignUp(){
-        document.dispatchEvent(new CustomEvent('cat-evnt',{
-            bubbles : true,
-            composed : true,
-            detail:'person'
+    cancelSignUp() {
+        document.dispatchEvent(new CustomEvent('cat-evnt', {
+            bubbles: true,
+            composed: true,
+            detail: 'person'
         }));
     }
 
