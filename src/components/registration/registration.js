@@ -107,9 +107,7 @@ class Registration extends LitElement {
             margin: 5px;
         }
 
-           .err-msg{
-               color:red;
-           }
+           
         `
     }
 
@@ -122,7 +120,16 @@ class Registration extends LitElement {
     }
 
     makeErrMsg(message) {
-        this.shadowRoot.querySelector('.err-msg').innerHTML = message;
+        var msgHolder = this.shadowRoot.querySelector('#msg-holder');
+        msgHolder.style = "color : red";
+        msgHolder.innerHTML = message;
+
+    }
+
+    makeMsg(){
+        var msgHolder = this.shadowRoot.querySelector('#msg-holder');
+        msgHolder.style = "color : green";
+        msgHolder.innerHTML = message;
     }
 
     verifyRegistration(user) {
@@ -136,6 +143,17 @@ class Registration extends LitElement {
         var mailVer = mailReg.test(user.mail);
         var phoneVer = phoneReg.test(user.phone)
 
+
+        var passwordLength = this.shadowRoot.getElementById('re-password-input').getAttribute('minlength');
+        console.log(passwordLength);
+        
+
+        if(user.password.length < passwordLength){
+            this.makeErrMsg('Your password id too short');
+            return false;
+        }
+        
+
         console.log(lastNameVer, firstNameVer, mailVer, phoneVer);
 
 
@@ -143,14 +161,13 @@ class Registration extends LitElement {
             return true;
 
         } else {
+            this.makeErrMsg('Some informations are incorect, Please Verify');
+
             return false;
         }
-
-
-
     }
 
-    makeRegistration() {
+    makeRegistration(){
 
         let first_pass = this.shadowRoot.getElementById('password-input').value;
         let second_pass = this.shadowRoot.getElementById('re-password-input').value;
@@ -159,6 +176,8 @@ class Registration extends LitElement {
             this.makeErrMsg("Passwords not match !");
             return;
         }
+
+
 
         let gender = this.shadowRoot.getElementById('radio-1').checked ? "Man" : "Woman";
 
@@ -175,18 +194,26 @@ class Registration extends LitElement {
         var verified = this.verifyRegistration(user);
 
         if (verified) {
-
-
+            this.clearInputs();
             UserManager.createUser(user);
-
-
-        } else {
-            this.makeErrMsg('Somme information are incorect, Please Verify');
-
         }
+    }
 
+    clearInputs(){
+        this.shadowRoot.getElementById('name-input').value= "";
+        this.shadowRoot.getElementById('firstname-input').value = "";
+        this.shadowRoot.getElementById('email-input').value = "";
+        this.shadowRoot.getElementById('password-input').value = "";
+        this.shadowRoot.getElementById('phone-input').value = "";
+        this.shadowRoot.getElementById('re-password-input').value = "";
+    }
 
-
+    cancelSignUp(){
+        document.dispatchEvent(new CustomEvent('cat-evnt',{
+            bubbles : true,
+            composed : true,
+            detail:'person'
+        }));
     }
 
     render() {
@@ -198,7 +225,8 @@ class Registration extends LitElement {
             <div id="form_titles">
                 <h2 class="title1">Sign up</h2>
                 <h3 class="title2">Already Sign up ? <a @click=${this.categoryEvent}>Sign in</a></h3>
-                <h3 class="err-msg"> </h3>
+                <h3 id="msg-holder"> </h3>
+
             </div><br>
 
             <div class="radios_input">
@@ -262,7 +290,7 @@ class Registration extends LitElement {
             </div>
 
             <div class="button-container">
-                <button type="button" class="mdc-button cancel">
+                <button @click=${this.cancelSignUp} type="button" class="mdc-button cancel">
                     <span class="mdc-button__label">
                     Cancel
                     </span>

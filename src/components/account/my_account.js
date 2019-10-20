@@ -13,7 +13,7 @@ class MyAccount extends LitElement {
        document.addEventListener('usr-evnt', (e) => {
             console.log('account update');
             
-            this.requestUpdate();
+            setTimeout(this.requestUpdate.bind(this), 700);
        });
     }
 
