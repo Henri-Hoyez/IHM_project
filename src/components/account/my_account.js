@@ -76,11 +76,6 @@ class MyAccount extends LitElement {
 
     render() {
 
-        var client = JSON.parse(localStorage.getItem('current_user'));
-
-        console.log(client);
-        
-
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
 
@@ -89,11 +84,11 @@ class MyAccount extends LitElement {
                 <h3 class="title2">Your personal information</h3><br>
                 <article>
                     <img src="/src/components/account/avatar.jpg" alt="Avatar"/>
-                    <div>NAME :             ${client.last_name }</div>
-                    <div>FIRSTNAME :          ${client.first_name}</div>   
-                    <div>GENDER :                 ${client.gender}</div>
-                    <div>E-MAIL :               ${client.mail}</div>
-                    <div>PHONE NUMBER :  ${client.phone}</div>
+                    <div>NAME :             ${this.clientName }</div>
+                    <div>FIRSTNAME :          ${this.clientFirstName}</div>   
+                    <div>GENDER :                 ${this.clientGender}</div>
+                    <div>E-MAIL :               ${this.clientMail}</div>
+                    <div>PHONE NUMBER :  ${this.clientPhone}</div>
 
                 </article>
                 <br><br>

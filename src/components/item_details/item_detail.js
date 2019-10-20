@@ -34,10 +34,7 @@ class ItemDetail extends LitElement {
       this.clothes_categories = this.clothes_categories.toLowerCase();
     }
 
-    document.addEventListener('update-detail-view', (e) => { 
-
-      console.log(e.detail);
-      
+    document.addEventListener('update-detail-view', (e) => {       
 
       this.display = !this.display; 
 
@@ -46,6 +43,7 @@ class ItemDetail extends LitElement {
         this.desc = e.detail.desc.split('.')[0]+'. ';
         this.price = e.detail.price;
         this.image = e.detail.image;
+        this.quantity = e.detail.quantity;
       }
 
       this.requestUpdate(); // update the html content.
@@ -90,7 +88,17 @@ class ItemDetail extends LitElement {
       composed:true
     }));
 
-    
+    document.dispatchEvent(new CustomEvent('update-detail-view', {
+      bubbles:true,
+      composed:true
+    }));
+
+    document.dispatchEvent(new CustomEvent('ui-msg',{
+      bubbles:true,
+      composed:true,
+      detail:"Item '"+this.title+"' added to card"
+    }));
+
   }
 
   updateStorage(user){
@@ -107,6 +115,7 @@ class ItemDetail extends LitElement {
   }
 
   render() { 
+    console.log(this.quantity);
     
     return html `
         <link rel="stylesheet" href="../../../src/style/item-detail.css">
@@ -138,7 +147,7 @@ class ItemDetail extends LitElement {
 
                 <div class="bottom-information"> 
 
-                    <number-input class="num-input" @click=${this.updateQuantity} value=1 item_name=${this.title}> </number-input>
+                    <number-input class="num-input" @click=${this.updateQuantity} value=${this.quantity} item_name=${this.title}> </number-input>
 
                     <button @click=${this.buttonEvent} class="mdc-button mdc-button--raised fast-add-button">
                         <span class="mdc-button__label"> ${JSON.parse(localStorage.getItem('current_user')) != null ? "Add To Card" : "sign-in" }  </span>
@@ -154,10 +163,21 @@ class ItemDetail extends LitElement {
   }
 
   exitView(e){
-    document.dispatchEvent(new CustomEvent('update-detail-view', {
-      bubbles:true,
-      composed:true
-    }));
+
+
+    var targetClass = e.target.getAttribute('class')
+
+    console.log(targetClass);
+    
+    if(targetClass === "detail-background"){
+
+      document.dispatchEvent(new CustomEvent('update-detail-view', {
+        bubbles:true,
+        composed:true
+      }));
+
+    }
+
   }
 
 

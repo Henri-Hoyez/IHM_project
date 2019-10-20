@@ -162,7 +162,6 @@ class Registration extends LitElement {
 
         } else {
             this.makeErrMsg('Some informations are incorect, Please Verify');
-
             return false;
         }
     }

@@ -14,6 +14,13 @@ class NumberInput extends LitElement {
   constructor() {
     super();
     this.value = 1;
+    
+  }
+
+  firstUpdated(){
+    document.addEventListener('update-detail-view', (e)=>{
+      this.value = 1;
+    });
   }
 
   increaseEvent(){
@@ -48,7 +55,7 @@ class NumberInput extends LitElement {
     }));
   }
   
-  render() {    
+  render() {        
     return html`
         <link href="../../../node_modules/@material/icon-button/dist/mdc.icon-button.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">

@@ -24,7 +24,7 @@ var catalog = {
 				"title": "Ladies Voyage Fleece Jacket",
 				"category": "ladies_outerwear",
 				"price": 48.00,
-				"description": "&lt;div&gt;Perhaps the equivalent to that comfort blanket you had years ago is a cozy fleece. This full-zip is the perfect layering piece for those 'in-between' months when mother nature just can't make up her mind.&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Features:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;100% polyester anti-pill yarn fleece.&lt;/li&gt;&lt;li&gt;100% polyester taffeta lining in sleeves.&lt;/li&gt;&lt;li&gt;Tricot-lined lower pockets with reverse coil zippers.&lt;/li&gt;&lt;li&gt;Available in purple with the white Google logo embroidered at left chest.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Please note! Sizing runs larger than normal. Consider ordering a size smaller than normal.&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;",
+				"description": "Perhaps the equivalent to that comfort blanket you had years ago is a cozy fleece. This full-zip is the perfect layering piece for those 'in-between' months when mother nature just can't make up her mind.&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Features:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;100% polyester anti-pill yarn fleece.&lt;/li&gt;&lt;li&gt;100% polyester taffeta lining in sleeves.&lt;/li&gt;&lt;li&gt;Tricot-lined lower pockets with reverse coil zippers.&lt;/li&gt;&lt;li&gt;Available in purple with the white Google logo embroidered at left chest.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Please note! Sizing runs larger than normal. Consider ordering a size smaller than normal.&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;",
 				"image": "data/images/10-24101B.jpg",
 				"largeImage": "data/images/10-24101A.jpg"
 			},
@@ -318,7 +318,7 @@ var catalog = {
 				"title": "Men's Voyage Fleece Jacket",
 				"category": "mens_outerwear",
 				"price": 48.00,
-				"description": "&lt;div&gt;Perhaps the equivalent to that comfort blanket you had years ago is a cozy fleece. This full-zip is the perfect layering piece for those 'in-between' months when mother nature just can't make up her mind.&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Features:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;100% polyester anti-pill yarn fleece.&lt;/li&gt;&lt;li&gt;100% polyester taffeta lining in sleeves.&lt;/li&gt;&lt;li&gt;Tricot-lined lower pockets with reverse coil zippers.&lt;/li&gt;&lt;li&gt;Available in black with the white Google logo embroidered at left chest.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;",
+				"description": "Perhaps the equivalent to that comfort blanket you had years ago is a cozy fleece. This full-zip is the perfect layering piece for those 'in-between' months when mother nature just can't make up her mind.&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Features:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;100% polyester anti-pill yarn fleece.&lt;/li&gt;&lt;li&gt;100% polyester taffeta lining in sleeves.&lt;/li&gt;&lt;li&gt;Tricot-lined lower pockets with reverse coil zippers.&lt;/li&gt;&lt;li&gt;Available in black with the white Google logo embroidered at left chest.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;",
 				"image": "data/images/10-14155B.jpg",
 				"largeImage": "data/images/10-14155A.jpg"
 			},
@@ -410,7 +410,7 @@ var catalog = {
 				"title": "Men's Vintage Heather T-Shirt",
 				"category": "mens_tshirts",
 				"price": 15.8,
-				"description": "&lt;div&gt;A casual-cool, vintage-inspired tee perfect for all. Just remember that the best part about any classic is that it only improves with age. The more you wash it, the softer it feels.&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Features:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;65% polyester, 35% cotton.&lt;/li&gt;&lt;li&gt;Available in heather navy, blue, purple or green with the white Google logo screened across center chest of each.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;",
+				"description": "A casual-cool, vintage-inspired tee perfect for all. Just remember that the best part about any classic is that it only improves with age. The more you wash it, the softer it feels.&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Features:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;65% polyester, 35% cotton.&lt;/li&gt;&lt;li&gt;Available in heather navy, blue, purple or green with the white Google logo screened across center chest of each.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;",
 				"image": "data/images/10-13264B.jpg",
 				"largeImage": "data/images/10-13264A.jpg"
 			},
@@ -554,7 +554,7 @@ var catalog = {
 				"title": "Android Pride T-Shirt",
 				"category": "mens_tshirts",
 				"price": 19.1,
-				"description": "&lt;p&gt;Stand out and stand proud in this Android Pride T-shirt.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Features:&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;100% cotton American Apparel t-shirt.&lt;/li&gt;&lt;li&gt;Available in black, and features two Androids holding hands and waving a rainbow flag screenprinted at center chest. Google logo is screenprinted in white at sleeve.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Sizing runs smaller than normal. Please reference size chart before ordering.&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;",
+				"description": "Stand out and stand proud in this Android Pride T-shirt.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Features:&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;100% cotton American Apparel t-shirt.&lt;/li&gt;&lt;li&gt;Available in black, and features two Androids holding hands and waving a rainbow flag screenprinted at center chest. Google logo is screenprinted in white at sleeve.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Sizing runs smaller than normal. Please reference size chart before ordering.&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;",
 				"image": "data/images/10-13279B.jpg",
 				"largeImage": "data/images/10-13279A.jpg"
 			},
@@ -671,7 +671,7 @@ var catalog = {
 				"title": "YouTube Player T-Shirt - Unisex",
 				"category": "mens_tshirts",
 				"price": 17.8,
-				"description": "&lt;p&gt;The YouTube Player T-Shirt has arrived. This t-shirt, much coveted by YouTube employees, is now available to the public. Channel your inner player and profess your love for YouTube with this clever design.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Features:&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;100% combed cotton.&lt;/li&gt;&lt;li&gt;Reinforced shoulder construction to maintain shape.&amp;nbsp;&lt;/li&gt;&lt;li&gt;Available in red with the Player logo screenprinted at front chest and YouTube logo screenprinted at back yoke.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Sizes run smaller than normal. Please reference size chart before ordering.&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;\n&lt;p&gt;&lt;br&gt;&lt;/p&gt;",
+				"description": "The YouTube Player T-Shirt has arrived. This t-shirt, much coveted by YouTube employees, is now available to the public. Channel your inner player and profess your love for YouTube with this clever design.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Features:&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;100% combed cotton.&lt;/li&gt;&lt;li&gt;Reinforced shoulder construction to maintain shape.&amp;nbsp;&lt;/li&gt;&lt;li&gt;Available in red with the Player logo screenprinted at front chest and YouTube logo screenprinted at back yoke.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Sizes run smaller than normal. Please reference size chart before ordering.&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;\n&lt;p&gt;&lt;br&gt;&lt;/p&gt;",
 				"image": "data/images/10-13097B.jpg",
 				"largeImage": "data/images/10-13097A.jpg"
 			},
@@ -707,7 +707,7 @@ var catalog = {
 				"title": "Android Pay Crew Neck T-Shirt",
 				"category": "mens_tshirts",
 				"price": 19.4,
-				"description": "Wear. Wash. Repeat. This tee celebrates the most exciting way to pay for life's necessities. For more information on Android Pay, visit our site here; https://www.android.com/pay/.&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Features:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;60/40 cotton/polyester blend.&lt;/li&gt;&lt;li&gt;Tagless label for added comfort.&lt;/li&gt;&lt;li&gt;Made in the USA.&lt;/li&gt;&lt;li&gt;Available in Pepper Black with the Android Pay icon screenprinted at front chest and Android Pay logo text at left sleeve.&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;",
+				"description": "This tee celebrates the most exciting way to pay for life's necessities. For more information on Android Pay, visit our site here; https://www.android.com/pay/.&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Features:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;60/40 cotton/polyester blend.&lt;/li&gt;&lt;li&gt;Tagless label for added comfort.&lt;/li&gt;&lt;li&gt;Made in the USA.&lt;/li&gt;&lt;li&gt;Available in Pepper Black with the Android Pay icon screenprinted at front chest and Android Pay logo text at left sleeve.&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;",
 				"image": "data/images/10-13263B.jpg",
 				"largeImage": "data/images/10-13263A.jpg"
 			},

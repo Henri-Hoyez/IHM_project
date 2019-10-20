@@ -4,20 +4,30 @@ class CustomFooter extends LitElement {
 
     constructor() {
         super();
+        this.hidden = false;
+    }
+
+    firstUpdated(){
+        document.addEventListener('update-detail-view', (e) => {
+            this.hidden = !this.hidden;
+        });
     }
 
     static get styles() {
         return css`
 
-        footer {
+        div {
             text-align: center;
             font-weight: bold;
             margin-top: 50px;
             clear: both;
             position: relative;
             height: 100px;
+            z-index:0;
+        }
 
-
+        .footer--hidden{
+            display : none;
         }
 
 
@@ -36,12 +46,12 @@ class CustomFooter extends LitElement {
 
     render() {
         return html`
-            <footer>
+            <div class= ${this.hidden ?  "footer--hidden": ""} >
                 <br><hr><br>
                 <span>©2019 — Neo Clothes — Crédits</span><br>
                 <span>Contact : <em><a href="mailto:contact@neo-clothes.com">contact@neo-clothes.com</a></em></span><br>
                 &nbsp;
-            </footer>`
+            </div>`
     }
 
 }

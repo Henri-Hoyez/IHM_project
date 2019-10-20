@@ -16,7 +16,15 @@ class UIUsrManager extends LitElement{
 
     render(){
 
-        var isConnected = JSON.parse(localStorage.getItem('current_user')) !== null;
+        var user = JSON.parse(localStorage.getItem('current_user'))
+
+        var isConnected = user !== null;
+        
+        // clientName: { type: String },
+        //     clientFirstName: { type: String },
+        //     clientGender: { type: Boolean },
+        //     clientMail: { type: String },
+        //     clientPhone: { type: String }
 
         console.log(isConnected);
 
@@ -26,7 +34,7 @@ class UIUsrManager extends LitElement{
 
             <connexion-form style=${!isConnected ? "display : inherit;" : "display : none;"}> </connexion-form>
 
-            <my-account style=${isConnected ? "display : inherit;" : "display : none;"} > </my-account>
+            <my-account  clientName=${isConnected ? user.last_name: ""} clientFirstName=${isConnected ? user.last_name: ""} clientGender=${isConnected ? user.gender: ""} clientMail=${isConnected ? user.mail: ""} clientPhone=${isConnected ? user.phone: ""} style=${isConnected ? "display : inherit;" : "display : none;"} > </my-account>
         
         `;
     }
