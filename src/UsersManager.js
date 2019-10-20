@@ -6,11 +6,14 @@ class UserManager{
         if(users === null){
             users = Array(); 
         }
+        
         users.push(user);
 
         localStorage.setItem('users', JSON.stringify(users));
 
         localStorage.setItem('current_user', JSON.stringify(user));
+
+        this.connectUser(user);
     }
 
 

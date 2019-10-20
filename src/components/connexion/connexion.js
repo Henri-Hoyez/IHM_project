@@ -25,6 +25,38 @@ class Connexion extends LitElement {
     static get styles() {
         return css`
 
+        :root {
+            --mdc-theme-primary: #c62828;
+            --mdc-theme-secondary: #ffca28;
+            --mdc-theme-on-primary: #ffffff;
+            --mdc-theme-on-secondary: #6d4c41;
+            --mdc-ripple-surface--primary: #c62828;
+
+        }
+
+        .mdc-text-field--focused .mdc-text-field__input:required ~ .mdc-floating-label::after,
+        .mdc-text-field--focused .mdc-text-field__input:required ~ .mdc-notched-outline .mdc-floating-label::after {
+                color:  #ffca28;
+        }
+
+        .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+            color: #ffca28;
+        }
+
+        .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-text-field__input:required ~ .mdc-floating-label::after,
+        .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-text-field__input:required ~ .mdc-notched-outline .mdc-floating-label::after {
+            color: #ffca28;
+            /* @alternate */
+            color: var(--mdc-theme-error, #b00020);
+        }
+
+        .mdc-text-field--invalid.mdc-text-field--with-trailing-icon:not(.mdc-text-field--with-leading-icon):not(.mdc-text-field--disabled) .mdc-text-field__icon {
+            color: #b00020;
+            /* @alternate */
+            color: var(--mdc-theme-error, #b00020);
+        }
+
+
         #form_titles {
             text-align:center;
         }
@@ -54,6 +86,7 @@ class Connexion extends LitElement {
           .button-container button {
             margin: 3px;
         }
+        
         `
     }
     
@@ -73,6 +106,13 @@ class Connexion extends LitElement {
         selector.style.display = 'inherit';
     }
 
+    cancelConnexion(){
+        document.dispatchEvent(new CustomEvent( 'cat-evnt', {
+            bubbles:true,
+            composed: true,
+            detail: null
+        }));
+    }
 
 
     makeConnection(){
@@ -133,7 +173,7 @@ class Connexion extends LitElement {
             </div>
 
             <div class="button-container">
-                <button type="button" class="mdc-button cancel">
+                <button @click=${this.cancelConnexion} type="button" class="mdc-button cancel">
                     <span class="mdc-button__label">
                     Cancel
                     </span>

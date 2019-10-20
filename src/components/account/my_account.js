@@ -11,6 +11,8 @@ class MyAccount extends LitElement {
         MDCRipple.attachTo(this.shadowRoot.querySelector('.disconnection'));
 
        document.addEventListener('usr-evnt', (e) => {
+            console.log('account update');
+            
             this.requestUpdate();
        });
     }

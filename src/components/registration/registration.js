@@ -29,6 +29,24 @@ class Registration extends LitElement {
     static get styles() {
         return css`
 
+
+        .mdc-text-field--focused .mdc-text-field__input:required ~ .mdc-floating-label::after,
+        .mdc-text-field--focused .mdc-text-field__input:required ~ .mdc-notched-outline .mdc-floating-label::after {
+                color:  #c62828;
+        }
+
+        .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+            color: #c62828
+        }
+
+
+        .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-text-field__input:required ~ .mdc-floating-label::after,
+        .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-text-field__input:required ~ .mdc-notched-outline .mdc-floating-label::after {
+            color: #ffca28;
+            /* @alternate */
+            color: var(--mdc-theme-error, #b00020);
+        }
+
         #form_titles {
             text-align:center;
         }
@@ -88,6 +106,10 @@ class Registration extends LitElement {
           .button-container button {
             margin: 5px;
         }
+
+           .err-msg{
+               color:red;
+           }
         `
     }
     
@@ -99,17 +121,46 @@ class Registration extends LitElement {
         }));
     }
 
+    makeErrMsg(message){
+        this.shadowRoot.querySelector('.err-msg').innerHTML = message;
+    }
+
+    verifyRegistration(user){
+
+        var userReg = RegExp('^[A-Z][a-z]+');
+        var mailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        var phoneReg= RegExp('^0[1-9].?([0-9]{2}.?){4}');
+
+        var lastNameVer = userReg.test(user.last_name);
+        var firstNameVer = userReg.test(user.first_name);
+        var mailVer = mailReg.test(user.mail);
+        var phoneVer = phoneReg.test(user.phone)
+
+        console.log(lastNameVer, firstNameVer, mailVer, phoneVer);
+        
+
+        if(lastNameVer && firstNameVer && mailVer && phoneVer){
+            return true;
+            
+        }else{
+            return false;
+        }
+
+        
+
+    }
+
     makeRegistration(){
         
-        // let first_pass = this.shadowRoot.getElementById('password-input').value;
-        // let second_pass = this.shadowRoot.getElementById('re-password-input').value;
+        let first_pass = this.shadowRoot.getElementById('password-input').value;
+        let second_pass = this.shadowRoot.getElementById('re-password-input').value;
 
-        // if( ! (first_pass === second_pass) ){
-        //     alert('password not match !');
-        //     return;
-        // } TODO: uncomment that 
+        if( ! (first_pass === second_pass) ){
+            this.makeErrMsg("Passwords not match !");
+            return;
+        }
 
-        let gender = this.shadowRoot.getElementById('radio-1').checked ? "Female": "Male";
+        let gender = this.shadowRoot.getElementById('radio-1').checked ? "Man": "Woman";
         
         var user = {
             last_name :  this.shadowRoot.getElementById('name-input').value,
@@ -121,19 +172,20 @@ class Registration extends LitElement {
             basket: Array()
         };
 
+        var verified = this.verifyRegistration(user);
+
+        if(verified){
 
 
-        UserManager.createUser(user);
+            UserManager.createUser(user);
+            
 
-        let title2 = this.shadowRoot.querySelector('.title2');
-        title2.innerHTML  = this.thanks_message;
-        title2.style.color = 'green';
+        }else{
+            this.makeErrMsg('Somme information are incorect, Please Verify');
 
-        document.dispatchEvent(new CustomEvent ('cat-evnt', {
-            bubbles:true,
-            composed:true,
-            detail:'person'
-        }))
+        }
+
+        
         
     }
 
@@ -146,6 +198,7 @@ class Registration extends LitElement {
             <div id="form_titles">
                 <h2 class="title1">Sign up</h2>
                 <h3 class="title2">Already Sign up ? <a @click=${this.categoryEvent}>Sign in</a></h3>
+                <h3 class="err-msg"> </h3>
             </div><br>
 
             <div class="radios_input">
@@ -157,7 +210,7 @@ class Registration extends LitElement {
                             <div class="mdc-radio__inner-circle"></div>
                         </div>
                     </div>
-                    <label for="radio-1">Miss</label>
+                    <label for="radio-1">Sir</label>
 
                     <div class="mdc-radio">
                         <input class="mdc-radio__native-control" type="radio" id="radio-2" name="radios">
@@ -166,7 +219,7 @@ class Registration extends LitElement {
                             <div class="mdc-radio__inner-circle"></div>
                         </div>
                     </div>
-                    <label for="radio-2">Sir</label>
+                    <label for="radio-2">Miss</label>
                 </div>
             </div>
 
