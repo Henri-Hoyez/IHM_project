@@ -17,7 +17,6 @@ class Connexion extends LitElement {
 
         document.addEventListener('usr-evnt', (e) => {  
             this.requestUpdate();
-            console.log('Connexion update');
             
         });
 
@@ -75,45 +74,28 @@ class Connexion extends LitElement {
     }
 
 
+
     makeConnection(){
 
-        var users = JSON.parse(localStorage.getItem('users'));
+        var mail = this.shadowRoot.getElementById('email-input');
+        var password = this.shadowRoot.getElementById('password-input');
 
-        if(users === null){
-            this.makeErrMessage('Email non référencé, veillez créer un compte...');
+        var user = UserManager.findUserByEmail(mail.value);
+        
+        
+        if(user === null){
+            this.makeErrMessage("User not found, did you sign-up");
             return;
         }
 
-        var mail = this.shadowRoot.getElementById('email-input').value;
-        var password = this.shadowRoot.getElementById('password-input').value;
+        if(user.password === password.value){
+            UserManager.connectUser(user);
+        }else{
+            this.makeErrMessage("Username or password are incorect. Please try again.");
+        }
 
-        users.forEach(user => {
-            if(user.mail === mail && user.password === password){
-                localStorage.setItem('current_user', JSON.stringify(user));
-                document.dispatchEvent(new CustomEvent('cat-evnt',{
-                    bubbles:true,
-                    composed:true,
-                    detail : null
-                }));
-
-                document.dispatchEvent(new CustomEvent('ui-msg',{
-                    bubbles:true,
-                    composed:true,
-                    detail:"Welcome "+ user.last_name
-                  }));
-
-                  this.requestUpdate();
-                  return;
-            }
-
-        });
-
-        // document.dispatchEvent(new CustomEvent('ui-msg',{
-        //     bubbles:true,
-        //     composed:true,
-        //     detail:"Username or password are incorect... did you signed-up ?"
-        //   }));
-
+        mail.value = "";
+        password.value = "";
     }
 
 
@@ -126,12 +108,6 @@ class Connexion extends LitElement {
     }
 
     render() {
-
-        if(JSON.parse(localStorage.getItem('current_user')) !== null){  
-            return html`<my-account></my-account>`;
-        }
-
-        console.log('bonjour');
         
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/textfield/dist/mdc.textfield.css">

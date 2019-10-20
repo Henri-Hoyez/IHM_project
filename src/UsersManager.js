@@ -13,6 +13,13 @@ class UserManager{
         localStorage.setItem('current_user', JSON.stringify(user));
     }
 
+
+    static connectUser(user){
+        localStorage.setItem('current_user', JSON.stringify(user));
+
+        SessionManager.makeUserEvent();
+    }
+
     static findCurrentUserInDatabase(){
 
         var current_user = JSON.parse(localStorage.getItem('current_user'));
@@ -25,6 +32,27 @@ class UserManager{
             }  
         }
         return -1;
+    }
+
+
+    static findUserByEmail(userMail){
+
+        var users = JSON.parse(localStorage.getItem('users'));
+        var currUsr = null;
+
+        if(users === null){
+            return null;
+        }
+
+        users.forEach(user => {
+            
+            if(user.mail === userMail){
+                currUsr = user;
+            }
+
+        });
+        
+        return currUsr;
     }
 
     static updateUsersData(current_user){
@@ -41,12 +69,10 @@ class UserManager{
     }
 
     static signout(user){
-        console.log('deconection');
-        
-
+    
         localStorage.removeItem('current_user');
 
-
+        SessionManager.makeUserEvent();
     }
 
 }

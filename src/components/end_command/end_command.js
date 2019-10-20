@@ -90,6 +90,8 @@ class EndCommand extends LitElement {
         BasketManager.ereaseBasket(user);
 
         this.displayCongrat();
+
+        this.returnShop();
     }
 
     displayCongrat(){

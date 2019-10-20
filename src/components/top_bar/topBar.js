@@ -9,6 +9,13 @@ class TopBar extends LitElement {
             categories: { type: Array }
         };
     }
+
+    firstUpdated(){
+        document.addEventListener('usr-evnt', (e)=>{
+            this.requestUpdate();
+        });
+    }
+
     static get styles() {
         return css`:host
             .material-icons {
@@ -34,7 +41,17 @@ class TopBar extends LitElement {
         this.selected_cathegory = 'Home';
     }
 
+    returnHome(){
+        document.dispatchEvent(new CustomEvent('cat-evnt', {
+            bubbles : true,
+            composed : true,
+            detail: null
+        }));
+    }
+
     render() {
+
+        var isConnected = JSON.parse( localStorage.getItem('current_user') ) !== null;
 
         return html`
         <link href="../../../node_modules/@material/top-app-bar/dist/mdc.top-app-bar.css" rel="stylesheet">
@@ -50,7 +67,7 @@ class TopBar extends LitElement {
 
                 </section>
                 <span id= "icon-header">
-                    <a id="icon-header-title" href="#">
+                    <a id="icon-header-title" @click=${this.returnHome} href="#">
                         <img src="src/components/top_bar/white_logo.png"/>
                     </a>
                 </span>
@@ -66,7 +83,7 @@ class TopBar extends LitElement {
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded"  @click=${this.search_event}  aria-label="Search">search</button>
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" @click=${this.category_event} aria-label="Profile">person</button>
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" @click=${this.category_event} aria-label="Shopping cart">shopping_cart</button>
-                    <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" @click=${this.signout} aria-label="Shopping cart">directions_run</button>
+                    <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" style=${isConnected ? "display : inherit;" : "display : none;" }  @click=${this.signout} aria-label="Shopping cart">directions_run</button>
                 </section>
             </div>
         </header>

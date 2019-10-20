@@ -5,16 +5,14 @@ class MyAccount extends LitElement {
 
     constructor() {
         super();    
-        this.client = JSON.parse( localStorage.getItem('current_user'));
     }
 
     firstUpdated() {
         MDCRipple.attachTo(this.shadowRoot.querySelector('.disconnection'));
 
-        document.addEventListener('usr-evnt', (e) => { 
-            this.requestUpdate(); 
-            console.log('Account update');
-        });
+       document.addEventListener('usr-evnt', (e) => {
+            this.requestUpdate();
+       });
     }
 
     static get properties() {
@@ -68,26 +66,17 @@ class MyAccount extends LitElement {
 
 
     signout(){
-        localStorage.removeItem('current_user');
 
-        document.dispatchEvent(new CustomEvent('cat-evnt', {
-            bubbles: true,
-            composed:true,
-            detail:null
-        }));
-
-        SessionManager.makeUserEvent();
+        UserManager.signout();
 
         this.requestUpdate();
     }
 
     render() {
 
-        this.client = JSON.parse(localStorage.getItem('current_user'));
+        var client = JSON.parse(localStorage.getItem('current_user'));
 
-        if(this.client === null){
-            return html``;
-        }
+        console.log(client);
         
 
         return html`
@@ -98,11 +87,11 @@ class MyAccount extends LitElement {
                 <h3 class="title2">Your personal information</h3><br>
                 <article>
                     <img src="/src/components/account/avatar.jpg" alt="Avatar"/>
-                    <div>NAME :             ${this.client.last_name }</div>
-                    <div>FIRSTNAME :          ${this.client.first_name}</div>   
-                    <div>GENDER :                 ${this.client.gender}</div>
-                    <div>E-MAIL :               ${this.client.mail}</div>
-                    <div>PHONE NUMBER :  ${this.client.phone}</div>
+                    <div>NAME :             ${client.last_name }</div>
+                    <div>FIRSTNAME :          ${client.first_name}</div>   
+                    <div>GENDER :                 ${client.gender}</div>
+                    <div>E-MAIL :               ${client.mail}</div>
+                    <div>PHONE NUMBER :  ${client.phone}</div>
 
                 </article>
                 <br><br>
