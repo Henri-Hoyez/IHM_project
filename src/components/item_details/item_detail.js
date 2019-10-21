@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html,css } from 'lit-element';
 // import { strings } from '@material/ripple';
 
 
@@ -21,6 +21,14 @@ class ItemDetail extends LitElement {
     this.price = 0;
     this.image = "https://via.placeholder.com/400x400";
     this.display = false;
+  }
+
+  static get styles(){
+    return css`
+      div{
+        font-family: 'Roboto', sans-serif;
+      }
+    `;
   }
 
   firstUpdated(){
@@ -119,7 +127,7 @@ class ItemDetail extends LitElement {
     
     return html `
         <link rel="stylesheet" href="../../../src/style/item-detail.css">
-        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../../../node_modules/@material/card/dist/mdc.card.css">
         <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
 

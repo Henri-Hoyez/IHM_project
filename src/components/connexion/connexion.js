@@ -34,6 +34,10 @@ class Connexion extends LitElement {
 
         }
 
+        div{
+            font-family: 'Roboto', sans-serif;
+        }
+
         .mdc-text-field--focused .mdc-text-field__input:required ~ .mdc-floating-label::after,
         .mdc-text-field--focused .mdc-text-field__input:required ~ .mdc-notched-outline .mdc-floating-label::after {
                 color:  #000;
@@ -154,6 +158,7 @@ class Connexion extends LitElement {
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/textfield/dist/mdc.textfield.css">
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
+            <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
             <script src="../../../node_modules/@material/textfield/dist/mdc.textfield.js"></script>
 
             <div id="form_titles">

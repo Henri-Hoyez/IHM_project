@@ -47,6 +47,11 @@
         body {
             margin: 0;
             padding: 0;
+            
+        }
+        #page-container{
+            position: relative;
+            min-height: 100vh;
         }
 
         section {
@@ -74,26 +79,27 @@
 </head>
 
 <body>
-    <top-bar></top-bar>
-    <nav-drawer></nav-drawer>
-    <search-bar></search-bar>
+    <div id="page-container">
+        <top-bar></top-bar>
+        <nav-drawer></nav-drawer>
+        <search-bar></search-bar>
 
-    <ui-helper-manager></ui-helper-manager>
+        <ui-helper-manager></ui-helper-manager>
 
-    <shop-cart id="shopping_cart" style="display : none;"></shop-cart>
-    
-    <custom-galery style="display: inherit;"></custom-galery> 
+        <shop-cart id="shopping_cart" style="display : none;"></shop-cart>
+        
+        <custom-galery style="display: inherit;"></custom-galery> 
 
-    <registration-form id='connection' style="display : none;"></registration-form>
+        <registration-form id='connection' style="display : none;"></registration-form>
 
-    <ui-usr-manager id='person' style="display : none;"></ui-usr-manager>
+        <ui-usr-manager id='person' style="display : none;"></ui-usr-manager>
 
-    <end-command id='confirm' style="display : none;" ></end-command>
-    
-    <item-detail></item-detail>
+        <end-command id='confirm' style="display : none;" ></end-command>
+        
+        <item-detail></item-detail>
 
-    <floating-action-button></floating-action-button>
-
+        <floating-action-button></floating-action-button>
+    </div>
     <custom-footer></custom-footer>
 
 
