@@ -31,6 +31,7 @@ class MyAccount extends LitElement {
         return css`
 
         section {
+            font-family: 'Roboto', sans-serif;
             text-align:center;
         }
 
@@ -78,6 +79,8 @@ class MyAccount extends LitElement {
 
         return html`
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
+            <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+
 
             <section>
                 <h2 class="title1">YOUR ACCOUNT</h2>

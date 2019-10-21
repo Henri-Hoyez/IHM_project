@@ -13,7 +13,15 @@ class UiHelper extends LitElement{
         return {
           message : {type: String}
         };
-      }
+    }
+
+    static get styles(){
+        return css`
+            div{
+                font-family: 'Roboto', sans-serif;
+            }
+        `;
+    }
 
     firstUpdated(){
         this.shadowRoot.querySelector('.container--closed').setAttribute('class', 'container--opened');
@@ -38,9 +46,9 @@ class UiHelper extends LitElement{
     render(){
         return html`
             <link rel="stylesheet" href="../../../src/style/ui_helper.css">
+            <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
             <div class="container--closed"> 
-
                 <p class="message"> ${this.message} </p>
 
             </div>

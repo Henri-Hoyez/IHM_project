@@ -28,7 +28,9 @@ class Registration extends LitElement {
 
     static get styles() {
         return css`
-
+        div{
+            font-family: 'Roboto', sans-serif;
+        }
 
         .mdc-text-field--focused .mdc-text-field__input:required ~ .mdc-floating-label::after,
         .mdc-text-field--focused .mdc-text-field__input:required ~ .mdc-notched-outline .mdc-floating-label::after {
@@ -63,6 +65,14 @@ class Registration extends LitElement {
         .radios_input {
             margin: auto;
             max-width: 500px;
+        }
+
+        .label-radio-btn{
+            margin-top:10px;
+        }
+
+        .mdc-form-field{
+            display:flex;
         }
 
         .form_input{
@@ -224,6 +234,7 @@ class Registration extends LitElement {
             <link rel="stylesheet" href="../../../node_modules/@material/radio/dist/mdc.radio.css">
             <link rel="stylesheet" href="../../../node_modules/@material/textfield/dist/mdc.textfield.css">
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
+            <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
 
             <div id="form_titles">
                 <h2 class="title1">Sign up</h2>
@@ -241,7 +252,7 @@ class Registration extends LitElement {
                             <div class="mdc-radio__inner-circle"></div>
                         </div>
                     </div>
-                    <label for="radio-1">Sir</label>
+                    <label class="label-radio-btn" for="radio-1">Sir</label>
 
                     <div class="mdc-radio">
                         <input class="mdc-radio__native-control" type="radio" id="radio-2" name="radios">
@@ -250,7 +261,7 @@ class Registration extends LitElement {
                             <div class="mdc-radio__inner-circle"></div>
                         </div>
                     </div>
-                    <label for="radio-2">Miss</label>
+                    <label class="label-radio-btn" for="radio-2">Miss</label>
                 </div>
             </div>
 

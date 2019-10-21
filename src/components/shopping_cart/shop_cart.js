@@ -27,6 +27,14 @@ class ShopCart extends LitElement {
         }
     }
 
+    static get styles(){
+        return css`
+        section{
+            font-family: 'Roboto', sans-serif;
+        }
+        `;
+    }
+
     ereaseBacket(e){
         var user = JSON.parse(localStorage.getItem('current_user'));
         
@@ -107,7 +115,7 @@ class ShopCart extends LitElement {
             <link rel="stylesheet" href="../../../node_modules/@material/button/dist/mdc.button.css">
 
             <link rel="stylesheet" href="../../../src/style/shop_cart.css">
-
+            <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
             <section class="${this.isEmpty ? "shop-cart--close" : "shop-cart--open"}">
                 <h2 id="title1">Your shopping cart</h2>
                 <table class="w3-table w3-table-all my-table">
@@ -125,7 +133,7 @@ class ShopCart extends LitElement {
                         <tr>
                             <td><img class="visuel" src="${product.image}" alt="Visuel article"></td>
                             <td>${product.title}</td>
-                            <td>${product.price} €</td>
+                            <td>${product.price.toFixed(2)} €</td>
                             <td> <number-input class="num-input" @click=${this.updateQuantity} value=${product.quantity} item_name=${product.title}> </number-input> </td>
                             <td id="${product.title}_price" unitaryPrice=${product.price} >${(product.quantity * product.price).toFixed(2)} €</td>
                             <td>

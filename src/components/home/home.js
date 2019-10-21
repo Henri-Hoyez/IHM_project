@@ -14,6 +14,7 @@ class CustomHome extends LitElement {
     static get styles() {
         return css`
             section {
+                font-family: 'Roboto', sans-serif;
                 text-align: center;
             }
 
@@ -38,7 +39,7 @@ class CustomHome extends LitElement {
 
     render() {
         return html`
-            <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'> 
+            <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
             <link href="/src/components/home/slider.css" rel="stylesheet">
 
 
