@@ -101,7 +101,7 @@ class CustomGalery extends LitElement {
 
         ${this.items.map(item =>{ return html`
         
-        ${(reg.test(item.title) || this.keyword.length === 0 ) ? html`<custom-card title='${item.title}' img='${item.largeImage}' price='${item.price}' desc=${item.description}> </custom-card>` : ''}  `  })}
+        ${(reg.test(item.title) || this.keyword.length === 0 ) ? html`<custom-card title='${item.title.replace(item.title[0], item.title[0].toUpperCase())}' img='${item.largeImage}' price='${item.price}' desc=${item.description}> </custom-card>` : ''}  `  })}
 
     </div>
     `;
